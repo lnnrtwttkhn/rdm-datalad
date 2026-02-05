@@ -13,7 +13,7 @@ def generate_install_commands():
     # Write to markdown file
     markdown_content = f"""```python
 !apt-get install tree
-{pip_command}
+!{pip_command}
 ```"""
 
     with open("_colab_install.md", "w") as f:
