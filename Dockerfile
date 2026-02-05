@@ -14,6 +14,7 @@ RUN apt-get update && apt-get install -y \
     tree \
     git \
     unzip \
+    git-annex \
     build-essential \
     ca-certificates \
     gdebi-core \
@@ -41,6 +42,9 @@ RUN ARCH=$(uname -m) && \
 # Copy dependency files and install Python dependencies
 COPY pyproject.toml uv.lock ./
 RUN uv sync --frozen
+
+# Install git-annec
+RUN uv tool install git-annex
 
 # Install and register bash kernel for Jupyter
 RUN uv run python -m bash_kernel.install
