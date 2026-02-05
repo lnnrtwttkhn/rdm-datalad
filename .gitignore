@@ -6,3 +6,4 @@ mydataset
 *.md
 *_colab.qmd
 *.ipynb
+*_ipynb
