@@ -66,9 +66,19 @@ However, please note that a central Git configuration has already been set up fo
 That's why the code examples below are commented out.
 
 ```{bash}
-#| output-fold: true
+#| eval: false
 # git config user.name "Your name"
 # git config user.email "Your email address"
+```
+
+```{bash}
+#| echo: false
+#| output: false
+git config user.name "Ford Escort"
+git config user.email 42@H2G2.com
+# fatal: detected dubious ownership in repository at '/app'
+# To add an exception for this directory, call:
+git config --global --add safe.directory /app
 ```
 
 ## Creating a DataLad dataset
