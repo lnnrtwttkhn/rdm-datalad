@@ -41,7 +41,7 @@ import datalad.api as dl
 # Example: get data programmatically
 # dl.get('path/to/file')
 
-# Example: save changes programmatically  
+# Example: save changes programmatically
 # dl.save(message='Automated save from script')
 ```
 
