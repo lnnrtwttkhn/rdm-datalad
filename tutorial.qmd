@@ -5,10 +5,19 @@ jupyter: bash
 filters:
   - collapse-output
 ---
+
 ## Acknowledgements
 
 This tutorial was initially created by Adina Wagner for the 2020 OHBM Brainhack Traintrack session on DataLad.
 This notebook accompanies [this tutorial video](https://www.youtube.com/watch?v=L5A0MXqFrOY) by Adina Wagner.
+
+## Installation
+
+Depending on your environment, paste the installation command here:
+
+```{bash}
+# < replace with installation command >
+```
 
 ### Configuring your Git identity
 
