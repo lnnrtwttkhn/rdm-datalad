@@ -197,14 +197,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="introduction-setup" class="level2">
 <h2 class="anchored" data-anchor-id="introduction-setup">Introduction &amp; setup</h2>
 <p><a href="https://www.datalad.org/">DataLad</a> is a data management multitool that assists you in handling the entire lifecycle of digital objects. It is a command-line tool, free and open source, and available for all major operating systems. In the command line, all operations begin with the general <code>datalad</code> command.</p>
-<div id="dfbbab08" class="cell" data-output-fold="true" data-execution_count="1">
+<div id="f98fd145" class="cell" data-output-fold="true" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># datalad</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>For example, I can type <code>datalad --help</code> to find out more about the available commands.</p>
 <section id="datalad-python-api" class="level3">
 <h3 class="anchored" data-anchor-id="datalad-python-api">DataLad Python API</h3>
 <p>DataLad also has a Python API that can be used in Python scripts and Jupyter notebooks. This is particularly useful for programmatic data management and integration into data analysis workflows.</p>
-<div id="2843ee17" class="cell" data-output-fold="true" data-execution_count="2">
+<div id="9d6af691" class="cell" data-output-fold="true" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="ex">python3</span> <span class="at">-c</span> <span class="st">"import datalad.api as dl; print('DataLad Python API is available')"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <details><summary>Code Output</summary>
 <div class="cell-output cell-output-stdout">
@@ -222,7 +222,7 @@ DataLad Python API is available</code></pre>
 <span id="cb4-6"><a href="#cb4-6"></a><span class="co"># Example: save changes programmatically</span></span>
 <span id="cb4-7"><a href="#cb4-7"></a><span class="co"># dl.save(message='Automated save from script')</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>You can find more details about how to <a href="https://handbook.datalad.org/en/latest/intro/installation.html">install DataLad and its dependencies on all operating systems in the DataLad Handbook</a>. This section also explains how to install DataLad on shared machines where you may not have administrative privileges (<code>sudo</code> rights), such as high-performance computing clusters. If you already have DataLad installed, <strong>make sure that it is a recent version</strong>. You can check the installed version using the <code>datalad --version</code> command:</p>
-<div id="ab81a6e3" class="cell" data-output-fold="true" data-execution_count="3">
+<div id="1bd4ce9c" class="cell" data-output-fold="true" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1"></a><span class="ex">datalad</span> <span class="at">--version</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <details><summary>Code Output</summary>
 <div class="cell-output cell-output-stdout">
@@ -236,7 +236,7 @@ datalad 1.3.1</code></pre>
 <h3 class="anchored" data-anchor-id="configuring-your-git-identity">Configuring your Git identity</h3>
 <p>The first step, if you haven’t done so already, is to configure your <a href="https://git-scm.com/">Git</a> identity. If you’re new to Git, don’t worry! This configuration simply involves setting your name and email address, which will associate your changes in a project with you as the author.</p>
 <p>Below, we provide instructions on how to configure your Git identity.</p>
-<div id="8811eeb0" class="cell" data-execution_count="4">
+<div id="44085d50" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1"></a><span class="co"># git config user.name "Your name"</span></span>
 <span id="cb7-2"><a href="#cb7-2"></a><span class="co"># git config user.email "Your email address"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
@@ -248,7 +248,7 @@ datalad 1.3.1</code></pre>
 <p><img src="https://handbook.datalad.org/en/latest/_images/dataset.svg" style="width: 400px;"></p>
 <p>Let’s start by creating a new DataLad dataset. Creating a new dataset is accomplished using the <code>datalad create</code> command. This command requires only a name for the dataset. It will then create a new directory with that name and instruct DataLad to manage it.</p>
 <p>Additionally, the command includes an option, <code>-c text2git</code>. The <code>-c</code> option allows for specific configurations of the dataset at the time of creation. You can find detailed information about the <code>text2git</code> configuration in the DataLad handbook, specifically in the <a href="https://handbook.datalad.org/en/latest/basics/basics-configuration.html">sections on configurations and procedures</a>. Don’t worry about configurations for now. In general, this configuration serves as a very useful standard for datasets.</p>
-<div id="19898549" class="cell" data-output-fold="true" data-execution_count="6">
+<div id="86e5b0b5" class="cell" data-output-fold="true" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1"></a><span class="ex">datalad</span> create <span class="at">-c</span> text2git DataLad-101</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <details><summary>Code Output</summary>
 <div class="cell-output cell-output-stdout">
@@ -267,14 +267,14 @@ datalad 1.3.1</code></pre>
 </details>
 </div>
 <p>Right after dataset creation, there is a new directory on the computer called <code>DataLad-101</code>. Let’s navigate into this directory using the <code>cd</code> command and list the directory contents using <code>ls</code>.</p>
-<div id="1d2d5448" class="cell" data-output-fold="true" data-execution_count="7">
+<div id="3d8d4466" class="cell" data-output-fold="true" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1"></a><span class="bu">cd</span> DataLad-101</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="7a290379" class="cell" data-output-fold="true" data-execution_count="8">
+<div id="1527b31f" class="cell" data-output-fold="true" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">ls</span> <span class="co"># ls does not show any output, because the dataset is empty</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Datasets have the exciting feature of recording everything done within them. They provide version control for all content managed by DataLad, regardless of its size. Additionally, datasets maintain a complete history that you can interact with. This history is already present, although it is quite short at this point in time. Let’s take a look at it nonetheless. This history exists thanks to Git. You can access the history of a dataset using any tool that displays Git history. For simplicity, we will use Git’s built-in <code>git log</code> command.</p>
-<div id="df30b56f" class="cell" data-output-fold="true" data-execution_count="9">
+<div id="1e563363" class="cell" data-output-fold="true" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1"></a><span class="fu">git</span> log</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <details><summary>Code Output</summary>
 <div class="cell-output cell-output-stdout">
@@ -293,33 +293,33 @@ datalad 1.3.1</code></pre>
 <p>Building on top of <a href="https://git-scm.com/">Git</a> and <a href="https://git-annex.branchable.com/">git-annex</a>, DataLad allows you to version control arbitrarily large files in datasets. You can keep track of revisions of data of any size, and view, interact with, or restore any version of your dataset’s history.</p>
 <p><img src="https://handbook.datalad.org/en/latest/_images/local_wf.svg" style="width: 400px;"></p>
 <p>Let’s start by creating a <code>books</code> directory using the <code>mkdir</code> command. Next, we will download two books from the internet. Here, we are using the command line tool <code>curl</code> to accomplish this, allowing us to perform all actions from the command line. However, if you prefer, you can also download the books manually and save them into the dataset using a file manager. Remember, a dataset is simply a directory on your computer.</p>
-<div id="23e82667" class="cell" data-output-fold="true" data-execution_count="10">
+<div id="5eed76a9" class="cell" data-output-fold="true" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1"></a><span class="fu">mkdir</span> books</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="e3bd62a7" class="cell" data-output-fold="true" data-execution_count="11">
+<div id="1c598ddc" class="cell" data-output-fold="true" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1"></a><span class="bu">cd</span> books</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="879e685d" class="cell" data-output-fold="true" data-execution_count="12">
+<div id="6b3be517" class="cell" data-output-fold="true" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1"></a><span class="ex">curl</span> <span class="at">-L</span> <span class="at">-o</span> TLCL.pdf https://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download</span>
 <span id="cb17-2"><a href="#cb17-2"></a><span class="ex">curl</span> <span class="at">-L</span> <span class="at">-o</span> byte-of-python.pdf https://edisciplinas.usp.br/pluginfile.php/3252353/mod_resource/content/1/b_Swaroop_Byte_of_python.pdf</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <details><summary>Code Output</summary>
 <div class="cell-output cell-output-stdout">
 <pre><code>  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   621  100   621    0     0   2363      0 --:--:-- --:--:-- --:--:--  2370
-100   363  100   363    0     0    953      0 --:--:-- --:--:-- --:--:--   953
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 2070k  100 2070k    0     0  2183k      0 --:--:-- --:--:-- --:--:-- 7933k
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   619  100   619    0     0   3003      0 --:--:-- --:--:-- --:--:--  3004
+100   361  100   361    0     0    991      0 --:--:-- --:--:-- --:--:--   991
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 2070k  100 2070k    0     0  2021k      0  0:00:01  0:00:01 --:--:-- 3151k
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 47511  100 47511    0     0  34128      0  0:00:01  0:00:01 --:--:-- 34131</code></pre>
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0 77 47511   77 36816    0     0  26527      0  0:00:01  0:00:01 --:--:-- 26524100 47511  100 47511    0     0  30840      0  0:00:01  0:00:01 --:--:-- 30831</code></pre>
 </div>
 </details>
 </div>
 <p>Let’s navigate back to the dataset root (<code>DataLad-101</code> folder) and run the <code>tree</code> command which can visualize the directory hierarchy:</p>
-<div id="b003dbbc" class="cell" data-output-fold="true" data-execution_count="13">
+<div id="cafdf0c4" class="cell" data-output-fold="true" data-execution_count="13">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1"></a><span class="bu">cd</span> ../</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="bcf0731e" class="cell" data-output-fold="true" data-execution_count="14">
+<div id="9ef53da7" class="cell" data-output-fold="true" data-execution_count="14">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1"></a><span class="ex">tree</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <details><summary>Code Output</summary>
 <div class="cell-output cell-output-stdout">
@@ -333,7 +333,7 @@ datalad 1.3.1</code></pre>
 </details>
 </div>
 <p>Use the <code>datalad status</code> command to find out what has happened in the dataset. This command is very helpful as it reports on the current state of your dataset. Any new or changed content will be highlighted. If nothing has changed, the <code>datalad status</code> command will report what is known as a clean dataset state. In general, it is very useful to maintain a clean dataset state. If you know Git, you can think of <code>datalad status</code> as the <code>git status</code> of DataLad.</p>
-<div id="f8700c4b" class="cell" data-output-fold="true" data-execution_count="15">
+<div id="de7c0c12" class="cell" data-output-fold="true" data-execution_count="15">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1"></a><span class="ex">datalad</span> status</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <details><summary>Code Output</summary>
 <div class="cell-output cell-output-stdout">
@@ -347,7 +347,7 @@ datalad 1.3.1</code></pre>
 </details>
 </div>
 <p>Any content that we want DataLad to manage needs to be explicitly added to DataLad. It is not enough to simply place it inside the dataset. To give new or changed content to DataLad, we need to save it using <code>datalad save</code>. This is the first time we need to specify a “commit message”, which is done using the <code>-m</code> option of the command. A “commit” is a snapshot of your project’s files at a specific point in time. The commit message is a short text description that explains the changes made when saving the current changes in a DataLad dataset.</p>
-<div id="d91f9731" class="cell" data-output-fold="true" data-execution_count="16">
+<div id="c2973e7f" class="cell" data-output-fold="true" data-execution_count="16">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1"></a><span class="ex">datalad</span> save <span class="at">-m</span> <span class="st">"Add books on Python and Unix to read later"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <details><summary>Code Output</summary>
 <div class="cell-output cell-output-stdout">
@@ -388,7 +388,7 @@ Omit --global to set the identity only in this repository.
 
 
 
-fatal: unable to auto-detect email address (got 'root@5ec499883828.(none)')']). Canceling not-yet running jobs and waiting for completion of running. You can force earlier forceful exit by Ctrl-C. 
+fatal: unable to auto-detect email address (got 'root@e476308d212e.(none)')']). Canceling not-yet running jobs and waiting for completion of running. You can force earlier forceful exit by Ctrl-C. 
 
 
 Total:   0%|                                 | 0.00/1.00 [00:00&lt;?, ? datasets/s]
@@ -427,7 +427,7 @@ Omit --global to set the identity only in this repository.
 
 
 
-fatal: unable to auto-detect email address (got 'root@5ec499883828.(none)')
+fatal: unable to auto-detect email address (got 'root@e476308d212e.(none)')
 </pre>
 </div>
 </div>
@@ -439,7 +439,7 @@ fatal: unable to auto-detect email address (got 'root@5ec499883828.(none)')
 </details>
 </div>
 <p>With <code>git log -n 1</code> you can take a look at the most recent commit in the history:</p>
-<div id="26ad2166" class="cell" data-output-fold="true" data-execution_count="17">
+<div id="d288090e" class="cell" data-output-fold="true" data-execution_count="17">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1"></a><span class="fu">git</span> log <span class="at">-n</span> 1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <details><summary>Code Output</summary>
 <div class="cell-output cell-output-stdout">
@@ -454,24 +454,24 @@ fatal: unable to auto-detect email address (got 'root@5ec499883828.(none)')
 </div>
 <p><code>datalad save</code> saves all untracked content to the dataset. Sometimes, this can be inconvenient. One significant advantage of a dataset’s history is that it allows you to revert changes you are not happy with. However, this is only easily possible at the level of single commits. If one save commits several unrelated files or changes, it can be difficult to disentangle them if you ever want to revert some of those changes. To address this, you can provide a path to the specific file you want to save, allowing you to specify more precisely what will be saved together.</p>
 <p>Let’s demonstrate this by adding another book from the internet:</p>
-<div id="ea0eccbb" class="cell" data-output-fold="true" data-execution_count="18">
+<div id="51daea8e" class="cell" data-output-fold="true" data-execution_count="18">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1"></a><span class="bu">cd</span> books</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="90b09e44" class="cell" data-output-fold="true" data-execution_count="19">
+<div id="f8bf1e0a" class="cell" data-output-fold="true" data-execution_count="19">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1"></a><span class="ex">curl</span> <span class="at">-L</span> <span class="at">-o</span> progit.pdf https://github.com/progit/progit2/releases/download/2.1.154/progit.pdf</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <details><summary>Code Output</summary>
 <div class="cell-output cell-output-stdout">
 <pre><code>  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100 11.8M  100 11.8M    0     0  59.7M      0 --:--:-- --:--:-- --:--:-- 59.7M</code></pre>
+ 76 11.8M   76 9366k    0     0  19.6M      0 --:--:-- --:--:-- --:--:-- 19.6M100 11.8M  100 11.8M    0     0  23.6M      0 --:--:-- --:--:-- --:--:-- 74.0M</code></pre>
 </div>
 </details>
 </div>
-<div id="a7c9b432" class="cell" data-output-fold="true" data-execution_count="20">
+<div id="c11be647" class="cell" data-output-fold="true" data-execution_count="20">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb31-1"><a href="#cb31-1"></a><span class="bu">cd</span> ../</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="b6525f7a" class="cell" data-output-fold="true" data-execution_count="21">
+<div id="fd1899e0" class="cell" data-output-fold="true" data-execution_count="21">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb32-1"><a href="#cb32-1"></a><span class="ex">datalad</span> status</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <details><summary>Code Output</summary>
 <div class="cell-output cell-output-stdout">
@@ -489,7 +489,7 @@ fatal: unable to auto-detect email address (got 'root@5ec499883828.(none)')
 </details>
 </div>
 <p>Now when you run <code>datalad save</code>, attach a path to the command:</p>
-<div id="506dc799" class="cell" data-output-fold="true" data-execution_count="22">
+<div id="0a66ee72" class="cell" data-output-fold="true" data-execution_count="22">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb33-1"><a href="#cb33-1"></a><span class="ex">datalad</span> save <span class="at">-m</span> <span class="st">"Add reference book about Git"</span> books/progit.pdf</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <details><summary>Code Output</summary>
 <div class="cell-output cell-output-stdout">
@@ -530,7 +530,7 @@ Omit --global to set the identity only in this repository.
 
 
 
-fatal: unable to auto-detect email address (got 'root@5ec499883828.(none)')']). Canceling not-yet running jobs and waiting for completion of running. You can force earlier forceful exit by Ctrl-C. 
+fatal: unable to auto-detect email address (got 'root@e476308d212e.(none)')']). Canceling not-yet running jobs and waiting for completion of running. You can force earlier forceful exit by Ctrl-C. 
 
 
 Total:   0%|                                 | 0.00/1.00 [00:00&lt;?, ? datasets/s]
@@ -564,7 +564,7 @@ Omit --global to set the identity only in this repository.
 
 
 
-fatal: unable to auto-detect email address (got 'root@5ec499883828.(none)')
+fatal: unable to auto-detect email address (got 'root@e476308d212e.(none)')
 </pre>
 </div>
 </div>
@@ -576,7 +576,7 @@ fatal: unable to auto-detect email address (got 'root@5ec499883828.(none)')
 </details>
 </div>
 <p>Let’s take a look at files that are frequently modified, such as code or text. To demonstrate this, we will create a file and modify it. We will use a <a href="https://en.wikipedia.org/wiki/Here_document">here doc</a> for this, but you can also write the note using an editor of your choice. If you execute this code snippet, make sure to copy and paste everything, starting with <code>cat</code> and ending with the second <code>EOT</code>.</p>
-<div id="59feb133" class="cell" data-output-fold="true" data-execution_count="23">
+<div id="2149d34c" class="cell" data-output-fold="true" data-execution_count="23">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb35-1"><a href="#cb35-1"></a><span class="fu">cat</span> <span class="op">&lt;&lt; EOT</span> <span class="op">&gt;</span> notes.txt</span>
 <span id="cb35-2"><a href="#cb35-2"></a><span class="st">A DataLad dataset can be created with "datalad create PATH".</span></span>
 <span id="cb35-3"><a href="#cb35-3"></a><span class="st">The dataset is created empty.</span></span>
@@ -584,7 +584,7 @@ fatal: unable to auto-detect email address (got 'root@5ec499883828.(none)')
 <span id="cb35-5"><a href="#cb35-5"></a><span class="op">EOT</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><code>datalad status</code> will, as expected, say that there is a new untracked file in the dataset:</p>
-<div id="d928f1b4" class="cell" data-output-fold="true" data-execution_count="24">
+<div id="edfe25fd" class="cell" data-output-fold="true" data-execution_count="24">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb36-1"><a href="#cb36-1"></a><span class="ex">datalad</span> status</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <details><summary>Code Output</summary>
 <div class="cell-output cell-output-stdout">
@@ -604,7 +604,7 @@ fatal: unable to auto-detect email address (got 'root@5ec499883828.(none)')
 </details>
 </div>
 <p>We can save the newly created <code>notes.txt</code> file with the <code>datalad save</code> command and a helpful commit message. As this is the only change in the dataset, there is no need to provide a path:</p>
-<div id="f17183f2" class="cell" data-output-fold="true" data-execution_count="25">
+<div id="053c28c5" class="cell" data-output-fold="true" data-execution_count="25">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb37-1"><a href="#cb37-1"></a><span class="ex">datalad</span> save <span class="at">-m</span> <span class="st">"Add notes on datalad create"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <details><summary>Code Output</summary>
 <div class="cell-output cell-output-stdout">
@@ -645,7 +645,7 @@ Omit --global to set the identity only in this repository.
 
 
 
-fatal: unable to auto-detect email address (got 'root@5ec499883828.(none)')']). Canceling not-yet running jobs and waiting for completion of running. You can force earlier forceful exit by Ctrl-C. 
+fatal: unable to auto-detect email address (got 'root@e476308d212e.(none)')']). Canceling not-yet running jobs and waiting for completion of running. You can force earlier forceful exit by Ctrl-C. 
 
 
 Total:   0%|                                 | 0.00/1.00 [00:00&lt;?, ? datasets/s]
@@ -679,7 +679,7 @@ Omit --global to set the identity only in this repository.
 
 
 
-fatal: unable to auto-detect email address (got 'root@5ec499883828.(none)')
+fatal: unable to auto-detect email address (got 'root@e476308d212e.(none)')
 </pre>
 </div>
 </div>
@@ -691,7 +691,7 @@ fatal: unable to auto-detect email address (got 'root@5ec499883828.(none)')
 </details>
 </div>
 <p>Let’s now add another note to modify this file:</p>
-<div id="cc964bd5" class="cell" data-output-fold="true" data-execution_count="26">
+<div id="5037b0a3" class="cell" data-output-fold="true" data-execution_count="26">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb39-1"><a href="#cb39-1"></a><span class="fu">cat</span> <span class="op">&lt;&lt; EOT</span> <span class="op">&gt;&gt;</span> notes.txt</span>
 <span id="cb39-2"><a href="#cb39-2"></a><span class="st">The command "datalad save [-m] PATH" saves the file (modifications) to history.</span></span>
 <span id="cb39-3"><a href="#cb39-3"></a><span class="st">Note to self: Always use informative and concise commit messages.</span></span>
@@ -699,7 +699,7 @@ fatal: unable to auto-detect email address (got 'root@5ec499883828.(none)')
 <span id="cb39-5"><a href="#cb39-5"></a><span class="op">EOT</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>A <code>datalad status</code> command reports the file as not untracked. However, because it differs from the state it was saved under, it is reported as modified.</p>
-<div id="c38b483f" class="cell" data-output-fold="true" data-execution_count="27">
+<div id="4f7f11ec" class="cell" data-output-fold="true" data-execution_count="27">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb40-1"><a href="#cb40-1"></a><span class="ex">datalad</span> status</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <details><summary>Code Output</summary>
 <div class="cell-output cell-output-stdout">
@@ -719,7 +719,7 @@ fatal: unable to auto-detect email address (got 'root@5ec499883828.(none)')
 </details>
 </div>
 <p>Let’s save this:</p>
-<div id="67ca929f" class="cell" data-output-fold="true" data-execution_count="28">
+<div id="48ab2471" class="cell" data-output-fold="true" data-execution_count="28">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb41-1"><a href="#cb41-1"></a><span class="ex">datalad</span> save <span class="at">-m</span> <span class="st">"Add notes on datalad save"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <details><summary>Code Output</summary>
 <div class="cell-output cell-output-stdout">
@@ -753,7 +753,7 @@ Omit --global to set the identity only in this repository.
 
 
 
-fatal: unable to auto-detect email address (got 'root@5ec499883828.(none)')']). Canceling not-yet running jobs and waiting for completion of running. You can force earlier forceful exit by Ctrl-C. 
+fatal: unable to auto-detect email address (got 'root@e476308d212e.(none)')']). Canceling not-yet running jobs and waiting for completion of running. You can force earlier forceful exit by Ctrl-C. 
 
 
 Total: 0.00 datasets [00:00, ? datasets/s]
@@ -787,7 +787,7 @@ Omit --global to set the identity only in this repository.
 
 
 
-fatal: unable to auto-detect email address (got 'root@5ec499883828.(none)')
+fatal: unable to auto-detect email address (got 'root@e476308d212e.(none)')
 </pre>
 </div>
 </div>
@@ -799,7 +799,7 @@ fatal: unable to auto-detect email address (got 'root@5ec499883828.(none)')
 </details>
 </div>
 <p>If you take a look at the history of this file with <code>git log</code>, the history neatly summarizes all of the changes that have been done:</p>
-<div id="1a4005d3" class="cell" data-output-fold="true" data-execution_count="29">
+<div id="92d202f6" class="cell" data-output-fold="true" data-execution_count="29">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb43-1"><a href="#cb43-1"></a><span class="fu">git</span> log <span class="at">-n</span> 2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <details><summary>Code Output</summary>
 <div class="cell-output cell-output-stdout">
@@ -818,11 +818,11 @@ fatal: unable to auto-detect email address (got 'root@5ec499883828.(none)')
 <p>DataLad lets you consume datasets provided by others, and collaborate with them. You can install existing datasets and update them from their sources, or create sibling datasets that you can publish updates to and pull updates from for collaboration and data sharing.</p>
 <p><img src="https://handbook.datalad.org/en/latest/_images/collaboration.svg" style="width: 600px;"></p>
 <p>To demonstrate this, let’s first create a new subdirectory to be organized:</p>
-<div id="6aa4831e" class="cell" data-output-fold="true" data-execution_count="30">
+<div id="b66de5d7" class="cell" data-output-fold="true" data-execution_count="30">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb46-1"><a href="#cb46-1"></a><span class="fu">mkdir</span> recordings</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Afterwards, let’s install an existing dataset, either from a path or a URL. The dataset we want to install in this example is hosted on GitHub, so we will provide its URL to the <code>datalad clone</code> command. We will also specify a path where we want it to be installed. Importantly, we are installing this dataset as a subdataset of <code>DataLad-101</code>, which means we will <em>nest</em> the two datasets inside each other. This is accomplished using the <code>--dataset</code> flag.</p>
-<div id="540a7659" class="cell" data-output-fold="true" data-execution_count="31">
+<div id="004e8f47" class="cell" data-output-fold="true" data-execution_count="31">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb47-1"><a href="#cb47-1"></a><span class="ex">datalad</span> clone <span class="at">--dataset</span> . https://github.com/datalad-datasets/longnow-podcasts.git recordings/longnow</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <details><summary>Code Output</summary>
 <div class="cell-output cell-output-stdout">
@@ -840,6 +840,12 @@ Enumerating: 0.00 Objects [00:00, ? Objects/s]
 
 
 Receiving:   0%|                             | 0.00/4.31k [00:00&lt;?, ? Objects/s]
+
+
+Receiving:  11%|██▍                   | 474/4.31k [00:00&lt;00:00, 4.72k Objects/s]
+
+
+Receiving:  51%|██████████▏         | 2.20k/4.31k [00:00&lt;00:00, 12.1k Objects/s]
 
 
                                                                                 
@@ -862,7 +868,7 @@ Resolving:   0%|                                | 0.00/602 [00:00&lt;?, ? Deltas
 </details>
 </div>
 <p>There are new directories in the <code>DataLad-101</code> dataset. Within these new directories, there are hundreds of MP3 files.</p>
-<div id="63fe0f22" class="cell" data-output-fold="true" data-execution_count="32">
+<div id="30c9b424" class="cell" data-output-fold="true" data-execution_count="32">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb49-1"><a href="#cb49-1"></a><span class="ex">tree</span> <span class="at">-d</span> <span class="co"># we limit the output of the tree command to directories</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <details><summary>Code Output</summary>
 <div class="cell-output cell-output-stdout">
@@ -875,7 +881,7 @@ Resolving:   0%|                                | 0.00/602 [00:00&lt;?, ? Deltas
 </details>
 </div>
 <p>Let’s move into one of these directories and take a look at its contents:</p>
-<div id="6c84ca9f" class="cell" data-output-fold="true" data-execution_count="33">
+<div id="3db9f926" class="cell" data-output-fold="true" data-execution_count="33">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb51-1"><a href="#cb51-1"></a><span class="bu">cd</span> recordings/longnow/Long_Now__Seminars_About_Long_term_Thinking</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <details><summary>Code Output</summary>
 <div class="cell-output cell-output-stdout">
@@ -888,7 +894,7 @@ Resolving:   0%|                                | 0.00/602 [00:00&lt;?, ? Deltas
 </div>
 </details>
 </div>
-<div id="a2bb6704" class="cell" data-output-fold="true" data-execution_count="34">
+<div id="ad03a6fc" class="cell" data-output-fold="true" data-execution_count="34">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb54-1"><a href="#cb54-1"></a><span class="fu">ls</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <details><summary>Code Output</summary>
 <div class="cell-output cell-output-stdout">
@@ -899,14 +905,14 @@ Resolving:   0%|                                | 0.00/602 [00:00&lt;?, ? Deltas
 <section id="have-access-to-more-data-than-you-have-disk-space-get-and-drop" class="level3">
 <h3 class="anchored" data-anchor-id="have-access-to-more-data-than-you-have-disk-space-get-and-drop">Have access to more data than you have disk space: <code>get</code> and <code>drop</code></h3>
 <p>Here is a crucial and incredibly handy feature of DataLad datasets: After cloning, the dataset contains small files, such as the README, but larger files do not have any content yet. It only retrieved what we can simplistically refer to as file availability metadata, which is displayed as the file hierarchy in the dataset. While we can read the file names and determine what the dataset contains, we don’t have access to the file contents <em>yet</em>. If we were to try to play one of the recordings using the Python <code>Audio</code> functionality, this would fail.</p>
-<div id="0f7998e8" class="cell" data-output-fold="true" data-execution_count="35">
+<div id="c57c46e9" class="cell" data-output-fold="true" data-execution_count="35">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb56-1"><a href="#cb56-1"></a><span class="co"># vlc --intf dummy --play-and-exit "2003_11_15__Brian_Eno__The_Long_Now.mp3"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>This might seem like curious behavior, but there are many advantages to it. One advantage is speed, and another is reduced disk usage. Here is the total size of this dataset:</p>
-<div id="f2696ee9" class="cell" data-output-fold="true" data-execution_count="36">
+<div id="77aa3ff9" class="cell" data-output-fold="true" data-execution_count="36">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb57-1"><a href="#cb57-1"></a><span class="bu">cd</span> ../</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="2f2ceabc" class="cell" data-output-fold="true" data-execution_count="37">
+<div id="93dbd4df" class="cell" data-output-fold="true" data-execution_count="37">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb58-1"><a href="#cb58-1"></a><span class="fu">du</span> <span class="at">-sh</span>  <span class="co"># Unix command to show size of contents</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <details><summary>Code Output</summary>
 <div class="cell-output cell-output-stdout">
@@ -915,7 +921,7 @@ Resolving:   0%|                                | 0.00/602 [00:00&lt;?, ? Deltas
 </details>
 </div>
 <p>It is tiny! However, we can also find out how large the dataset would be if we had all of its contents by using <code>datalad status</code> with the <code>--annex</code> flag. In total, there are more than 15 GB of podcasts that you now have access to.</p>
-<div id="98cbee2d" class="cell" data-output-fold="true" data-execution_count="38">
+<div id="113769db" class="cell" data-output-fold="true" data-execution_count="38">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb60-1"><a href="#cb60-1"></a><span class="ex">datalad</span> status <span class="at">--annex</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <details><summary>Code Output</summary>
 <div class="cell-output cell-output-stdout">
@@ -933,7 +939,7 @@ Resolving:   0%|                                | 0.00/602 [00:00&lt;?, ? Deltas
 </details>
 </div>
 <p>You can retrieve individual files, groups of files, directories, or entire datasets using the <code>datalad get</code> command. This command fetches the content for you.</p>
-<div id="2e1cd664" class="cell" data-output-fold="true" data-execution_count="39">
+<div id="99b66d21" class="cell" data-output-fold="true" data-execution_count="39">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb61-1"><a href="#cb61-1"></a><span class="ex">datalad</span> get Long_Now__Seminars_About_Long_term_Thinking/2003_11_15__Brian_Eno__The_Long_Now.mp3</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <details><summary>Code Output</summary>
 <div class="cell-output cell-output-stdout">
@@ -952,7 +958,7 @@ Resolving:   0%|                                | 0.00/602 [00:00&lt;?, ? Deltas
 </details>
 </div>
 <p>Content that is already present is not re-retrieved.</p>
-<div id="96005dc0" class="cell" data-output-fold="true" data-execution_count="40">
+<div id="5ad43771" class="cell" data-output-fold="true" data-execution_count="40">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb63-1"><a href="#cb63-1"></a><span class="ex">datalad</span> get Long_Now__Seminars_About_Long_term_Thinking/2003_11_15__Brian_Eno__The_Long_Now.mp3  <span class="dt">\L</span>ong_Now__Seminars_About_Long_term_Thinking/2003_12_13__Peter_Schwartz__The_Art_Of_The_Really_Long_View.mp3  <span class="dt">\L</span>ong_Now__Seminars_About_Long_term_Thinking/2004_01_10__George_Dyson__There_s_Plenty_of_Room_at_the_Top__Long_term_Thinking_About_Large_scale_Computing.mp3</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <details><summary>Code Output</summary>
 <div class="cell-output cell-output-stdout">
@@ -979,7 +985,7 @@ action summary:
 </details>
 </div>
 <p>If you no longer need the data locally, you can drop the content from your dataset to save disk space.</p>
-<div id="6df848d7" class="cell" data-output-fold="true" data-execution_count="41">
+<div id="41eb191a" class="cell" data-output-fold="true" data-execution_count="41">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb65-1"><a href="#cb65-1"></a><span class="ex">datalad</span> drop Long_Now__Seminars_About_Long_term_Thinking/2003_12_13__Peter_Schwartz__The_Art_Of_The_Really_Long_View.mp3</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <details><summary>Code Output</summary>
 <div class="cell-output cell-output-stdout">
@@ -988,7 +994,7 @@ action summary:
 </details>
 </div>
 <p>Afterwards, as long as DataLad knows where a file came from, its content can be retrieved again.</p>
-<div id="602d231b" class="cell" data-output-fold="true" data-execution_count="42">
+<div id="87eb7562" class="cell" data-output-fold="true" data-execution_count="42">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb67-1"><a href="#cb67-1"></a><span class="ex">datalad</span> get Long_Now__Seminars_About_Long_term_Thinking/2003_12_13__Peter_Schwartz__The_Art_Of_The_Really_Long_View.mp3</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <details><summary>Code Output</summary>
 <div class="cell-output cell-output-stdout">
@@ -1013,7 +1019,7 @@ action summary:
 <p>Datasets can contain other datasets (subdatasets), nested arbitrarily deep. Each dataset has an independent revision history, but can be registered at a precise version in higher-level datasets. This allows you to combine datasets and to perform commands recursively across a hierarchy of datasets, and it is the basis for advanced provenance capture abilities. This allows you to combine datasets and perform commands recursively across a hierarchy of datasets, and it is the basis for advanced provenance capture abilities.</p>
 <p><img src="https://handbook.datalad.org/en/latest/_images/linkage_subds.svg" style="width: 600px;"></p>
 <p>Let’s take a look at the history of the <code>longnow</code> subdataset. We can see that it has preserved its history completely. This means that the data we retrieved retains all of its provenance.</p>
-<div id="cf3f7212" class="cell" data-output-fold="true" data-execution_count="43">
+<div id="6b17f15c" class="cell" data-output-fold="true" data-execution_count="43">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb69-1"><a href="#cb69-1"></a><span class="fu">git</span> log <span class="at">--reverse</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <details><summary>Code Output</summary>
 <div class="cell-output cell-output-stdout">
@@ -1724,19 +1730,43 @@ Date:   Fri Feb 6 00:10:04 2026 +0100
 
     Fix trailing whitespace
 
-commit 305084c7f21bbe18cd7331354edb1d475fe14ab2 (HEAD -&gt; quarto, origin/quarto)
+commit 305084c7f21bbe18cd7331354edb1d475fe14ab2
 Author: Lennart Wittkuhn &lt;lennart.wittkuhn@tutanota.com&gt;
 Date:   Fri Feb 6 00:11:58 2026 +0100
 
-    Remove binder</code></pre>
+    Remove binder
+
+commit 37e29b8bdf0f254bff39bb57cb83f37f18c8061d
+Author: Lennart Wittkuhn &lt;lennart.wittkuhn@tutanota.com&gt;
+Date:   Fri Feb 6 00:16:17 2026 +0100
+
+    Fix Makefile
+
+commit 2fed3397eac06fb579bb7240ca36956c7793f50b
+Author: Lennart Wittkuhn &lt;lennart.wittkuhn@tutanota.com&gt;
+Date:   Fri Feb 6 00:16:32 2026 +0100
+
+    Add documentation
+
+commit 196194d724af9744a84b65c6e7dba6f6ac0cba9d
+Author: Lennart Wittkuhn &lt;lennart.wittkuhn@tutanota.com&gt;
+Date:   Fri Feb 6 00:22:28 2026 +0100
+
+    Add git-annex
+
+commit e6abe589c2443e989b0d6b384ab35687306dfca0 (HEAD -&gt; quarto, origin/quarto)
+Author: Lennart Wittkuhn &lt;lennart.wittkuhn@tutanota.com&gt;
+Date:   Fri Feb 6 00:22:37 2026 +0100
+
+    Fix docs</code></pre>
 </div>
 </details>
 </div>
 <p>How does this look in the top-level dataset? If we query the history of <code>DataLad-101</code>, there will be no commits related to MP3 files or any of the commits we have seen in the subdataset. Instead, we can see that the superdataset recorded the <code>recordings/longnow</code> dataset as a subdataset. This means it recorded where this dataset came from and what version it is in.</p>
-<div id="e2f68114" class="cell" data-output-fold="true" data-execution_count="44">
+<div id="2d53cbc1" class="cell" data-output-fold="true" data-execution_count="44">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb71-1"><a href="#cb71-1"></a><span class="bu">cd</span> ../../</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="42291a9b" class="cell" data-output-fold="true" data-execution_count="45">
+<div id="2e2768df" class="cell" data-output-fold="true" data-execution_count="45">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb72-1"><a href="#cb72-1"></a><span class="fu">git</span> log <span class="at">-n</span> 1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <details><summary>Code Output</summary>
 <div class="cell-output cell-output-stdout">
@@ -1750,7 +1780,7 @@ Date:   Fri Feb 6 00:11:58 2026 +0100
 </details>
 </div>
 <p>The subproject commit registered the most recent commit of the subdataset, and thus the subdataset version:</p>
-<div id="89a4daa4" class="cell" data-output-fold="true" data-execution_count="46">
+<div id="9ac41347" class="cell" data-output-fold="true" data-execution_count="46">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb75-1"><a href="#cb75-1"></a><span class="bu">cd</span> recordings/longnow</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <details><summary>Code Output</summary>
 <div class="cell-output cell-output-stdout">
@@ -1763,7 +1793,7 @@ Date:   Fri Feb 6 00:11:58 2026 +0100
 </div>
 </details>
 </div>
-<div id="21faf88a" class="cell" data-output-fold="true" data-execution_count="47">
+<div id="99fb2379" class="cell" data-output-fold="true" data-execution_count="47">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb78"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb78-1"><a href="#cb78-1"></a><span class="fu">git</span> log <span class="at">--oneline</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <details><summary>Code Output</summary>
 <div class="cell-output cell-output-stdout">
@@ -1776,17 +1806,17 @@ Date:   Fri Feb 6 00:11:58 2026 +0100
 </div>
 </details>
 </div>
-<div id="283bd292" class="cell" data-output-fold="true" data-execution_count="48">
+<div id="88f4a642" class="cell" data-output-fold="true" data-execution_count="48">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb81"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb81-1"><a href="#cb81-1"></a><span class="bu">cd</span> ../../</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="more-on-data-versioning-nesting-and-a-glimpse-into-reproducible-paper" class="level2">
 <h2 class="anchored" data-anchor-id="more-on-data-versioning-nesting-and-a-glimpse-into-reproducible-paper">More on data versioning, nesting, and a glimpse into reproducible paper</h2>
 <p>We’ll clone a repository for a <a href="https://doi.org/10.3758/s13428-020-01428-x">paper</a> that <a href="https://github.com/psychoinformatics-de/paper-remodnav/">shares manuscript, code, and data</a>:</p>
-<div id="2eac4cf3" class="cell" data-output-fold="true" data-execution_count="49">
+<div id="4d228f0c" class="cell" data-output-fold="true" data-execution_count="49">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb82"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb82-1"><a href="#cb82-1"></a><span class="bu">cd</span> ../</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="e5c7496b" class="cell" data-output-fold="true" data-execution_count="50">
+<div id="c49faa13" class="cell" data-output-fold="true" data-execution_count="50">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb83"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb83-1"><a href="#cb83-1"></a><span class="ex">datalad</span> clone https://github.com/psychoinformatics-de/paper-remodnav.git</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <details><summary>Code Output</summary>
 <div class="cell-output cell-output-stdout">
@@ -1818,10 +1848,13 @@ Compressing:   0%|                             | 0.00/375 [00:00&lt;?, ? Objects
 Receiving:   0%|                             | 0.00/2.11k [00:00&lt;?, ? Objects/s]
 
 
-Receiving:  32%|███████               | 676/2.11k [00:00&lt;00:00, 4.41k Objects/s]
+Receiving:  19%|████▏                 | 401/2.11k [00:00&lt;00:00, 3.00k Objects/s]
 
 
-Receiving:  86%|█████████████████▏  | 1.81k/2.11k [00:00&lt;00:00, 7.70k Objects/s]
+Receiving:  34%|███████▍              | 718/2.11k [00:00&lt;00:00, 1.88k Objects/s]
+
+
+Receiving:  53%|██████████▌         | 1.12k/2.11k [00:00&lt;00:00, 2.53k Objects/s]
 
 
                                                                                 
@@ -1844,7 +1877,7 @@ Resolving:   0%|                              | 0.00/1.09k [00:00&lt;?, ? Deltas
 </details>
 </div>
 <p>The top-level dataset has many subdatasets. One of them, <code>remodnav</code>, is a dataset that contains the source code for a Python package called <code>remodnav</code> used in eye-tracking analyses:</p>
-<div id="e9be231b" class="cell" data-output-fold="true" data-execution_count="51">
+<div id="ebeb8a1d" class="cell" data-output-fold="true" data-execution_count="51">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb85"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb85-1"><a href="#cb85-1"></a><span class="bu">cd</span> paper-remodnav</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <details><summary>Code Output</summary>
 <div class="cell-output cell-output-stdout">
@@ -1857,7 +1890,7 @@ Resolving:   0%|                              | 0.00/1.09k [00:00&lt;?, ? Deltas
 </div>
 </details>
 </div>
-<div id="0cdee512" class="cell" data-output-fold="true" data-execution_count="52">
+<div id="014e4a3f" class="cell" data-output-fold="true" data-execution_count="52">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb88"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb88-1"><a href="#cb88-1"></a><span class="ex">datalad</span> subdatasets</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <details><summary>Code Output</summary>
 <div class="cell-output cell-output-stdout">
@@ -1888,7 +1921,7 @@ usage: datalad subdatasets [-h] [-d DATASET] [--state {present|absent|any}]
 </details>
 </div>
 <p>After cloning a dataset, its subdatasets will be recognized, but just as content is not yet retrieved for files in datasets, the subdatasets of datasets are not yet installed. If we navigate into an uninstalled subdataset, it will appear as an empty directory.</p>
-<div id="32e7e51c" class="cell" data-output-fold="true" data-execution_count="53">
+<div id="c8e88ce9" class="cell" data-output-fold="true" data-execution_count="53">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb90"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb90-1"><a href="#cb90-1"></a><span class="bu">cd</span> remodnav</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <details><summary>Code Output</summary>
 <div class="cell-output cell-output-stdout">
@@ -1901,7 +1934,7 @@ usage: datalad subdatasets [-h] [-d DATASET] [--state {present|absent|any}]
 </div>
 </details>
 </div>
-<div id="81072f8f" class="cell" data-output-fold="true" data-execution_count="54">
+<div id="a4295f0b" class="cell" data-output-fold="true" data-execution_count="54">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb93"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb93-1"><a href="#cb93-1"></a><span class="fu">ls</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <details><summary>Code Output</summary>
 <div class="cell-output cell-output-stdout">
@@ -1911,7 +1944,7 @@ bin  dev   home  lib64  mnt    proc  run   srv   tmp  var</code></pre>
 </details>
 </div>
 <p>In order to install a subdataset, we use <code>datalad get</code> with the <code>--recursive</code> flag:</p>
-<div id="2198b212" class="cell" data-output-fold="true" data-execution_count="55">
+<div id="18d47bd6" class="cell" data-output-fold="true" data-execution_count="55">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb95"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb95-1"><a href="#cb95-1"></a><span class="ex">datalad</span> get <span class="at">--recursive</span> <span class="at">--recursion-limit</span> 2 <span class="at">-n</span> .</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <details><summary>Code Output</summary>
 <div class="cell-output cell-output-stdout">
@@ -1937,7 +1970,7 @@ usage: datalad get [-h] [-s LABEL] [-d PATH] [-r] [-R LEVELS] [-n]
 </div>
 </details>
 </div>
-<div id="6b844430" class="cell" data-output-fold="true" data-execution_count="56">
+<div id="9af1959e" class="cell" data-output-fold="true" data-execution_count="56">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb97"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb97-1"><a href="#cb97-1"></a><span class="fu">ls</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <details><summary>Code Output</summary>
 <div class="cell-output cell-output-stdout">
@@ -1948,7 +1981,7 @@ bin  dev   home  lib64  mnt    proc  run   srv   tmp  var</code></pre>
 </div>
 <p>This command not only retrieves file contents, but it also installs subdatasets. So, if you want to be really lazy, just run <code>datalad get --recursive -n</code> in the root of a dataset to install all available subdatasets. The <code>-n</code> option prevents <code>get</code> from downloading any data, so only the subdatasets are installed without any data being downloaded. Here, the depth of recursion is limited. For one, it would take a while to install all subdatasets, but the very raw eye-tracking dataset contains subject IDs that should not be shared. Therefore, this subdataset is not accessible. If you try to install all subdatasets, the source eye-tracking data will throw an error, because it is not made publicly available.</p>
 <p>Afterwards, you can see that the <code>remodnav</code> subdataset also contains further subdatasets. In this case, these subdatasets contain data used for testing and validating software performance.</p>
-<div id="3aee58b1" class="cell" data-output-fold="true" data-execution_count="57">
+<div id="e63f33bf" class="cell" data-output-fold="true" data-execution_count="57">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb99"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb99-1"><a href="#cb99-1"></a><span class="ex">datalad</span> subdatasets</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <details><summary>Code Output</summary>
 <div class="cell-output cell-output-stdout">
@@ -1979,7 +2012,7 @@ usage: datalad subdatasets [-h] [-d DATASET] [--state {present|absent|any}]
 </details>
 </div>
 <p>One of the validation data subdatasets came from another lab that shared their data. After the researchers were almost finished with their paper, they found another paper that reported a mistake in this data. The mistake was still present in the data they were using. By inspecting the history of this dataset, you can see that at one point, they contributed a fix that changed the data.</p>
-<div id="b2e8c969" class="cell" data-output-fold="true" data-execution_count="58">
+<div id="680d058b" class="cell" data-output-fold="true" data-execution_count="58">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb101"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb101-1"><a href="#cb101-1"></a><span class="bu">cd</span> remodnav/tests/data/anderson_etal</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <details><summary>Code Output</summary>
 <div class="cell-output cell-output-stdout">
@@ -1992,7 +2025,7 @@ usage: datalad subdatasets [-h] [-d DATASET] [--state {present|absent|any}]
 </div>
 </details>
 </div>
-<div id="d3a293a1" class="cell" data-output-fold="true" data-execution_count="59">
+<div id="44f7d2b5" class="cell" data-output-fold="true" data-execution_count="59">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb104"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb104-1"><a href="#cb104-1"></a><span class="fu">git</span> log <span class="at">-n</span> 3</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <details><summary>Code Output</summary>
 <div class="cell-output cell-output-stdout">
@@ -2011,11 +2044,11 @@ usage: datalad subdatasets [-h] [-d DATASET] [--state {present|absent|any}]
 <h2 class="anchored" data-anchor-id="full-provenance-capture-and-reproducibility">Full provenance capture and reproducibility</h2>
 <p>DataLad allows you to capture full provenance (i.e., a record that describes entities and processes that were involved in producing or influencing a digital resource): The origin of datasets, the origin of files obtained from web sources, complete machine-readable and automatically reproducible records of how files were created (including software environments). You or your collaborators can thus re-obtain or reproducibly recompute content with a single command, and make use of extensive provenance of dataset content (who created it, when, and how?).</p>
 <p><img src="https://handbook.datalad.org/en/latest/_images/reproducible_execution.svg" style="width: 600px;"></p>
-<div id="08fd76fb" class="cell" data-output-fold="true" data-execution_count="60">
+<div id="c96d6d74" class="cell" data-output-fold="true" data-execution_count="60">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb107"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb107-1"><a href="#cb107-1"></a><span class="bu">cd</span> ../../../../../../</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>First, create a new dataset, in this case with the <code>yoda</code> configuration:</p>
-<div id="eca3cd21" class="cell" data-output-fold="true" data-execution_count="61">
+<div id="22538efd" class="cell" data-output-fold="true" data-execution_count="61">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb108"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb108-1"><a href="#cb108-1"></a><span class="ex">datalad</span> create <span class="at">-c</span> yoda myanalysis</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <details><summary>Code Output</summary>
 <div class="cell-output cell-output-stdout">
@@ -2034,10 +2067,10 @@ usage: datalad subdatasets [-h] [-d DATASET] [--state {present|absent|any}]
 </details>
 </div>
 <p>This sets up a helpful structure for the dataset with a code directory and some README files, and applies helpful configurations:</p>
-<div id="30a6036f" class="cell" data-output-fold="true" data-execution_count="62">
+<div id="b400258c" class="cell" data-output-fold="true" data-execution_count="62">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb110"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb110-1"><a href="#cb110-1"></a><span class="bu">cd</span> myanalysis</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="c065dddb" class="cell" data-output-fold="true" data-execution_count="63">
+<div id="91bfe17b" class="cell" data-output-fold="true" data-execution_count="63">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb111"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb111-1"><a href="#cb111-1"></a><span class="ex">tree</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <details><summary>Code Output</summary>
 <div class="cell-output cell-output-stdout">
@@ -2049,7 +2082,7 @@ usage: datalad subdatasets [-h] [-d DATASET] [--state {present|absent|any}]
 </div>
 <p>Read more about the YODA principles and the YODA configuration in the <a href="https://handbook.datalad.org/en/latest/basics/101-127-yoda.html">section on YODA</a> in the DataLad Handbook.</p>
 <p>Next, install the input data as a subdataset. For this, the DataLad developers created a <a href="https://github.com/datalad-handbook/iris_data.git">DataLad dataset</a> with the <a href="https://en.wikipedia.org/wiki/Iris_flower_data_set">“iris” data</a> and published it on GitHub. Here, we’re installing it into a directory named <code>input</code>.</p>
-<div id="250310b8" class="cell" data-output-fold="true" data-execution_count="64">
+<div id="f8768bb5" class="cell" data-output-fold="true" data-execution_count="64">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb113"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb113-1"><a href="#cb113-1"></a><span class="ex">datalad</span> clone <span class="at">-d</span> . https://github.com/datalad-handbook/iris_data.git input/</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <details><summary>Code Output</summary>
 <div class="cell-output cell-output-stdout">
@@ -2101,7 +2134,7 @@ Resolving:   0%|                               | 0.00/3.00 [00:00&lt;?, ? Deltas
 </details>
 </div>
 <p>The last thing needed is code to run on the data and produce results. For this, here is a k-means classification analysis script written in Python. You can find more details about this analysis in the <a href="https://handbook.datalad.org/en/latest/basics/101-130-yodaproject.html">section on a YODA-compliant data analysis project</a>.</p>
-<div id="bb5a887e" class="cell" data-output-fold="true" data-execution_count="65">
+<div id="e9c75d5e" class="cell" data-output-fold="true" data-execution_count="65">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb115"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb115-1"><a href="#cb115-1"></a><span class="fu">cat</span> <span class="op">&lt;&lt; EOT</span> <span class="op">&gt;</span> code/script.py</span>
 <span id="cb115-2"><a href="#cb115-2"></a></span>
 <span id="cb115-3"><a href="#cb115-3"></a><span class="st">import pandas as pd</span></span>
@@ -2157,7 +2190,7 @@ Resolving:   0%|                               | 0.00/3.00 [00:00&lt;?, ? Deltas
 </details>
 </div>
 <p>So far the script is untracked:</p>
-<div id="17ede863" class="cell" data-output-fold="true" data-execution_count="66">
+<div id="308d709e" class="cell" data-output-fold="true" data-execution_count="66">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb118"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb118-1"><a href="#cb118-1"></a><span class="ex">datalad</span> status</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <details><summary>Code Output</summary>
 <div class="cell-output cell-output-stdout">
@@ -2167,7 +2200,7 @@ nothing to save, working tree clean</code></pre>
 </details>
 </div>
 <p>Let’s save it with a <code>datalad save</code> command:</p>
-<div id="1eba49b3" class="cell" data-output-fold="true" data-execution_count="67">
+<div id="069a5a33" class="cell" data-output-fold="true" data-execution_count="67">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb120"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb120-1"><a href="#cb120-1"></a><span class="ex">datalad</span> save <span class="at">-m</span> <span class="st">"Add script for kNN classification and plotting"</span> code/script.py</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <details><summary>Code Output</summary>
 <div class="cell-output cell-output-stdout">
@@ -2178,7 +2211,7 @@ nothing to save, working tree clean</code></pre>
 <section id="datalad-run" class="level3">
 <h3 class="anchored" data-anchor-id="datalad-run"><code>datalad run</code></h3>
 <p>The challenge that DataLad helps accomplish is running this script in a way that links the script to the results it produces and the data it was computed from. We can do this with the <code>datalad run</code> command. In principle, it is simple. You start with a clean dataset:</p>
-<div id="a03011a9" class="cell" data-output-fold="true" data-execution_count="68">
+<div id="64cb3bb8" class="cell" data-output-fold="true" data-execution_count="68">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb122"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb122-1"><a href="#cb122-1"></a><span class="ex">datalad</span> status</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <details><summary>Code Output</summary>
 <div class="cell-output cell-output-stdout">
@@ -2189,7 +2222,7 @@ nothing to save, working tree clean</code></pre>
 </div>
 <p>Then, give the command you would execute with <code>datalad run</code>, in this case <code>python code/script.py</code>. DataLad will take the command, run it, and save all of the changes in the dataset under the commit message specified with the <code>-m</code> option. Thus, it associates the script with the results.</p>
 <p>But it can be even more helpful. Here, we also specify the input data that the command needs, and DataLad will retrieve the data beforehand. We also specify the output of the command. Specifying the outputs will allow us to rerun the command later and update any outdated results.</p>
-<div id="499594ed" class="cell" data-output-fold="true" data-execution_count="69">
+<div id="d7f90b21" class="cell" data-output-fold="true" data-execution_count="69">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb124"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb124-1"><a href="#cb124-1"></a><span class="ex">datalad</span> run <span class="at">-m</span> <span class="st">"Analyze iris data with classification analysis"</span> <span class="dt">\</span></span>
 <span id="cb124-2"><a href="#cb124-2"></a>--input <span class="st">"input/iris.csv"</span> <span class="dt">\</span></span>
 <span id="cb124-3"><a href="#cb124-3"></a>--output <span class="st">"prediction_report.csv"</span> <span class="dt">\</span></span>
@@ -2214,7 +2247,7 @@ nothing to save, working tree clean</code></pre>
 </details>
 </div>
 <p>DataLad creates a commit in the dataset history. This commit includes the commit message as a human-readable summary of what was done. It contains the produced output, and it has a machine-readable record that includes information on the input data, the results, and the command that was run to create this result.</p>
-<div id="a76ead68" class="cell" data-output-fold="true" data-execution_count="70">
+<div id="966bb345" class="cell" data-output-fold="true" data-execution_count="70">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb126"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb126-1"><a href="#cb126-1"></a><span class="fu">git</span> log <span class="at">-n</span> 1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <details><summary>Code Output</summary>
 <div class="cell-output cell-output-stdout">
@@ -2232,10 +2265,10 @@ nothing to save, working tree clean</code></pre>
 <h3 class="anchored" data-anchor-id="datalad-rerun"><code>datalad rerun</code></h3>
 <p>This machine-readable record is particularly helpful, because we can now instruct DataLad to <em>rerun</em> this command. This means we don’t have to memorize what we did, and people that we share the dataset with don’t need to ask how this result was produced. They can simply let DataLad tell them.</p>
 <p>This is accomplished with the <code>datalad rerun</code> command. For this demonstration, we have prepared this analysis dataset and published it to GitHub at https://github.com/lnnrtwttkhn/datalad-tutorial-myanalysis.</p>
-<div id="ca593491" class="cell" data-output-fold="true" data-execution_count="71">
+<div id="6794f666" class="cell" data-output-fold="true" data-execution_count="71">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb129"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb129-1"><a href="#cb129-1"></a><span class="bu">cd</span> ../</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="e8f2acb4" class="cell" data-output-fold="true" data-execution_count="72">
+<div id="10c3357e" class="cell" data-output-fold="true" data-execution_count="72">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb130"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb130-1"><a href="#cb130-1"></a><span class="fu">git</span> clone https://github.com/lnnrtwttkhn/datalad-tutorial-myanalysis analysis_clone</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <details><summary>Code Output</summary>
 <div class="cell-output cell-output-stdout">
@@ -2243,17 +2276,17 @@ nothing to save, working tree clean</code></pre>
 remote: Enumerating objects: 37, done.        
 remote: Counting objects:   2% (1/37)        remote: Counting objects:   5% (2/37)        remote: Counting objects:   8% (3/37)        remote: Counting objects:  10% (4/37)        remote: Counting objects:  13% (5/37)        remote: Counting objects:  16% (6/37)        remote: Counting objects:  18% (7/37)        remote: Counting objects:  21% (8/37)        remote: Counting objects:  24% (9/37)        remote: Counting objects:  27% (10/37)        remote: Counting objects:  29% (11/37)        remote: Counting objects:  32% (12/37)        remote: Counting objects:  35% (13/37)        remote: Counting objects:  37% (14/37)        remote: Counting objects:  40% (15/37)        remote: Counting objects:  43% (16/37)        remote: Counting objects:  45% (17/37)        remote: Counting objects:  48% (18/37)        remote: Counting objects:  51% (19/37)        remote: Counting objects:  54% (20/37)        remote: Counting objects:  56% (21/37)        remote: Counting objects:  59% (22/37)        remote: Counting objects:  62% (23/37)        remote: Counting objects:  64% (24/37)        remote: Counting objects:  67% (25/37)        remote: Counting objects:  70% (26/37)        remote: Counting objects:  72% (27/37)        remote: Counting objects:  75% (28/37)        remote: Counting objects:  78% (29/37)        remote: Counting objects:  81% (30/37)        remote: Counting objects:  83% (31/37)        remote: Counting objects:  86% (32/37)        remote: Counting objects:  89% (33/37)        remote: Counting objects:  91% (34/37)        remote: Counting objects:  94% (35/37)        remote: Counting objects:  97% (36/37)        remote: Counting objects: 100% (37/37)        remote: Counting objects: 100% (37/37), done.        
 remote: Compressing objects:   4% (1/24)        remote: Compressing objects:   8% (2/24)        remote: Compressing objects:  12% (3/24)        remote: Compressing objects:  16% (4/24)        remote: Compressing objects:  20% (5/24)        remote: Compressing objects:  25% (6/24)        remote: Compressing objects:  29% (7/24)        remote: Compressing objects:  33% (8/24)        remote: Compressing objects:  37% (9/24)        remote: Compressing objects:  41% (10/24)        remote: Compressing objects:  45% (11/24)        remote: Compressing objects:  50% (12/24)        remote: Compressing objects:  54% (13/24)        remote: Compressing objects:  58% (14/24)        remote: Compressing objects:  62% (15/24)        remote: Compressing objects:  66% (16/24)        remote: Compressing objects:  70% (17/24)        remote: Compressing objects:  75% (18/24)        remote: Compressing objects:  79% (19/24)        remote: Compressing objects:  83% (20/24)        remote: Compressing objects:  87% (21/24)        remote: Compressing objects:  91% (22/24)        remote: Compressing objects:  95% (23/24)        remote: Compressing objects: 100% (24/24)        remote: Compressing objects: 100% (24/24), done.        
-remote: Total 37 (delta 6), reused 37 (delta 6), pack-reused 0 (from 0)        
 Receiving objects:   2% (1/37)Receiving objects:   5% (2/37)Receiving objects:   8% (3/37)Receiving objects:  10% (4/37)Receiving objects:  13% (5/37)Receiving objects:  16% (6/37)Receiving objects:  18% (7/37)Receiving objects:  21% (8/37)Receiving objects:  24% (9/37)Receiving objects:  27% (10/37)Receiving objects:  29% (11/37)Receiving objects:  32% (12/37)Receiving objects:  35% (13/37)Receiving objects:  37% (14/37)Receiving objects:  40% (15/37)Receiving objects:  43% (16/37)Receiving objects:  45% (17/37)Receiving objects:  48% (18/37)Receiving objects:  51% (19/37)Receiving objects:  54% (20/37)Receiving objects:  56% (21/37)Receiving objects:  59% (22/37)Receiving objects:  62% (23/37)Receiving objects:  64% (24/37)Receiving objects:  67% (25/37)Receiving objects:  70% (26/37)Receiving objects:  72% (27/37)Receiving objects:  75% (28/37)Receiving objects:  78% (29/37)Receiving objects:  81% (30/37)Receiving objects:  83% (31/37)Receiving objects:  86% (32/37)Receiving objects:  89% (33/37)Receiving objects:  91% (34/37)Receiving objects:  94% (35/37)Receiving objects:  97% (36/37)Receiving objects: 100% (37/37)Receiving objects: 100% (37/37), 4.22 KiB | 4.22 MiB/s, done.
-Resolving deltas:   0% (0/6)Resolving deltas:  16% (1/6)Resolving deltas:  33% (2/6)Resolving deltas:  50% (3/6)Resolving deltas:  66% (4/6)Resolving deltas:  83% (5/6)Resolving deltas: 100% (6/6)Resolving deltas: 100% (6/6), done.</code></pre>
+Resolving deltas:   0% (0/6)Resolving deltas:  16% (1/6)Resolving deltas:  33% (2/6)Resolving deltas:  50% (3/6)Resolving deltas:  66% (4/6)Resolving deltas:  83% (5/6)Resolving deltas: 100% (6/6)Resolving deltas: 100% (6/6), done.
+remote: Total 37 (delta 6), reused 37 (delta 6), pack-reused 0 (from 0)        </code></pre>
 </div>
 </details>
 </div>
-<div id="22357bf9" class="cell" data-output-fold="true" data-execution_count="73">
+<div id="62c8d34f" class="cell" data-output-fold="true" data-execution_count="73">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb132"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb132-1"><a href="#cb132-1"></a><span class="bu">cd</span> analysis_clone</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>We can clone this repository and provide, for example, the checksum of the run command to the <code>datalad rerun</code> command. DataLad will read the machine-readable record of what was done and recompute the exact same thing.</p>
-<div id="5c88bbb5" class="cell" data-output-fold="true" data-execution_count="74">
+<div id="0336dba7" class="cell" data-output-fold="true" data-execution_count="74">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb133"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb133-1"><a href="#cb133-1"></a><span class="ex">datalad</span> rerun 3bb049d</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <details><summary>Code Output</summary>
 <div class="cell-output cell-output-stdout">
@@ -2311,7 +2344,7 @@ Resolving:   0%|                               | 0.00/3.00 [00:00&lt;?, ? Deltas
 </details>
 </div>
 <p>This allows others to easily rerun your computations. It also spares you the need to remember how you executed a script, and you can inquire about where the results came from.</p>
-<div id="1ac9076c" class="cell" data-output-fold="true" data-execution_count="75">
+<div id="489ce30f" class="cell" data-output-fold="true" data-execution_count="75">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb135"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb135-1"><a href="#cb135-1"></a><span class="fu">git</span> log pairwise_relationships.png</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <details><summary>Code Output</summary>
 <div class="cell-output cell-output-stdout">
