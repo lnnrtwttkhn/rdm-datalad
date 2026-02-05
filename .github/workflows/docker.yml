@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      IMAGE_NAME: lnnrtwttkhn/rdm-bids
+      IMAGE_NAME: lnnrtwttkhn/rdm-datalad
 
     steps:
       - name: Checkout repository
