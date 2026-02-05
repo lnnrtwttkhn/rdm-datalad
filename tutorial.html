@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.55">
+<meta name="generator" content="quarto-1.8.27">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -23,8 +23,9 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 /* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -35,7 +36,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -62,15 +63,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-8b4baf804e461d9b72633f0de59a0cac.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-9fa9e98f73ee3efa585e3f50c18792c0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
@@ -91,7 +94,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -130,22 +133,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Contents</h2>
    
   <ul>
-  <li><a href="#contents" id="toc-contents" class="nav-link active" data-scroll-target="#contents">Contents</a></li>
-  <li><a href="#about-this-notebook" id="toc-about-this-notebook" class="nav-link" data-scroll-target="#about-this-notebook">About this notebook</a></li>
-  <li><a href="#acknowledgements" id="toc-acknowledgements" class="nav-link" data-scroll-target="#acknowledgements">Acknowledgements</a></li>
-  <li><a href="#introduction-setup" id="toc-introduction-setup" class="nav-link" data-scroll-target="#introduction-setup">0. Introduction &amp; setup</a>
+  <li><a href="#acknowledgements" id="toc-acknowledgements" class="nav-link active" data-scroll-target="#acknowledgements">Acknowledgements</a></li>
+  <li><a href="#introduction-setup" id="toc-introduction-setup" class="nav-link" data-scroll-target="#introduction-setup">Introduction &amp; setup</a>
   <ul class="collapse">
   <li><a href="#configuring-your-git-identity" id="toc-configuring-your-git-identity" class="nav-link" data-scroll-target="#configuring-your-git-identity">Configuring your Git identity</a></li>
   </ul></li>
-  <li><a href="#creating-a-datalad-dataset" id="toc-creating-a-datalad-dataset" class="nav-link" data-scroll-target="#creating-a-datalad-dataset">1. Creating a DataLad dataset</a></li>
-  <li><a href="#version-control-workflows" id="toc-version-control-workflows" class="nav-link" data-scroll-target="#version-control-workflows">2. Version control workflows</a></li>
-  <li><a href="#dataset-consumption" id="toc-dataset-consumption" class="nav-link" data-scroll-target="#dataset-consumption">3. Dataset consumption</a>
+  <li><a href="#creating-a-datalad-dataset" id="toc-creating-a-datalad-dataset" class="nav-link" data-scroll-target="#creating-a-datalad-dataset">Creating a DataLad dataset</a></li>
+  <li><a href="#version-control-workflows" id="toc-version-control-workflows" class="nav-link" data-scroll-target="#version-control-workflows">Version control workflows</a></li>
+  <li><a href="#dataset-consumption" id="toc-dataset-consumption" class="nav-link" data-scroll-target="#dataset-consumption">Dataset consumption</a>
   <ul class="collapse">
   <li><a href="#have-access-to-more-data-than-you-have-disk-space-get-and-drop" id="toc-have-access-to-more-data-than-you-have-disk-space-get-and-drop" class="nav-link" data-scroll-target="#have-access-to-more-data-than-you-have-disk-space-get-and-drop">Have access to more data than you have disk space: <code>get</code> and <code>drop</code></a></li>
   </ul></li>
-  <li><a href="#dataset-nesting" id="toc-dataset-nesting" class="nav-link" data-scroll-target="#dataset-nesting">4. Dataset nesting</a></li>
-  <li><a href="#more-on-data-versioning-nesting-and-a-glimpse-into-reproducible-paper" id="toc-more-on-data-versioning-nesting-and-a-glimpse-into-reproducible-paper" class="nav-link" data-scroll-target="#more-on-data-versioning-nesting-and-a-glimpse-into-reproducible-paper">5. More on data versioning, nesting, and a glimpse into reproducible paper</a></li>
-  <li><a href="#full-provenance-capture-and-reproducibility" id="toc-full-provenance-capture-and-reproducibility" class="nav-link" data-scroll-target="#full-provenance-capture-and-reproducibility">6. Full provenance capture and reproducibility</a>
+  <li><a href="#dataset-nesting" id="toc-dataset-nesting" class="nav-link" data-scroll-target="#dataset-nesting">Dataset nesting</a></li>
+  <li><a href="#more-on-data-versioning-nesting-and-a-glimpse-into-reproducible-paper" id="toc-more-on-data-versioning-nesting-and-a-glimpse-into-reproducible-paper" class="nav-link" data-scroll-target="#more-on-data-versioning-nesting-and-a-glimpse-into-reproducible-paper">More on data versioning, nesting, and a glimpse into reproducible paper</a></li>
+  <li><a href="#full-provenance-capture-and-reproducibility" id="toc-full-provenance-capture-and-reproducibility" class="nav-link" data-scroll-target="#full-provenance-capture-and-reproducibility">Full provenance capture and reproducibility</a>
   <ul class="collapse">
   <li><a href="#datalad-run" id="toc-datalad-run" class="nav-link" data-scroll-target="#datalad-run"><code>datalad run</code></a></li>
   <li><a href="#datalad-rerun" id="toc-datalad-rerun" class="nav-link" data-scroll-target="#datalad-rerun"><code>datalad rerun</code></a></li>
@@ -188,401 +189,983 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="contents" class="level2">
-<h2 class="anchored" data-anchor-id="contents">Contents</h2>
-<ol start="0" type="1">
-<li><a href="#0">Introduction and setup</a></li>
-<li><a href="#1">Creating a Datalad dataset</a></li>
-<li><a href="#2">Version control workflows</a></li>
-<li><a href="#3">Dataset consumption and nesting</a></li>
-<li><a href="#4">Dataset nesting</a></li>
-<li><a href="#5">More on data versioning, nesting, and a glimpse into reproducible paper</a></li>
-<li><a href="#6">Full provenance capture and reproducibility</a></li>
-</ol>
-</section>
-<section id="about-this-notebook" class="level2">
-<h2 class="anchored" data-anchor-id="about-this-notebook">About this notebook</h2>
-<p>You can execute all the code cells below in this Jupyter Notebook running in <a href="https://mybinder.org/">MyBinder</a>. Alternatively, if you have DataLad and its dependencies installed, you can copy and paste the code into your computer’s command line to follow along.</p>
-</section>
 <section id="acknowledgements" class="level2">
 <h2 class="anchored" data-anchor-id="acknowledgements">Acknowledgements</h2>
 <p>This tutorial was initially created by Adina Wagner for the 2020 OHBM Brainhack Traintrack session on DataLad. This notebook accompanies <a href="https://www.youtube.com/watch?v=L5A0MXqFrOY">this tutorial video</a> by Adina Wagner.</p>
-<div id="0">
-
-</div>
 </section>
 <section id="introduction-setup" class="level2">
-<h2 class="anchored" data-anchor-id="introduction-setup">0. Introduction &amp; setup</h2>
+<h2 class="anchored" data-anchor-id="introduction-setup">Introduction &amp; setup</h2>
 <p><a href="https://www.datalad.org/">DataLad</a> is a data management multitool that can assist you in handling the entire life cycle of digital objects. It is a command-line tool, free and open source, and available for all major operating systems. In the command line, all operations begin with the general <code>datalad</code> command.</p>
-<div id="f6dbfc2d" class="cell" data-hide-output="false" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># datalad</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="b6d6693f" class="cell" data-output-fold="true" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># datalad</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>For example, I can type <code>datalad --help</code> to find out more about the available commands.</p>
 <p>You can find more details about how to <a href="https://handbook.datalad.org/en/latest/intro/installation.html">install DataLad and its dependencies on all operating systems in the DataLad Handbook</a>. This section also explains how to install DataLad on shared machines where you may not have administrative privileges (<code>sudo</code> rights), such as high-performance computing clusters. If you already have DataLad installed, <strong>make sure that it is a recent version</strong>. You can check the installed version using the <code>datalad --version</code> command:</p>
-<div id="262b013d" class="cell" data-hide-output="false" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="ex">datalad</span> <span class="at">--version</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="06bebc88" class="cell" data-output-fold="true" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="ex">datalad</span> <span class="at">--version</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>It is highly recommended to configure Git before using DataLad. Set both 'user.name' and 'user.email' configuration variables.
+datalad 1.3.1</code></pre>
+</div>
 </div>
 <section id="configuring-your-git-identity" class="level3">
 <h3 class="anchored" data-anchor-id="configuring-your-git-identity">Configuring your Git identity</h3>
 <p>The first step, if you haven’t done so already, is to configure your <a href="https://git-scm.com/">Git</a> identity. If you’re new to Git, don’t worry! This configuration simply involves setting your name and email address, which will associate your changes in a project with you as the author.</p>
 <p>Below, we provide instructions on how to configure your Git identity. However, please note that a central Git configuration has already been set up for you during the <code>postBuild</code> process of Binder, so you don’t need to perform this step manually. That’s why the code examples below is commented out.</p>
-<div id="8825bd39" class="cell" data-hide-output="false" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># git config --global --add user.name "Your name"</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="co"># git config --global --add user.email "Your email address"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="1">
-
+<div id="bb134996" class="cell" data-output-fold="true" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># git config user.name "Your name"</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="co"># git config user.email "Your email address"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 </section>
 <section id="creating-a-datalad-dataset" class="level2">
-<h2 class="anchored" data-anchor-id="creating-a-datalad-dataset">1. Creating a DataLad dataset</h2>
+<h2 class="anchored" data-anchor-id="creating-a-datalad-dataset">Creating a DataLad dataset</h2>
 <p>Every command in DataLad affects or uses DataLad <em>datasets</em>, the core data structure of DataLad. A dataset is a directory on a computer that DataLad manages. You can create new, empty datasets from scratch and populate them, or transform existing directories into datasets.</p>
 <p><img src="https://handbook.datalad.org/en/latest/_images/dataset.svg" style="width: 400px;"></p>
 <p>Let’s start by creating a new DataLad dataset. Creating a new dataset is accomplished using the <code>datalad create</code> command. This command requires only a name for the dataset. It will then create a new directory with that name and instruct DataLad to manage it.</p>
 <p>Additionally, the command includes an option, <code>-c text2git</code>. The <code>-c</code> option allows for specific configurations of the dataset at the time of creation. You can find detailed information about the <code>text2git</code> configuration in the DataLad handbook, specifically in the <a href="https://handbook.datalad.org/en/latest/basics/basics-configuration.html">sections on configurations and procedures</a>. Dont’t worry about configurations for now. In general, this configuration serves as a very useful standard for datasets.</p>
-<div id="0e806cef" class="cell" data-hide-output="false" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a><span class="ex">datalad</span> create <span class="at">-c</span> text2git DataLad-101</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cedf2423" class="cell" data-output-fold="true" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1"></a><span class="ex">datalad</span> create <span class="at">-c</span> text2git DataLad-101</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>It is highly recommended to configure Git before using DataLad. Set both 'user.name' and 'user.email' configuration variables.
+CommandError: 'git -c diff.ignoreSubmodules=none -c core.quotepath=false ls-files --stage -z -- DataLad-101' failed with exitcode 128
+fatal: detected dubious ownership in repository at '/app'
+To add an exception for this directory, call:
+
+    git config --global --add safe.directory /app</code></pre>
+</div>
+<div class="cell-output cell-output-error">
+<pre><code>: 128</code></pre>
+</div>
 </div>
 <p>Right after dataset creation, there is a new directory on the computer called <code>DataLad-101</code>. Let’s navigate into this directory using the <code>cd</code> command and list the directory contents using <code>ls</code>.</p>
-<div id="0d7aeb73" class="cell" data-hide-output="false" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1"></a><span class="bu">cd</span> DataLad-101</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="60fc27e4" class="cell" data-output-fold="true" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1"></a><span class="bu">cd</span> DataLad-101</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>bash: cd: DataLad-101: No such file or directory</code></pre>
 </div>
-<div id="226c77cc" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">ls</span> <span class="co"># ls does not show any output, because the dataset is empty</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>: 1</code></pre>
+</div>
+</div>
+<div id="ad628950" class="cell" data-output-fold="true" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">ls</span> <span class="co"># ls does not show any output, because the dataset is empty</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Dockerfile     _quarto-ipynb.yml    index.qmd
+LICENSE        _quarto.yml      index.quarto_ipynb
+Makefile       _site        pyproject.toml
+README.md      _variables.yml   setup.qmd
+_colab_install.md  binder       tutorial.qmd
+_extensions    convert_colab.py tutorial.quarto_ipynb
+_quarto-ci.yml     generate_install.py  uv.lock</code></pre>
+</div>
 </div>
 <p>Datasets have the exciting feature of recording everything done within them. They provide version control for all content managed by DataLad, regardless of its size. Additionally, datasets maintain a complete history that you can interact with. This history is already present, although it is quite short at this point in time. Let’s take a look at it nonetheless. This history exists thanks to Git. You can access the history of a dataset using any tool that displays Git history. For simplicity, we will use Git’s built-in <code>git log</code> command.</p>
-<div id="d63f59fa" class="cell" data-hide-output="false" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">git</span> log</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="2">
+<div id="1676cb71" class="cell" data-output-fold="true" data-execution_count="7">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1"></a><span class="fu">git</span> log</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>fatal: detected dubious ownership in repository at '/app'
+To add an exception for this directory, call:
 
+    git config --global --add safe.directory /app</code></pre>
+</div>
+<div class="cell-output cell-output-error">
+<pre><code>: 128</code></pre>
+</div>
 </div>
 </section>
 <section id="version-control-workflows" class="level2">
-<h2 class="anchored" data-anchor-id="version-control-workflows">2. Version control workflows</h2>
+<h2 class="anchored" data-anchor-id="version-control-workflows">Version control workflows</h2>
 <p>Building on top of <a href="https://git-scm.com/">Git</a> and <a href="https://git-annex.branchable.com/">git-annex</a>, DataLad allows you to version control arbitrarily large files in datasets. You can keep track of revisions of data of any size, and view, interact with or restore any version of your dataset’s history.</p>
 <p><img src="https://handbook.datalad.org/en/latest/_images/local_wf.svg" style="width: 400px;"></p>
 <p>Let’s start by creating a <code>books</code> directory using the <code>mkdir</code> command. Next, we will download two books from the internet. Here, we are using the command line tool <code>curl</code> to accomplish this, allowing us to perform all actions from the command line. However, if you prefer, you can also download the books manually and save them into the dataset using a file manager. Remember, a dataset is simply a directory on your computer.</p>
-<div id="e766c779" class="cell" data-hide-output="false" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1"></a><span class="fu">mkdir</span> books</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="6d2a0e84" class="cell" data-output-fold="true" data-execution_count="8">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1"></a><span class="fu">mkdir</span> books</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="5db693c1" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1"></a><span class="bu">cd</span> books</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="be1d82b0" class="cell" data-output-fold="true" data-execution_count="9">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1"></a><span class="bu">cd</span> books</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="d22720b6" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1"></a><span class="ex">curl</span> <span class="at">-L</span> <span class="at">-o</span> TLCL.pdf https://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download</span>
-<span id="cb10-2"><a href="#cb10-2"></a><span class="ex">curl</span> <span class="at">-L</span> <span class="at">-o</span> byte-of-python.pdf https://edisciplinas.usp.br/pluginfile.php/3252353/mod_resource/content/1/b_Swaroop_Byte_of_python.pdf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="ede4e70f" class="cell" data-output-fold="true" data-execution_count="10">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1"></a><span class="ex">curl</span> <span class="at">-L</span> <span class="at">-o</span> TLCL.pdf https://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download</span>
+<span id="cb18-2"><a href="#cb18-2"></a><span class="ex">curl</span> <span class="at">-L</span> <span class="at">-o</span> byte-of-python.pdf https://edisciplinas.usp.br/pluginfile.php/3252353/mod_resource/content/1/b_Swaroop_Byte_of_python.pdf</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   619  100   619    0     0   4918      0 --:--:-- --:--:-- --:--:--  4952
+100   361  100   361    0     0   1684      0 --:--:-- --:--:-- --:--:--  1684
+  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:02 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:03 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:04 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:05 --:--:--     0  2 2070k    2 48897    0     0   8284      0  0:04:15  0:00:05  0:04:10 10846100 2070k  100 2070k    0     0   334k      0  0:00:06  0:00:06 --:--:--  546k
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 47511  100 47511    0     0  28141      0  0:00:01  0:00:01 --:--:-- 28129100 47511  100 47511    0     0  28138      0  0:00:01  0:00:01 --:--:-- 28129</code></pre>
+</div>
 </div>
 <p>Let’s navigate back to the dataset root (<code>DataLad-101</code> folder) and run he <code>tree</code> command which can visualize the directory hierarchy:</p>
-<div id="c68ec79a" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1"></a><span class="bu">cd</span> ../</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="5e25e922" class="cell" data-output-fold="true" data-execution_count="11">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1"></a><span class="bu">cd</span> ../</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="4011b4af" class="cell" data-hide-output="false" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1"></a><span class="ex">tree</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="69613028" class="cell" data-output-fold="true" data-execution_count="12">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1"></a><span class="ex">tree</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>.
+├── Dockerfile
+├── LICENSE
+├── Makefile
+├── README.md
+├── _colab_install.md
+├── _extensions
+│&nbsp;&nbsp; └── mcanouil
+│&nbsp;&nbsp;     └── collapse-output
+│&nbsp;&nbsp;         ├── LICENSE
+│&nbsp;&nbsp;         ├── _extension.yml
+│&nbsp;&nbsp;         ├── _modules
+│&nbsp;&nbsp;         │&nbsp;&nbsp; └── utils.lua
+│&nbsp;&nbsp;         ├── collapse-output.js
+│&nbsp;&nbsp;         ├── collapse-output.lua
+│&nbsp;&nbsp;         └── collapse-output.min.js
+├── _quarto-ci.yml
+├── _quarto-ipynb.yml
+├── _quarto.yml
+├── _site
+├── _variables.yml
+├── binder
+│&nbsp;&nbsp; ├── apt.txt
+│&nbsp;&nbsp; ├── environment.yml
+│&nbsp;&nbsp; └── postBuild
+├── books
+│&nbsp;&nbsp; ├── TLCL.pdf
+│&nbsp;&nbsp; └── byte-of-python.pdf
+├── convert_colab.py
+├── generate_install.py
+├── index.qmd
+├── index.quarto_ipynb
+├── pyproject.toml
+├── setup.qmd
+├── tutorial.qmd
+├── tutorial.quarto_ipynb
+└── uv.lock
+
+8 directories, 29 files</code></pre>
+</div>
 </div>
 <p>Use the <code>datalad status</code> command to find out what has happened in the dataset. This command is very helpful as it reports on the current state of your dataset. Any new or changed content will be highlighted. If nothing has changed, the <code>datalad status</code> command will report what is known as a clean dataset state. In general, it is very useful to maintain a clean dataset state. If you know Git, you can think about <code>datalad status</code> as the <code>git status</code> of DataLad.</p>
-<div id="dc16c568" class="cell" data-hide-output="false" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1"></a><span class="ex">datalad</span> status</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="82ba5724" class="cell" data-output-fold="true" data-execution_count="13">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1"></a><span class="ex">datalad</span> status</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>It is highly recommended to configure Git before using DataLad. Set both 'user.name' and 'user.email' configuration variables.
+CommandError: 'git -c diff.ignoreSubmodules=none -c core.quotepath=false for-each-ref '--format=%(refname:strip=2)' refs/heads refs/remotes' failed with exitcode 128
+fatal: detected dubious ownership in repository at '/app'
+To add an exception for this directory, call:
+
+    git config --global --add safe.directory /app</code></pre>
+</div>
+<div class="cell-output cell-output-error">
+<pre><code>: 128</code></pre>
+</div>
 </div>
 <p>Any content that we want DataLad to manage needs to be explicitly added to DataLad. It is not enough to simply place it inside the dataset. To give new or changed content to DataLad, we need to save it using <code>datalad save</code>. This is the first time we need to specify a “commit message”, which is done using the <code>-m</code> option of the command. A “commit” is a snapshot of your project’s files at a specific point in time. The commit message is a short text description that explains the changes made when saving the current changes in a Datalad dataset.</p>
-<div id="b4ea851d" class="cell" data-hide-output="false" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1"></a><span class="ex">datalad</span> save <span class="at">-m</span> <span class="st">"Add books on Python and Unix to read later"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="ab65c26c" class="cell" data-output-fold="true" data-execution_count="14">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1"></a><span class="ex">datalad</span> save <span class="at">-m</span> <span class="st">"Add books on Python and Unix to read later"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>It is highly recommended to configure Git before using DataLad. Set both 'user.name' and 'user.email' configuration variables.
+CommandError: 'git -c diff.ignoreSubmodules=none -c core.quotepath=false for-each-ref '--format=%(refname:strip=2)' refs/heads refs/remotes' failed with exitcode 128
+fatal: detected dubious ownership in repository at '/app'
+To add an exception for this directory, call:
+
+    git config --global --add safe.directory /app</code></pre>
+</div>
+<div class="cell-output cell-output-error">
+<pre><code>: 128</code></pre>
+</div>
 </div>
 <p>With <code>git log -n 1</code> you can take a look at the most recent commit in the history:</p>
-<div id="170f5c08" class="cell" data-hide-output="false" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1"></a><span class="fu">git</span> log <span class="at">-n</span> 1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="63267afb" class="cell" data-output-fold="true" data-execution_count="15">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1"></a><span class="fu">git</span> log <span class="at">-n</span> 1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>fatal: detected dubious ownership in repository at '/app'
+To add an exception for this directory, call:
+
+    git config --global --add safe.directory /app</code></pre>
+</div>
+<div class="cell-output cell-output-error">
+<pre><code>: 128</code></pre>
+</div>
 </div>
 <p><code>datalad save</code> saves all untracked content to the dataset. Sometimes, this can be inconvenient. One significant advantage of a dataset’s history is that it allows you to revert changes you are not happy with. However, this is only easily possible at the level of single commits. If one save commits several unrelated files or changes, it can be difficult to disentangle them if you ever want to revert some of those changes. To address this, you can provide a path to the specific file you want to save, allowing you to specify more precisely what will be saved together.</p>
 <p>Let’s demonstrate this by adding another book from the internet:</p>
-<div id="3fb20b1c" class="cell" data-hide-output="false" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1"></a><span class="bu">cd</span> books</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="d4fce60a" class="cell" data-output-fold="true" data-execution_count="16">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb32-1"><a href="#cb32-1"></a><span class="bu">cd</span> books</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="84f0ebd0" class="cell" data-execution_count="17">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1"></a><span class="ex">curl</span> <span class="at">-L</span> <span class="at">-o</span> progit.pdf https://github.com/progit/progit2/releases/download/2.1.154/progit.pdf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="2f0e4517" class="cell" data-output-fold="true" data-execution_count="17">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb33-1"><a href="#cb33-1"></a><span class="ex">curl</span> <span class="at">-L</span> <span class="at">-o</span> progit.pdf https://github.com/progit/progit2/releases/download/2.1.154/progit.pdf</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100 11.8M  100 11.8M    0     0  18.3M      0 --:--:-- --:--:-- --:--:-- 18.3M</code></pre>
 </div>
-<div id="7c730e83" class="cell" data-execution_count="18">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1"></a><span class="bu">cd</span> ../</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="51b8ca2c" class="cell" data-execution_count="19">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1"></a><span class="ex">datalad</span> status</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="927b77c7" class="cell" data-output-fold="true" data-execution_count="18">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb35-1"><a href="#cb35-1"></a><span class="bu">cd</span> ../</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="ef1c551b" class="cell" data-output-fold="true" data-execution_count="19">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb36-1"><a href="#cb36-1"></a><span class="ex">datalad</span> status</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>It is highly recommended to configure Git before using DataLad. Set both 'user.name' and 'user.email' configuration variables.
+CommandError: 'git -c diff.ignoreSubmodules=none -c core.quotepath=false for-each-ref '--format=%(refname:strip=2)' refs/heads refs/remotes' failed with exitcode 128
+fatal: detected dubious ownership in repository at '/app'
+To add an exception for this directory, call:
+
+    git config --global --add safe.directory /app</code></pre>
+</div>
+<div class="cell-output cell-output-error">
+<pre><code>: 128</code></pre>
+</div>
 </div>
 <p>Now when you run <code>datalad save</code>, attach a path to the command:</p>
-<div id="58545454" class="cell" data-hide-output="false" data-execution_count="20">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1"></a><span class="ex">datalad</span> save <span class="at">-m</span> <span class="st">"Add reference book about Git"</span> books/progit.pdf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="6a1db9c9" class="cell" data-output-fold="true" data-execution_count="20">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb39-1"><a href="#cb39-1"></a><span class="ex">datalad</span> save <span class="at">-m</span> <span class="st">"Add reference book about Git"</span> books/progit.pdf</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>It is highly recommended to configure Git before using DataLad. Set both 'user.name' and 'user.email' configuration variables.
+CommandError: 'git -c diff.ignoreSubmodules=none -c core.quotepath=false for-each-ref '--format=%(refname:strip=2)' refs/heads refs/remotes' failed with exitcode 128
+fatal: detected dubious ownership in repository at '/app'
+To add an exception for this directory, call:
+
+    git config --global --add safe.directory /app</code></pre>
+</div>
+<div class="cell-output cell-output-error">
+<pre><code>: 128</code></pre>
+</div>
 </div>
 <p>Let’s take a look at files that are frequently modified, such as code or text. To demonstrate this, we will create a file and modify it. We will use a <a href="https://en.wikipedia.org/wiki/Here_document">here doc</a> for this, but you can also write the note using an editor of your choice. If you execute this code snippet, make sure to copy and paste everything, starting with <code>cat</code> and ending with the second <code>EOT</code>.</p>
-<div id="cf5029a7" class="cell" data-hide-output="false" data-execution_count="21">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1"></a><span class="fu">cat</span> <span class="op">&lt;&lt; EOT</span> <span class="op">&gt;</span> notes.txt</span>
-<span id="cb21-2"><a href="#cb21-2"></a><span class="st">A DataLad dataset can be created with "datalad create PATH".</span></span>
-<span id="cb21-3"><a href="#cb21-3"></a><span class="st">The dataset is created empty.</span></span>
-<span id="cb21-4"><a href="#cb21-4"></a></span>
-<span id="cb21-5"><a href="#cb21-5"></a><span class="op">EOT</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="f25ee4fa" class="cell" data-output-fold="true" data-execution_count="21">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb42-1"><a href="#cb42-1"></a><span class="fu">cat</span> <span class="op">&lt;&lt; EOT</span> <span class="op">&gt;</span> notes.txt</span>
+<span id="cb42-2"><a href="#cb42-2"></a><span class="st">A DataLad dataset can be created with "datalad create PATH".</span></span>
+<span id="cb42-3"><a href="#cb42-3"></a><span class="st">The dataset is created empty.</span></span>
+<span id="cb42-4"><a href="#cb42-4"></a></span>
+<span id="cb42-5"><a href="#cb42-5"></a><span class="op">EOT</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><code>datalad status</code> will, as expected, say that there is a new untracked file in the dataset:</p>
-<div id="35f0944a" class="cell" data-hide-output="false" data-execution_count="22">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1"></a><span class="ex">datalad</span> status</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="fdc5346e" class="cell" data-output-fold="true" data-execution_count="22">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb43-1"><a href="#cb43-1"></a><span class="ex">datalad</span> status</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>It is highly recommended to configure Git before using DataLad. Set both 'user.name' and 'user.email' configuration variables.
+CommandError: 'git -c diff.ignoreSubmodules=none -c core.quotepath=false for-each-ref '--format=%(refname:strip=2)' refs/heads refs/remotes' failed with exitcode 128
+fatal: detected dubious ownership in repository at '/app'
+To add an exception for this directory, call:
+
+    git config --global --add safe.directory /app</code></pre>
+</div>
+<div class="cell-output cell-output-error">
+<pre><code>: 128</code></pre>
+</div>
 </div>
 <p>We can save the newly created <code>notes.txt</code>-file with the <code>datalad save</code> command and a helpful commit message. As this is the only change in the dataset, there is no need to provide a path:</p>
-<div id="54a983db" class="cell" data-hide-output="false" data-execution_count="23">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1"></a><span class="ex">datalad</span> save <span class="at">-m</span> <span class="st">"Add notes on datalad create"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="28541935" class="cell" data-output-fold="true" data-execution_count="23">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb46-1"><a href="#cb46-1"></a><span class="ex">datalad</span> save <span class="at">-m</span> <span class="st">"Add notes on datalad create"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>It is highly recommended to configure Git before using DataLad. Set both 'user.name' and 'user.email' configuration variables.
+CommandError: 'git -c diff.ignoreSubmodules=none -c core.quotepath=false for-each-ref '--format=%(refname:strip=2)' refs/heads refs/remotes' failed with exitcode 128
+fatal: detected dubious ownership in repository at '/app'
+To add an exception for this directory, call:
+
+    git config --global --add safe.directory /app</code></pre>
+</div>
+<div class="cell-output cell-output-error">
+<pre><code>: 128</code></pre>
+</div>
 </div>
 <p>Let’s now add another note to modifiy this file:</p>
-<div id="e0968f02" class="cell" data-hide-output="false" data-execution_count="24">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1"></a><span class="fu">cat</span> <span class="op">&lt;&lt; EOT</span> <span class="op">&gt;&gt;</span> notes.txt</span>
-<span id="cb24-2"><a href="#cb24-2"></a><span class="st">The command "datalad save [-m] PATH" saves the file (modifications) to history.</span></span>
-<span id="cb24-3"><a href="#cb24-3"></a><span class="st">Note to self: Always use informative and concise commit messages.</span></span>
-<span id="cb24-4"><a href="#cb24-4"></a></span>
-<span id="cb24-5"><a href="#cb24-5"></a><span class="op">EOT</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="d65800e2" class="cell" data-output-fold="true" data-execution_count="24">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb49-1"><a href="#cb49-1"></a><span class="fu">cat</span> <span class="op">&lt;&lt; EOT</span> <span class="op">&gt;&gt;</span> notes.txt</span>
+<span id="cb49-2"><a href="#cb49-2"></a><span class="st">The command "datalad save [-m] PATH" saves the file (modifications) to history.</span></span>
+<span id="cb49-3"><a href="#cb49-3"></a><span class="st">Note to self: Always use informative and concise commit messages.</span></span>
+<span id="cb49-4"><a href="#cb49-4"></a></span>
+<span id="cb49-5"><a href="#cb49-5"></a><span class="op">EOT</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>A <code>datalad status</code> command reports the file as not untracked. However, because it differs from the state it was saved under, it is reported as modified.</p>
-<div id="e742a546" class="cell" data-hide-output="false" data-execution_count="25">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1"></a><span class="ex">datalad</span> status</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="20919d34" class="cell" data-output-fold="true" data-execution_count="25">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb50-1"><a href="#cb50-1"></a><span class="ex">datalad</span> status</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>It is highly recommended to configure Git before using DataLad. Set both 'user.name' and 'user.email' configuration variables.
+CommandError: 'git -c diff.ignoreSubmodules=none -c core.quotepath=false for-each-ref '--format=%(refname:strip=2)' refs/heads refs/remotes' failed with exitcode 128
+fatal: detected dubious ownership in repository at '/app'
+To add an exception for this directory, call:
+
+    git config --global --add safe.directory /app</code></pre>
+</div>
+<div class="cell-output cell-output-error">
+<pre><code>: 128</code></pre>
+</div>
 </div>
 <p>Let’s save this:</p>
-<div id="49311e9b" class="cell" data-hide-output="false" data-execution_count="26">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1"></a><span class="ex">datalad</span> save <span class="at">-m</span> <span class="st">"Add notes on datalad save"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="bff7eb70" class="cell" data-output-fold="true" data-execution_count="26">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb53-1"><a href="#cb53-1"></a><span class="ex">datalad</span> save <span class="at">-m</span> <span class="st">"Add notes on datalad save"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>It is highly recommended to configure Git before using DataLad. Set both 'user.name' and 'user.email' configuration variables.
+CommandError: 'git -c diff.ignoreSubmodules=none -c core.quotepath=false for-each-ref '--format=%(refname:strip=2)' refs/heads refs/remotes' failed with exitcode 128
+fatal: detected dubious ownership in repository at '/app'
+To add an exception for this directory, call:
+
+    git config --global --add safe.directory /app</code></pre>
+</div>
+<div class="cell-output cell-output-error">
+<pre><code>: 128</code></pre>
+</div>
 </div>
 <p>If you take a look at the history of this file with <code>git log</code>, the history neatly summarizes all of the changes that have been done:</p>
-<div id="6c30fe8d" class="cell" data-hide-output="false" data-execution_count="27">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1"></a><span class="fu">git</span> log <span class="at">-n</span> 2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="3">
+<div id="af0f7446" class="cell" data-output-fold="true" data-execution_count="27">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb56-1"><a href="#cb56-1"></a><span class="fu">git</span> log <span class="at">-n</span> 2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>fatal: detected dubious ownership in repository at '/app'
+To add an exception for this directory, call:
 
+    git config --global --add safe.directory /app</code></pre>
+</div>
+<div class="cell-output cell-output-error">
+<pre><code>: 128</code></pre>
+</div>
 </div>
 </section>
 <section id="dataset-consumption" class="level2">
-<h2 class="anchored" data-anchor-id="dataset-consumption">3. Dataset consumption</h2>
+<h2 class="anchored" data-anchor-id="dataset-consumption">Dataset consumption</h2>
 <p>DataLad lets you consume datasets provided by others, and collaborate with them. You can install existing datasets and update them from their sources, or create sibling datasets that you can publish updates to and pull updates from for collaboration and data sharing.</p>
 <p><img src="https://handbook.datalad.org/en/latest/_images/collaboration.svg" style="width: 600px;"></p>
 <p>To demonstrate this, let’s first create a new subdirectory to be organized:</p>
-<div id="9ed145e0" class="cell" data-hide-output="false" data-execution_count="28">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1"></a><span class="fu">mkdir</span> recordings</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="955b9853" class="cell" data-output-fold="true" data-execution_count="28">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb59-1"><a href="#cb59-1"></a><span class="fu">mkdir</span> recordings</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Afterwards, let’s install an existing dataset, either from a path or a URL. The dataset we want to install in this example is hosted on GitHub, so we will provide its URL to the <code>datalad clone</code> command. We will also specify a path where we want it to be installed. Importantly, we are installing this dataset as a subdataset of <code>DataLad-101</code>, which means we will <em>nest</em> the two datasets inside each other. This is accomplished using the <code>--dataset</code> flag.</p>
-<div id="e962a2f1" class="cell" data-hide-output="false" data-execution_count="29">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1"></a><span class="ex">datalad</span> clone <span class="at">--dataset</span> . https://github.com/datalad-datasets/longnow-podcasts.git recordings/longnow</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="d844128f" class="cell" data-output-fold="true" data-execution_count="29">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb60-1"><a href="#cb60-1"></a><span class="ex">datalad</span> clone <span class="at">--dataset</span> . https://github.com/datalad-datasets/longnow-podcasts.git recordings/longnow</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>It is highly recommended to configure Git before using DataLad. Set both 'user.name' and 'user.email' configuration variables.
+CommandError: 'git -c diff.ignoreSubmodules=none -c core.quotepath=false for-each-ref '--format=%(refname:strip=2)' refs/heads refs/remotes' failed with exitcode 128
+fatal: detected dubious ownership in repository at '/app'
+To add an exception for this directory, call:
+
+    git config --global --add safe.directory /app</code></pre>
+</div>
+<div class="cell-output cell-output-error">
+<pre><code>: 128</code></pre>
+</div>
 </div>
 <p>There are new directories in the <code>DataLad-101</code> dataset. Within these new directories, there are hundreds of MP3 files.</p>
-<div id="46a86bb3" class="cell" data-hide-output="false" data-execution_count="30">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb30-1"><a href="#cb30-1"></a><span class="ex">tree</span> <span class="at">-d</span> <span class="co"># we limit the output of the tree command to directories</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="476db5e0" class="cell" data-output-fold="true" data-execution_count="30">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb63-1"><a href="#cb63-1"></a><span class="ex">tree</span> <span class="at">-d</span> <span class="co"># we limit the output of the tree command to directories</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>.
+├── _extensions
+│&nbsp;&nbsp; └── mcanouil
+│&nbsp;&nbsp;     └── collapse-output
+│&nbsp;&nbsp;         └── _modules
+├── _site
+├── binder
+├── books
+└── recordings
+
+9 directories</code></pre>
+</div>
 </div>
 <p>Let’s move into one of these directories and take a look at its contents:</p>
-<div id="602ed6dd" class="cell" data-execution_count="31">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb31-1"><a href="#cb31-1"></a><span class="bu">cd</span> recordings/longnow/Long_Now__Seminars_About_Long_term_Thinking</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="7524e549" class="cell" data-output-fold="true" data-execution_count="31">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb65-1"><a href="#cb65-1"></a><span class="bu">cd</span> recordings/longnow/Long_Now__Seminars_About_Long_term_Thinking</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>bash: cd: recordings/longnow/Long_Now__Seminars_About_Long_term_Thinking: No such file or directory</code></pre>
 </div>
-<div id="81235075" class="cell" data-execution_count="32">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb32-1"><a href="#cb32-1"></a><span class="fu">ls</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>: 1</code></pre>
+</div>
+</div>
+<div id="dc1a1aea" class="cell" data-output-fold="true" data-execution_count="32">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb68-1"><a href="#cb68-1"></a><span class="fu">ls</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Dockerfile     _quarto.yml      index.quarto_ipynb
+LICENSE        _site        notes.txt
+Makefile       _variables.yml   pyproject.toml
+README.md      binder       recordings
+_colab_install.md  books        setup.qmd
+_extensions    convert_colab.py tutorial.qmd
+_quarto-ci.yml     generate_install.py  tutorial.quarto_ipynb
+_quarto-ipynb.yml  index.qmd        uv.lock</code></pre>
+</div>
 </div>
 <section id="have-access-to-more-data-than-you-have-disk-space-get-and-drop" class="level3">
 <h3 class="anchored" data-anchor-id="have-access-to-more-data-than-you-have-disk-space-get-and-drop">Have access to more data than you have disk space: <code>get</code> and <code>drop</code></h3>
 <p>Here is a crucial and incredibly handy feature of DataLad datasets: After cloning, the dataset contains small files, such as the README, but larger files do not have any content yet. It only retrieved what we can simplistically refer to as file availability metadata, which is displayed as the file hierarchy in the dataset. While we can read the file names and determine what the dataset contains, we don’t have access to the file contents <em>yet</em>. If we were to try to play one of the recordings using the Python <code>Audio</code> functionality, this would fail.</p>
-<div id="fbb29cfc" class="cell" data-hide-output="false" data-execution_count="33">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb33-1"><a href="#cb33-1"></a><span class="co"># vlc --intf dummy --play-and-exit "2003_11_15__Brian_Eno__The_Long_Now.mp3"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="dff28f31" class="cell" data-output-fold="true" data-execution_count="33">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb70-1"><a href="#cb70-1"></a><span class="co"># vlc --intf dummy --play-and-exit "2003_11_15__Brian_Eno__The_Long_Now.mp3"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>This might seem like curious behavior, but there are many advantages to it. One advantage is speed, and another is reduced disk usage. Here is the total size of this dataset:</p>
-<div id="d9f38c29" class="cell" data-hide-output="false" data-execution_count="34">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb34-1"><a href="#cb34-1"></a><span class="bu">cd</span> ../</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="4e0e1eaf" class="cell" data-output-fold="true" data-execution_count="34">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb71-1"><a href="#cb71-1"></a><span class="bu">cd</span> ../</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="b9ea3759" class="cell" data-execution_count="35">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb35-1"><a href="#cb35-1"></a><span class="fu">du</span> <span class="at">-sh</span>  <span class="co"># Unix command to show size of contents</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="68378f25" class="cell" data-output-fold="true" data-execution_count="35">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb72-1"><a href="#cb72-1"></a><span class="fu">du</span> <span class="at">-sh</span>  <span class="co"># Unix command to show size of contents</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>du: cannot access './proc/258/task/258/fd/4': No such file or directory
+du: cannot access './proc/258/task/258/fdinfo/4': No such file or directory
+du: cannot access './proc/258/fd/3': No such file or directory
+du: cannot access './proc/258/fdinfo/3': No such file or directory
+2.1G    .</code></pre>
+</div>
+<div class="cell-output cell-output-error">
+<pre><code>: 1</code></pre>
+</div>
 </div>
 <p>It is tiny! However, we can also find out how large the dataset would be if we had all of its contents by using <code>datalad status</code> with the <code>--annex</code> flag. In total, there are more than 15 GB of podcasts that you now have access to.</p>
-<div id="a083ffb5" class="cell" data-hide-output="false" data-execution_count="36">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb36-1"><a href="#cb36-1"></a><span class="ex">datalad</span> status <span class="at">--annex</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="e51c4145" class="cell" data-output-fold="true" data-execution_count="36">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb75-1"><a href="#cb75-1"></a><span class="ex">datalad</span> status <span class="at">--annex</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<div class="ansi-escaped-output">
+<pre>It is highly recommended to configure Git before using DataLad. Set both 'user.name' and 'user.email' configuration variables.
+
+[<span class="ansi-red-fg ansi-bold">ERROR  </span>] datalad.support.exceptions.NoDatasetFound(No dataset found at '/' for the purpose 'report status'.  Specify a dataset to work with by providing its path via the `dataset` option, or change the current working directory to be in a dataset.) (NoDatasetFound) 
+
+usage: datalad status [-h] [-d DATASET] [--annex [{basic|availability|all}]]
+
+                      [--untracked {no|normal|all}] [-r] [-R LEVELS]
+
+                      [-e {no|commit|full}] [-t {raw|eval}] [--version]
+
+                      [PATH ...]
+</pre>
+</div>
+</div>
+<div class="cell-output cell-output-error">
+<pre><code>: 2</code></pre>
+</div>
 </div>
 <p>You can retrieve individual files, groups of files, directories, or entire datasets using the <code>datalad get</code> command. This command fetches the content for you.</p>
-<div id="e8cc388c" class="cell" data-hide-output="false" data-execution_count="37">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb37-1"><a href="#cb37-1"></a><span class="ex">datalad</span> get Long_Now__Seminars_About_Long_term_Thinking/2003_11_15__Brian_Eno__The_Long_Now.mp3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="84e9e788" class="cell" data-output-fold="true" data-execution_count="37">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb77-1"><a href="#cb77-1"></a><span class="ex">datalad</span> get Long_Now__Seminars_About_Long_term_Thinking/2003_11_15__Brian_Eno__The_Long_Now.mp3</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<div class="ansi-escaped-output">
+<pre>It is highly recommended to configure Git before using DataLad. Set both 'user.name' and 'user.email' configuration variables.
+
+[<span class="ansi-red-fg ansi-bold">ERROR  </span>] datalad.support.exceptions.NoDatasetFound(No dataset found at '/' for the purpose "get content of &lt;&lt;['Long_Now__Se++69 chars++p3']&gt;&gt;".  Specify a dataset to work with by providing its path via the `dataset` option, or change the current working directory to be in a dataset.) (NoDatasetFound) 
+
+usage: datalad get [-h] [-s LABEL] [-d PATH] [-r] [-R LEVELS] [-n]
+
+                   [-D DESCRIPTION] [--reckless [auto|ephemeral|shared-...]]
+
+                   [-J NJOBS] [--version]
+
+                   [PATH ...]
+</pre>
+</div>
+</div>
+<div class="cell-output cell-output-error">
+<pre><code>: 2</code></pre>
+</div>
 </div>
 <p>Content that is already present is not re-retrieved.</p>
-<div id="87ee19db" class="cell" data-hide-output="false" data-execution_count="38">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb38-1"><a href="#cb38-1"></a><span class="ex">datalad</span> get Long_Now__Seminars_About_Long_term_Thinking/2003_11_15__Brian_Eno__The_Long_Now.mp3  <span class="dt">\L</span>ong_Now__Seminars_About_Long_term_Thinking/2003_12_13__Peter_Schwartz__The_Art_Of_The_Really_Long_View.mp3  <span class="dt">\L</span>ong_Now__Seminars_About_Long_term_Thinking/2004_01_10__George_Dyson__There_s_Plenty_of_Room_at_the_Top__Long_term_Thinking_About_Large_scale_Computing.mp3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="75cfa20e" class="cell" data-output-fold="true" data-execution_count="38">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb79"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb79-1"><a href="#cb79-1"></a><span class="ex">datalad</span> get Long_Now__Seminars_About_Long_term_Thinking/2003_11_15__Brian_Eno__The_Long_Now.mp3  <span class="dt">\L</span>ong_Now__Seminars_About_Long_term_Thinking/2003_12_13__Peter_Schwartz__The_Art_Of_The_Really_Long_View.mp3  <span class="dt">\L</span>ong_Now__Seminars_About_Long_term_Thinking/2004_01_10__George_Dyson__There_s_Plenty_of_Room_at_the_Top__Long_term_Thinking_About_Large_scale_Computing.mp3</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<div class="ansi-escaped-output">
+<pre>It is highly recommended to configure Git before using DataLad. Set both 'user.name' and 'user.email' configuration variables.
+
+[<span class="ansi-red-fg ansi-bold">ERROR  </span>] datalad.support.exceptions.NoDatasetFound(No dataset found at '/' for the purpose "get content of &lt;&lt;['Long_Now__Se++339 chars++p3']&gt;&gt;".  Specify a dataset to work with by providing its path via the `dataset` option, or change the current working directory to be in a dataset.) (NoDatasetFound) 
+
+usage: datalad get [-h] [-s LABEL] [-d PATH] [-r] [-R LEVELS] [-n]
+
+                   [-D DESCRIPTION] [--reckless [auto|ephemeral|shared-...]]
+
+                   [-J NJOBS] [--version]
+
+                   [PATH ...]
+</pre>
+</div>
+</div>
+<div class="cell-output cell-output-error">
+<pre><code>: 2</code></pre>
+</div>
 </div>
 <p>If you no longer need the data locally, you can drop the content from your dataset to save disk space.</p>
-<div id="456f7857" class="cell" data-hide-output="false" data-execution_count="39">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb39-1"><a href="#cb39-1"></a><span class="ex">datalad</span> drop Long_Now__Seminars_About_Long_term_Thinking/2003_12_13__Peter_Schwartz__The_Art_Of_The_Really_Long_View.mp3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="663e1f06" class="cell" data-output-fold="true" data-execution_count="39">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb81"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb81-1"><a href="#cb81-1"></a><span class="ex">datalad</span> drop Long_Now__Seminars_About_Long_term_Thinking/2003_12_13__Peter_Schwartz__The_Art_Of_The_Really_Long_View.mp3</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<div class="ansi-escaped-output">
+<pre>It is highly recommended to configure Git before using DataLad. Set both 'user.name' and 'user.email' configuration variables.
+
+[<span class="ansi-red-fg ansi-bold">ERROR  </span>] datalad.support.exceptions.NoDatasetFound(No dataset found at '/' for the purpose 'drop'.  Specify a dataset to work with by providing its path via the `dataset` option, or change the current working directory to be in a dataset.) (NoDatasetFound) 
+
+usage: datalad drop [-h] [--what {filecontent|allkeys|datasets|all}]
+
+                    [--reckless {modification|availability|undead|kill}]
+
+                    [-d DATASET] [-r] [-R LEVELS] [-J NJOBS] [--nocheck]
+
+                    [--if-dirty IF_DIRTY] [--version]
+
+                    [PATH ...]
+</pre>
+</div>
+</div>
+<div class="cell-output cell-output-error">
+<pre><code>: 2</code></pre>
+</div>
 </div>
 <p>Afterwards, as long as DataLad knows where a file came from, its content can be retrieved again.</p>
-<div id="e9197b46" class="cell" data-hide-output="false" data-execution_count="40">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb40-1"><a href="#cb40-1"></a><span class="ex">datalad</span> get Long_Now__Seminars_About_Long_term_Thinking/2003_12_13__Peter_Schwartz__The_Art_Of_The_Really_Long_View.mp3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="4">
+<div id="04395d6f" class="cell" data-output-fold="true" data-execution_count="40">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb83"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb83-1"><a href="#cb83-1"></a><span class="ex">datalad</span> get Long_Now__Seminars_About_Long_term_Thinking/2003_12_13__Peter_Schwartz__The_Art_Of_The_Really_Long_View.mp3</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<div class="ansi-escaped-output">
+<pre>It is highly recommended to configure Git before using DataLad. Set both 'user.name' and 'user.email' configuration variables.
 
+[<span class="ansi-red-fg ansi-bold">ERROR  </span>] datalad.support.exceptions.NoDatasetFound(No dataset found at '/' for the purpose "get content of &lt;&lt;['Long_Now__Se++93 chars++p3']&gt;&gt;".  Specify a dataset to work with by providing its path via the `dataset` option, or change the current working directory to be in a dataset.) (NoDatasetFound) 
+
+usage: datalad get [-h] [-s LABEL] [-d PATH] [-r] [-R LEVELS] [-n]
+
+                   [-D DESCRIPTION] [--reckless [auto|ephemeral|shared-...]]
+
+                   [-J NJOBS] [--version]
+
+                   [PATH ...]
+</pre>
+</div>
+</div>
+<div class="cell-output cell-output-error">
+<pre><code>: 2</code></pre>
+</div>
 </div>
 </section>
 </section>
 <section id="dataset-nesting" class="level2">
-<h2 class="anchored" data-anchor-id="dataset-nesting">4. Dataset nesting</h2>
+<h2 class="anchored" data-anchor-id="dataset-nesting">Dataset nesting</h2>
 <p>Datasets can contain other datasets (subdatasets), nested arbitrarily deep. Each dataset has an independent revision history, but can be registered at a precise version in higher-level datasets. This allows to combine datasets and to perform commands recursively across a hierarchy of datasets, and it is the basis for advanced provenance capture abilities.</p>
 <p><img src="https://handbook.datalad.org/en/latest/_images/linkage_subds.svg" style="width: 600px;"></p>
 <p>Let’s take a look at the history of the <code>longnow</code> subdataset. We can see that it has preserved its history completely. This means that the data we retrieved retains all of its provenance.</p>
-<div id="24fedc72" class="cell" data-hide-output="false" data-execution_count="41">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb41-1"><a href="#cb41-1"></a><span class="fu">git</span> log <span class="at">--reverse</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="c4eebaa8" class="cell" data-output-fold="true" data-execution_count="41">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb85"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb85-1"><a href="#cb85-1"></a><span class="fu">git</span> log <span class="at">--reverse</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>fatal: not a git repository (or any of the parent directories): .git</code></pre>
+</div>
+<div class="cell-output cell-output-error">
+<pre><code>: 128</code></pre>
+</div>
 </div>
 <p>How does this look in the top-level dataset? If we query the history of <code>DataLad-101</code>, there will be no commits related to MP3 files or any of the commits we have seen in the subdataset. Instead, we can see that the superdataset recorded the <code>recordings/longnow</code> dataset as a subdataset. This means it recorded where this dataset came from and what version it is in.</p>
-<div id="58e4c01e" class="cell" data-hide-output="false" data-execution_count="42">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb42-1"><a href="#cb42-1"></a><span class="bu">cd</span> ../../</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="2c8fbe84" class="cell" data-output-fold="true" data-execution_count="42">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb88"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb88-1"><a href="#cb88-1"></a><span class="bu">cd</span> ../../</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="bedc533e" class="cell" data-execution_count="43">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb43-1"><a href="#cb43-1"></a><span class="fu">git</span> log <span class="at">-n</span> 1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="414d32f2" class="cell" data-output-fold="true" data-execution_count="43">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb89"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb89-1"><a href="#cb89-1"></a><span class="fu">git</span> log <span class="at">-n</span> 1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>fatal: not a git repository (or any of the parent directories): .git</code></pre>
+</div>
+<div class="cell-output cell-output-error">
+<pre><code>: 128</code></pre>
+</div>
 </div>
 <p>The subproject commit registered the most recent commit of the subdataset, and thus the subdataset version:</p>
-<div id="34fe37b9" class="cell" data-hide-output="false" data-execution_count="44">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb44-1"><a href="#cb44-1"></a><span class="bu">cd</span> recordings/longnow</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="e5ba917c" class="cell" data-output-fold="true" data-execution_count="44">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb92"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb92-1"><a href="#cb92-1"></a><span class="bu">cd</span> recordings/longnow</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>bash: cd: recordings/longnow: No such file or directory</code></pre>
 </div>
-<div id="e5734c96" class="cell" data-execution_count="45">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb45-1"><a href="#cb45-1"></a><span class="fu">git</span> log <span class="at">--oneline</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>: 1</code></pre>
 </div>
-<div id="db47704f" class="cell" data-execution_count="46">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb46-1"><a href="#cb46-1"></a><span class="bu">cd</span> ../../</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="5">
-
+<div id="734f4352" class="cell" data-output-fold="true" data-execution_count="45">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb95"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb95-1"><a href="#cb95-1"></a><span class="fu">git</span> log <span class="at">--oneline</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>fatal: not a git repository (or any of the parent directories): .git</code></pre>
+</div>
+<div class="cell-output cell-output-error">
+<pre><code>: 128</code></pre>
+</div>
+</div>
+<div id="7004bb5c" class="cell" data-output-fold="true" data-execution_count="46">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb98"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb98-1"><a href="#cb98-1"></a><span class="bu">cd</span> ../../</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="more-on-data-versioning-nesting-and-a-glimpse-into-reproducible-paper" class="level2">
-<h2 class="anchored" data-anchor-id="more-on-data-versioning-nesting-and-a-glimpse-into-reproducible-paper">5. More on data versioning, nesting, and a glimpse into reproducible paper</h2>
+<h2 class="anchored" data-anchor-id="more-on-data-versioning-nesting-and-a-glimpse-into-reproducible-paper">More on data versioning, nesting, and a glimpse into reproducible paper</h2>
 <p>We’ll clone a repository for a <a href="https://doi.org/10.3758/s13428-020-01428-x">paper</a> that <a href="https://github.com/psychoinformatics-de/paper-remodnav/">shares manuscript, code, and data</a>:</p>
-<div id="f3d56d0d" class="cell" data-hide-output="false" data-execution_count="47">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb47-1"><a href="#cb47-1"></a><span class="bu">cd</span> ../</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="055e60f1" class="cell" data-output-fold="true" data-execution_count="47">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb99"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb99-1"><a href="#cb99-1"></a><span class="bu">cd</span> ../</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="cf06928e" class="cell" data-execution_count="48">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb48-1"><a href="#cb48-1"></a><span class="ex">datalad</span> clone https://github.com/psychoinformatics-de/paper-remodnav.git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="df4af107" class="cell" data-output-fold="true" data-execution_count="48">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb100"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb100-1"><a href="#cb100-1"></a><span class="ex">datalad</span> clone https://github.com/psychoinformatics-de/paper-remodnav.git</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<div class="ansi-escaped-output">
+<pre>It is highly recommended to configure Git before using DataLad. Set both 'user.name' and 'user.email' configuration variables.
+
+
+Cloning:   0%|                             | 0.00/2.00 [00:00&lt;?, ? candidates/s]
+
+
+Enumerating: 0.00 Objects [00:00, ? Objects/s]
+
+
+                                              
+
+
+Counting:   0%|                                | 0.00/802 [00:00&lt;?, ? Objects/s]
+
+
+                                                                                
+
+
+Compressing:   0%|                             | 0.00/375 [00:00&lt;?, ? Objects/s]
+
+
+                                                                                
+
+
+Receiving:   0%|                             | 0.00/2.11k [00:00&lt;?, ? Objects/s]
+
+
+Receiving:  19%|████▏                 | 401/2.11k [00:00&lt;00:00, 3.08k Objects/s]
+
+
+Receiving:  34%|███████▍              | 718/2.11k [00:00&lt;00:00, 1.44k Objects/s]
+
+
+Receiving:  58%|███████████▌        | 1.22k/2.11k [00:00&lt;00:00, 2.24k Objects/s]
+
+
+                                                                                
+
+
+Resolving:   0%|                              | 0.00/1.09k [00:00&lt;?, ? Deltas/s]
+
+
+                                                                                
+                                                                                
+<span class="ansi-bold">install</span>(<span class="ansi-red-fg ansi-bold">error</span>): /paper-remodnav (<span class="ansi-magenta-fg ansi-bold">dataset</span>) [No working git-annex installation of version &gt;= 10.20230126. Visit http://handbook.datalad.org/r.html?install for instructions on how to install DataLad and git-annex.]<span class="ansi-red-fg ansi-bold"> [No working git-annex installation of version &gt;= 10.20230126. Visit http://handbook.datalad.org/r.html?install for instructions on how to install DataLad and git-annex.]</span>
+</pre>
+</div>
+</div>
+<div class="cell-output cell-output-error">
+<pre><code>: 1</code></pre>
+</div>
 </div>
 <p>The top-level dataset has many subdatasets. One of it, <code>remodnav</code>, is a dataset that contains the sourcecode for a Python package called <code>remodnav</code> used in eyetracking analyses:</p>
-<div id="658455e2" class="cell" data-hide-output="false" data-execution_count="49">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb49-1"><a href="#cb49-1"></a><span class="bu">cd</span> paper-remodnav</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="44426144" class="cell" data-output-fold="true" data-execution_count="49">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb102"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb102-1"><a href="#cb102-1"></a><span class="bu">cd</span> paper-remodnav</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>bash: cd: paper-remodnav: No such file or directory</code></pre>
 </div>
-<div id="d1d42864" class="cell" data-execution_count="50">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb50-1"><a href="#cb50-1"></a><span class="ex">datalad</span> subdatasets</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>: 1</code></pre>
+</div>
+</div>
+<div id="8ca423c2" class="cell" data-output-fold="true" data-execution_count="50">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb105"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb105-1"><a href="#cb105-1"></a><span class="ex">datalad</span> subdatasets</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<div class="ansi-escaped-output">
+<pre>It is highly recommended to configure Git before using DataLad. Set both 'user.name' and 'user.email' configuration variables.
+
+[<span class="ansi-red-fg ansi-bold">ERROR  </span>] datalad.support.exceptions.NoDatasetFound(No dataset found at '/' for the purpose 'report on subdataset(s)'.  Specify a dataset to work with by providing its path via the `dataset` option, or change the current working directory to be in a dataset.) (NoDatasetFound) 
+
+usage: datalad subdatasets [-h] [-d DATASET] [--state {present|absent|any}]
+
+                           [--fulfilled FULFILLED] [-r] [-R LEVELS]
+
+                           [--contains PATH] [--bottomup]
+
+                           [--set-property NAME VALUE]
+
+                           [--delete-property NAME] [--version]
+
+                           [PATH ...]
+</pre>
+</div>
+</div>
+<div class="cell-output cell-output-error">
+<pre><code>: 2</code></pre>
+</div>
 </div>
 <p>After cloning a dataset, its subdatasets will be recognized, but just as content is not yet retrieved for files in datasets, the subdatasets of datasets are not yet installed. If we navigate into an uninstalled subdataset, it will appear as an empty directory.</p>
-<div id="e8b6ed29" class="cell" data-hide-output="false" data-execution_count="51">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb51-1"><a href="#cb51-1"></a><span class="bu">cd</span> remodnav</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="8c9e7d3d" class="cell" data-output-fold="true" data-execution_count="51">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb107"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb107-1"><a href="#cb107-1"></a><span class="bu">cd</span> remodnav</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>bash: cd: remodnav: No such file or directory</code></pre>
 </div>
-<div id="93258600" class="cell" data-execution_count="52">
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb52-1"><a href="#cb52-1"></a><span class="fu">ls</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>: 1</code></pre>
+</div>
+</div>
+<div id="30b3d7e1" class="cell" data-output-fold="true" data-execution_count="52">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb110"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb110-1"><a href="#cb110-1"></a><span class="fu">ls</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>app  boot  etc   lib    media  opt   root  sbin  sys  usr
+bin  dev   home  lib64  mnt    proc  run   srv   tmp  var</code></pre>
+</div>
 </div>
 <p>In order to install a subdataset, we use <code>datalad get</code> with the <code>--recursive</code> flag:</p>
-<div id="9ca29e2e" class="cell" data-hide-output="false" data-execution_count="53">
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb53-1"><a href="#cb53-1"></a><span class="ex">datalad</span> get <span class="at">--recursive</span> <span class="at">--recursion-limit</span> 2 <span class="at">-n</span> .</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="f60c9e62" class="cell" data-output-fold="true" data-execution_count="53">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb112"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb112-1"><a href="#cb112-1"></a><span class="ex">datalad</span> get <span class="at">--recursive</span> <span class="at">--recursion-limit</span> 2 <span class="at">-n</span> .</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<div class="ansi-escaped-output">
+<pre>It is highly recommended to configure Git before using DataLad. Set both 'user.name' and 'user.email' configuration variables.
+
+[<span class="ansi-red-fg ansi-bold">ERROR  </span>] datalad.support.exceptions.NoDatasetFound(No dataset found at '/' for the purpose "get content of ['.']".  Specify a dataset to work with by providing its path via the `dataset` option, or change the current working directory to be in a dataset.) (NoDatasetFound) 
+
+usage: datalad get [-h] [-s LABEL] [-d PATH] [-r] [-R LEVELS] [-n]
+
+                   [-D DESCRIPTION] [--reckless [auto|ephemeral|shared-...]]
+
+                   [-J NJOBS] [--version]
+
+                   [PATH ...]
+</pre>
 </div>
-<div id="46406919" class="cell" data-execution_count="54">
-<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb54-1"><a href="#cb54-1"></a><span class="fu">ls</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell-output cell-output-error">
+<pre><code>: 2</code></pre>
+</div>
+</div>
+<div id="1abf741c" class="cell" data-output-fold="true" data-execution_count="54">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb114"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb114-1"><a href="#cb114-1"></a><span class="fu">ls</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>app  boot  etc   lib    media  opt   root  sbin  sys  usr
+bin  dev   home  lib64  mnt    proc  run   srv   tmp  var</code></pre>
+</div>
 </div>
 <p>This command not only retrieves file contents, but it also installs subdatasets. So, if you want to be really lazy, just run <code>datalad get --recursive -n</code> in the root of a dataset to install all available subdatasets. The <code>-n</code> option prevents <code>get</code> from downloading any data, so only the subdatasets are installed without any data being downloaded. Here, the depth of recursion is limited. For one, it would take a while to install all subdatasets, but the very raw eye tracking dataset contains subject IDs that should not be shared. Therefore, this subdataset is not accessible. If you try to install all subdatasets, the source eye tracking data will throw an error, because it is not made publicly available.</p>
 <p>Afterwards, you can see that the <code>remodnav</code> subdataset also contains further subdatasets. In this case, these subdatasets contain data used for testing and validating software performance.</p>
-<div id="b88f933d" class="cell" data-hide-output="false" data-execution_count="55">
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb55-1"><a href="#cb55-1"></a><span class="ex">datalad</span> subdatasets</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="4a4ed297" class="cell" data-output-fold="true" data-execution_count="55">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb116"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb116-1"><a href="#cb116-1"></a><span class="ex">datalad</span> subdatasets</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<div class="ansi-escaped-output">
+<pre>It is highly recommended to configure Git before using DataLad. Set both 'user.name' and 'user.email' configuration variables.
+
+[<span class="ansi-red-fg ansi-bold">ERROR  </span>] datalad.support.exceptions.NoDatasetFound(No dataset found at '/' for the purpose 'report on subdataset(s)'.  Specify a dataset to work with by providing its path via the `dataset` option, or change the current working directory to be in a dataset.) (NoDatasetFound) 
+
+usage: datalad subdatasets [-h] [-d DATASET] [--state {present|absent|any}]
+
+                           [--fulfilled FULFILLED] [-r] [-R LEVELS]
+
+                           [--contains PATH] [--bottomup]
+
+                           [--set-property NAME VALUE]
+
+                           [--delete-property NAME] [--version]
+
+                           [PATH ...]
+</pre>
+</div>
+</div>
+<div class="cell-output cell-output-error">
+<pre><code>: 2</code></pre>
+</div>
 </div>
 <p>One of the validation data subdatasets came from another lab that shared their data. After the researchers were almost finished with their paper, they found another paper that reported a mistake in this data. The mistake was still present in the data they were using. By inspecting the history of this dataset, you can see that at one point, they contributed a fix that changed the data.</p>
-<div id="33cfb348" class="cell" data-hide-output="false" data-execution_count="56">
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb56-1"><a href="#cb56-1"></a><span class="bu">cd</span> remodnav/tests/data/anderson_etal</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="b36ace1c" class="cell" data-output-fold="true" data-execution_count="56">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb118"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb118-1"><a href="#cb118-1"></a><span class="bu">cd</span> remodnav/tests/data/anderson_etal</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>bash: cd: remodnav/tests/data/anderson_etal: No such file or directory</code></pre>
 </div>
-<div id="3d7e660a" class="cell" data-execution_count="57">
-<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb57-1"><a href="#cb57-1"></a><span class="fu">git</span> log <span class="at">-n</span> 3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>: 1</code></pre>
+</div>
+</div>
+<div id="22aaf1b1" class="cell" data-output-fold="true" data-execution_count="57">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb121"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb121-1"><a href="#cb121-1"></a><span class="fu">git</span> log <span class="at">-n</span> 3</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>fatal: not a git repository (or any of the parent directories): .git</code></pre>
+</div>
+<div class="cell-output cell-output-error">
+<pre><code>: 128</code></pre>
+</div>
 </div>
 <p>Because DataLad can link subdatasets to precise versions, it is possible to consciously decide and openly record which version of the data is used. It is also possible to test how much results change by resetting the subdataset to an earlier state or updating the dataset to a more recent version.</p>
-<div id="6">
-
-</div>
 </section>
 <section id="full-provenance-capture-and-reproducibility" class="level2">
-<h2 class="anchored" data-anchor-id="full-provenance-capture-and-reproducibility">6. Full provenance capture and reproducibility</h2>
+<h2 class="anchored" data-anchor-id="full-provenance-capture-and-reproducibility">Full provenance capture and reproducibility</h2>
 <p>DataLad allows to capture full provenance (i.e., a record that describes entities and processes that were involved in producing or influencing a digital resource): The origin of datasets, the origin of files obtained from web sources, complete machine-readable and automatically reproducible records of how files were created (including software environments). You or your collaborators can thus reobtain or reproducibly recompute content with a single command, and make use of extensive provenance of dataset content (who created it, when, and how?).</p>
 <p><img src="https://handbook.datalad.org/en/latest/_images/reproducible_execution.svg" style="width: 600px;"></p>
-<div id="63979352" class="cell" data-hide-output="false" data-execution_count="58">
-<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb58-1"><a href="#cb58-1"></a><span class="bu">cd</span> ../../../../../../</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="0dc08e52" class="cell" data-output-fold="true" data-execution_count="58">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb124"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb124-1"><a href="#cb124-1"></a><span class="bu">cd</span> ../../../../../../</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>First, create a new dataset, in this case with the <code>yoda</code> configuration:</p>
-<div id="955785d6" class="cell" data-hide-output="false" data-execution_count="59">
-<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb59-1"><a href="#cb59-1"></a><span class="ex">datalad</span> create <span class="at">-c</span> yoda myanalysis</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="32a4cf24" class="cell" data-output-fold="true" data-execution_count="59">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb125"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb125-1"><a href="#cb125-1"></a><span class="ex">datalad</span> create <span class="at">-c</span> yoda myanalysis</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<div class="ansi-escaped-output">
+<pre>It is highly recommended to configure Git before using DataLad. Set both 'user.name' and 'user.email' configuration variables.
+
+[<span class="ansi-red-fg ansi-bold">ERROR  </span>] No working git-annex installation of version &gt;= 10.20230126. Visit http://handbook.datalad.org/r.html?install for instructions on how to install DataLad and git-annex. 
+</pre>
+</div>
+</div>
+<div class="cell-output cell-output-error">
+<pre><code>: 1</code></pre>
+</div>
 </div>
 <p>This sets up a helpful structure for my dataset with a code directory and some README files, and applies helpful configurations:</p>
-<div id="00d5359e" class="cell" data-hide-output="false" data-execution_count="60">
-<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb60-1"><a href="#cb60-1"></a><span class="bu">cd</span> myanalysis</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="bf6ad435" class="cell" data-output-fold="true" data-execution_count="60">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb127"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb127-1"><a href="#cb127-1"></a><span class="bu">cd</span> myanalysis</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="fccf915f" class="cell" data-execution_count="61">
-<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb61-1"><a href="#cb61-1"></a><span class="ex">tree</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="48d3bbe3" class="cell" data-output-fold="true" data-execution_count="61">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb128"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb128-1"><a href="#cb128-1"></a><span class="ex">tree</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>.
+
+0 directories, 0 files</code></pre>
+</div>
 </div>
 <p>Read more about the YODA principles and the YODA configuration in the <a href="https://handbook.datalad.org/en/latest/basics/101-127-yoda.html">section on YODA</a> in the DataLad Handbook.</p>
 <p>Next, install the input data as a subdataset. For this, the DataLad developers created a <a href="https://github.com/datalad-handbook/iris_data.git">DataLad dataset</a> with the <a href="https://en.wikipedia.org/wiki/Iris_flower_data_set">“iris” data</a> and published it on GitHub. Here, we’re installing it into a directory named <code>input</code>.</p>
-<div id="d48e8265" class="cell" data-hide-output="false" data-execution_count="62">
-<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb62-1"><a href="#cb62-1"></a><span class="ex">datalad</span> clone <span class="at">-d</span> . https://github.com/datalad-handbook/iris_data.git input/</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="7b46f806" class="cell" data-output-fold="true" data-execution_count="62">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb130"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb130-1"><a href="#cb130-1"></a><span class="ex">datalad</span> clone <span class="at">-d</span> . https://github.com/datalad-handbook/iris_data.git input/</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<div class="ansi-escaped-output">
+<pre>It is highly recommended to configure Git before using DataLad. Set both 'user.name' and 'user.email' configuration variables.
+
+
+Cloning:   0%|                             | 0.00/2.00 [00:00&lt;?, ? candidates/s]
+
+
+Enumerating: 0.00 Objects [00:00, ? Objects/s]
+
+
+                                              
+
+
+Counting:   0%|                               | 0.00/25.0 [00:00&lt;?, ? Objects/s]
+
+
+                                                                                
+
+
+Compressing:   0%|                            | 0.00/19.0 [00:00&lt;?, ? Objects/s]
+
+
+                                                                                
+
+
+Receiving:   0%|                              | 0.00/25.0 [00:00&lt;?, ? Objects/s]
+
+
+                                                                                
+
+
+Resolving:   0%|                               | 0.00/3.00 [00:00&lt;?, ? Deltas/s]
+
+
+                                                                                
+                                                                                
+<span class="ansi-bold">install</span>(<span class="ansi-red-fg ansi-bold">error</span>): input (<span class="ansi-magenta-fg ansi-bold">dataset</span>) [No working git-annex installation of version &gt;= 10.20230126. Visit http://handbook.datalad.org/r.html?install for instructions on how to install DataLad and git-annex.]<span class="ansi-red-fg ansi-bold"> [No working git-annex installation of version &gt;= 10.20230126. Visit http://handbook.datalad.org/r.html?install for instructions on how to install DataLad and git-annex.]</span>
+</pre>
+</div>
+</div>
+<div class="cell-output cell-output-error">
+<pre><code>: 1</code></pre>
+</div>
 </div>
 <p>The last thing needed is code to run on the data and produce results. For this, here is a k-means classification analysis script written in Python. You can find more details about this analysis in the <a href="https://handbook.datalad.org/en/latest/basics/101-130-yodaproject.html">section on a YODA-compliant data analysis projects</a>.</p>
-<div id="0ba10011" class="cell" data-hide-output="false" data-execution_count="63">
-<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb63-1"><a href="#cb63-1"></a><span class="fu">cat</span> <span class="op">&lt;&lt; EOT</span> <span class="op">&gt;</span> code/script.py</span>
-<span id="cb63-2"><a href="#cb63-2"></a></span>
-<span id="cb63-3"><a href="#cb63-3"></a><span class="st">import pandas as pd</span></span>
-<span id="cb63-4"><a href="#cb63-4"></a><span class="st">import seaborn as sns</span></span>
-<span id="cb63-5"><a href="#cb63-5"></a><span class="st">import datalad.api as dl</span></span>
-<span id="cb63-6"><a href="#cb63-6"></a><span class="st">from sklearn import model_selection</span></span>
-<span id="cb63-7"><a href="#cb63-7"></a><span class="st">from sklearn.neighbors import KNeighborsClassifier</span></span>
-<span id="cb63-8"><a href="#cb63-8"></a><span class="st">from sklearn.metrics import classification_report</span></span>
-<span id="cb63-9"><a href="#cb63-9"></a></span>
-<span id="cb63-10"><a href="#cb63-10"></a><span class="st">data = "input/iris.csv"</span></span>
-<span id="cb63-11"><a href="#cb63-11"></a></span>
-<span id="cb63-12"><a href="#cb63-12"></a><span class="st"># make sure that the data are obtained (get will also install linked sub-ds!):</span></span>
-<span id="cb63-13"><a href="#cb63-13"></a><span class="st">dl.get(data)</span></span>
-<span id="cb63-14"><a href="#cb63-14"></a></span>
-<span id="cb63-15"><a href="#cb63-15"></a><span class="st"># prepare the data as a pandas dataframe</span></span>
-<span id="cb63-16"><a href="#cb63-16"></a><span class="st">df = pd.read_csv(data)</span></span>
-<span id="cb63-17"><a href="#cb63-17"></a><span class="st">attributes = ["sepal_length", "sepal_width", "petal_length","petal_width", "class"]</span></span>
-<span id="cb63-18"><a href="#cb63-18"></a><span class="st">df.columns = attributes</span></span>
-<span id="cb63-19"><a href="#cb63-19"></a></span>
-<span id="cb63-20"><a href="#cb63-20"></a><span class="st"># create a pairplot to plot pairwise relationships in the dataset</span></span>
-<span id="cb63-21"><a href="#cb63-21"></a><span class="st">plot = sns.pairplot(df, hue='class', palette='muted')</span></span>
-<span id="cb63-22"><a href="#cb63-22"></a><span class="st">plot.savefig('pairwise_relationships.png')</span></span>
-<span id="cb63-23"><a href="#cb63-23"></a></span>
-<span id="cb63-24"><a href="#cb63-24"></a><span class="st"># perform a K-nearest-neighbours classification with scikit-learn</span></span>
-<span id="cb63-25"><a href="#cb63-25"></a><span class="st"># Step 1: split data in test and training dataset (20:80)</span></span>
-<span id="cb63-26"><a href="#cb63-26"></a><span class="st">array = df.values</span></span>
-<span id="cb63-27"><a href="#cb63-27"></a><span class="st">X = array[:,0:4]</span></span>
-<span id="cb63-28"><a href="#cb63-28"></a><span class="st">Y = array[:,4]</span></span>
-<span id="cb63-29"><a href="#cb63-29"></a><span class="st">test_size = 0.20</span></span>
-<span id="cb63-30"><a href="#cb63-30"></a><span class="st">seed = 7</span></span>
-<span id="cb63-31"><a href="#cb63-31"></a><span class="st">X_train, X_test, Y_train, Y_test = model_selection.train_test_split(X, Y,</span></span>
-<span id="cb63-32"><a href="#cb63-32"></a><span class="st">                                                                    test_size=test_size,</span></span>
-<span id="cb63-33"><a href="#cb63-33"></a><span class="st">                                                                    random_state=seed)</span></span>
-<span id="cb63-34"><a href="#cb63-34"></a><span class="st"># Step 2: Fit the model and make predictions on the test dataset</span></span>
-<span id="cb63-35"><a href="#cb63-35"></a><span class="st">knn = KNeighborsClassifier()</span></span>
-<span id="cb63-36"><a href="#cb63-36"></a><span class="st">knn.fit(X_train, Y_train)</span></span>
-<span id="cb63-37"><a href="#cb63-37"></a><span class="st">predictions = knn.predict(X_test)</span></span>
-<span id="cb63-38"><a href="#cb63-38"></a></span>
-<span id="cb63-39"><a href="#cb63-39"></a><span class="st"># Step 3: Save the classification report</span></span>
-<span id="cb63-40"><a href="#cb63-40"></a><span class="st">report = classification_report(Y_test, predictions, output_dict=True)</span></span>
-<span id="cb63-41"><a href="#cb63-41"></a><span class="st">df_report = pd.DataFrame(report).transpose().to_csv('prediction_report.csv')</span></span>
-<span id="cb63-42"><a href="#cb63-42"></a></span>
-<span id="cb63-43"><a href="#cb63-43"></a><span class="op">EOT</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="dbcff6dd" class="cell" data-output-fold="true" data-execution_count="63">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb132"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb132-1"><a href="#cb132-1"></a><span class="fu">cat</span> <span class="op">&lt;&lt; EOT</span> <span class="op">&gt;</span> code/script.py</span>
+<span id="cb132-2"><a href="#cb132-2"></a></span>
+<span id="cb132-3"><a href="#cb132-3"></a><span class="st">import pandas as pd</span></span>
+<span id="cb132-4"><a href="#cb132-4"></a><span class="st">import seaborn as sns</span></span>
+<span id="cb132-5"><a href="#cb132-5"></a><span class="st">import datalad.api as dl</span></span>
+<span id="cb132-6"><a href="#cb132-6"></a><span class="st">from sklearn import model_selection</span></span>
+<span id="cb132-7"><a href="#cb132-7"></a><span class="st">from sklearn.neighbors import KNeighborsClassifier</span></span>
+<span id="cb132-8"><a href="#cb132-8"></a><span class="st">from sklearn.metrics import classification_report</span></span>
+<span id="cb132-9"><a href="#cb132-9"></a></span>
+<span id="cb132-10"><a href="#cb132-10"></a><span class="st">data = "input/iris.csv"</span></span>
+<span id="cb132-11"><a href="#cb132-11"></a></span>
+<span id="cb132-12"><a href="#cb132-12"></a><span class="st"># make sure that the data are obtained (get will also install linked sub-ds!):</span></span>
+<span id="cb132-13"><a href="#cb132-13"></a><span class="st">dl.get(data)</span></span>
+<span id="cb132-14"><a href="#cb132-14"></a></span>
+<span id="cb132-15"><a href="#cb132-15"></a><span class="st"># prepare the data as a pandas dataframe</span></span>
+<span id="cb132-16"><a href="#cb132-16"></a><span class="st">df = pd.read_csv(data)</span></span>
+<span id="cb132-17"><a href="#cb132-17"></a><span class="st">attributes = ["sepal_length", "sepal_width", "petal_length","petal_width", "class"]</span></span>
+<span id="cb132-18"><a href="#cb132-18"></a><span class="st">df.columns = attributes</span></span>
+<span id="cb132-19"><a href="#cb132-19"></a></span>
+<span id="cb132-20"><a href="#cb132-20"></a><span class="st"># create a pairplot to plot pairwise relationships in the dataset</span></span>
+<span id="cb132-21"><a href="#cb132-21"></a><span class="st">plot = sns.pairplot(df, hue='class', palette='muted')</span></span>
+<span id="cb132-22"><a href="#cb132-22"></a><span class="st">plot.savefig('pairwise_relationships.png')</span></span>
+<span id="cb132-23"><a href="#cb132-23"></a></span>
+<span id="cb132-24"><a href="#cb132-24"></a><span class="st"># perform a K-nearest-neighbours classification with scikit-learn</span></span>
+<span id="cb132-25"><a href="#cb132-25"></a><span class="st"># Step 1: split data in test and training dataset (20:80)</span></span>
+<span id="cb132-26"><a href="#cb132-26"></a><span class="st">array = df.values</span></span>
+<span id="cb132-27"><a href="#cb132-27"></a><span class="st">X = array[:,0:4]</span></span>
+<span id="cb132-28"><a href="#cb132-28"></a><span class="st">Y = array[:,4]</span></span>
+<span id="cb132-29"><a href="#cb132-29"></a><span class="st">test_size = 0.20</span></span>
+<span id="cb132-30"><a href="#cb132-30"></a><span class="st">seed = 7</span></span>
+<span id="cb132-31"><a href="#cb132-31"></a><span class="st">X_train, X_test, Y_train, Y_test = model_selection.train_test_split(X, Y,</span></span>
+<span id="cb132-32"><a href="#cb132-32"></a><span class="st">                                                                    test_size=test_size,</span></span>
+<span id="cb132-33"><a href="#cb132-33"></a><span class="st">                                                                    random_state=seed)</span></span>
+<span id="cb132-34"><a href="#cb132-34"></a><span class="st"># Step 2: Fit the model and make predictions on the test dataset</span></span>
+<span id="cb132-35"><a href="#cb132-35"></a><span class="st">knn = KNeighborsClassifier()</span></span>
+<span id="cb132-36"><a href="#cb132-36"></a><span class="st">knn.fit(X_train, Y_train)</span></span>
+<span id="cb132-37"><a href="#cb132-37"></a><span class="st">predictions = knn.predict(X_test)</span></span>
+<span id="cb132-38"><a href="#cb132-38"></a></span>
+<span id="cb132-39"><a href="#cb132-39"></a><span class="st"># Step 3: Save the classification report</span></span>
+<span id="cb132-40"><a href="#cb132-40"></a><span class="st">report = classification_report(Y_test, predictions, output_dict=True)</span></span>
+<span id="cb132-41"><a href="#cb132-41"></a><span class="st">df_report = pd.DataFrame(report).transpose().to_csv('prediction_report.csv')</span></span>
+<span id="cb132-42"><a href="#cb132-42"></a></span>
+<span id="cb132-43"><a href="#cb132-43"></a><span class="op">EOT</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>bash: code/script.py: No such file or directory</code></pre>
+</div>
+<div class="cell-output cell-output-error">
+<pre><code>: 1</code></pre>
+</div>
 </div>
 <p>So far the script is untracked:</p>
-<div id="9e46d3c5" class="cell" data-hide-output="false" data-execution_count="64">
-<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb64-1"><a href="#cb64-1"></a><span class="ex">datalad</span> status</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="143c48c9" class="cell" data-output-fold="true" data-execution_count="64">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb135"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb135-1"><a href="#cb135-1"></a><span class="ex">datalad</span> status</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>It is highly recommended to configure Git before using DataLad. Set both 'user.name' and 'user.email' configuration variables.
+nothing to save, working tree clean</code></pre>
+</div>
 </div>
 <p>Let’s save it with a <code>datalad save</code> command:</p>
-<div id="a990e945" class="cell" data-hide-output="false" data-execution_count="65">
-<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb65-1"><a href="#cb65-1"></a><span class="ex">datalad</span> save <span class="at">-m</span> <span class="st">"Add script for kNN classification and plotting"</span> code/script.py</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="f69c4f79" class="cell" data-output-fold="true" data-execution_count="65">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb137"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb137-1"><a href="#cb137-1"></a><span class="ex">datalad</span> save <span class="at">-m</span> <span class="st">"Add script for kNN classification and plotting"</span> code/script.py</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>It is highly recommended to configure Git before using DataLad. Set both 'user.name' and 'user.email' configuration variables.</code></pre>
+</div>
 </div>
 <section id="datalad-run" class="level3">
 <h3 class="anchored" data-anchor-id="datalad-run"><code>datalad run</code></h3>
 <p>The challenge that DataLad helps accomplish is running this script in a way that links the script to the results it produces and the data it was computed from. We can do this with the <code>datalad run</code> command. In principle, it is simple. You start with a clean dataset:</p>
-<div id="abfedd89" class="cell" data-hide-output="false" data-execution_count="66">
-<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb66-1"><a href="#cb66-1"></a><span class="ex">datalad</span> status</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="5a2642f3" class="cell" data-output-fold="true" data-execution_count="66">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb139"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb139-1"><a href="#cb139-1"></a><span class="ex">datalad</span> status</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>It is highly recommended to configure Git before using DataLad. Set both 'user.name' and 'user.email' configuration variables.
+nothing to save, working tree clean</code></pre>
+</div>
 </div>
 <p>Then, give the command you would execute with <code>datalad run</code>, in this case <code>python code/script.py</code>. DataLad will take the command, run it, and save all of the changes in the dataset under the commit message specified with the <code>-m</code> option. Thus, it associates the script with the results.</p>
 <p>But it can be even more helpful. Here, we also specify the input data that the command needs, and DataLad will retrieve the data beforehand. We also specify the output of the command. Specifying the outputs will allow us to rerun the command later and update any outdated results.</p>
-<div id="bf34b3f7" class="cell" data-hide-output="false" data-execution_count="67">
-<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb67-1"><a href="#cb67-1"></a><span class="ex">datalad</span> run <span class="at">-m</span> <span class="st">"Analyze iris data with classification analysis"</span> <span class="dt">\</span></span>
-<span id="cb67-2"><a href="#cb67-2"></a>--input <span class="st">"input/iris.csv"</span> <span class="dt">\</span></span>
-<span id="cb67-3"><a href="#cb67-3"></a>--output <span class="st">"prediction_report.csv"</span> <span class="dt">\</span></span>
-<span id="cb67-4"><a href="#cb67-4"></a>--output <span class="st">"pairwise_relationships.png"</span> <span class="dt">\</span></span>
-<span id="cb67-5"><a href="#cb67-5"></a><span class="st">"python3 code/script.py"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="6e9292ec" class="cell" data-output-fold="true" data-execution_count="67">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb141"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb141-1"><a href="#cb141-1"></a><span class="ex">datalad</span> run <span class="at">-m</span> <span class="st">"Analyze iris data with classification analysis"</span> <span class="dt">\</span></span>
+<span id="cb141-2"><a href="#cb141-2"></a>--input <span class="st">"input/iris.csv"</span> <span class="dt">\</span></span>
+<span id="cb141-3"><a href="#cb141-3"></a>--output <span class="st">"prediction_report.csv"</span> <span class="dt">\</span></span>
+<span id="cb141-4"><a href="#cb141-4"></a>--output <span class="st">"pairwise_relationships.png"</span> <span class="dt">\</span></span>
+<span id="cb141-5"><a href="#cb141-5"></a><span class="st">"python3 code/script.py"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<div class="ansi-escaped-output">
+<pre>It is highly recommended to configure Git before using DataLad. Set both 'user.name' and 'user.email' configuration variables.
+
+[INFO   ] Making sure inputs are available (this may take some time) 
+
+<span class="ansi-bold">run</span>(<span class="ansi-red-fg ansi-bold">error</span>): /myanalysis (<span class="ansi-magenta-fg ansi-bold">dataset</span>) [Input did not match existing file: input/iris.csv]
+</pre>
+</div>
+</div>
+<div class="cell-output cell-output-error">
+<pre><code>: 1</code></pre>
+</div>
 </div>
 <p>DataLad creates a commit in the dataset history. This commit includes my commit message as a human-readable summary of what was done. It contains the produced output, and it has a machine-readable record that includes information on the input data, the results, and the command that was run to create this result.</p>
-<div id="1ac11a3f" class="cell" data-hide-output="false" data-execution_count="68">
-<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb68-1"><a href="#cb68-1"></a><span class="fu">git</span> log <span class="at">-n</span> 1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="ddcc8422" class="cell" data-output-fold="true" data-execution_count="68">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb143"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb143-1"><a href="#cb143-1"></a><span class="fu">git</span> log <span class="at">-n</span> 1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>fatal: your current branch 'master' does not have any commits yet</code></pre>
+</div>
+<div class="cell-output cell-output-error">
+<pre><code>: 128</code></pre>
+</div>
 </div>
 </section>
 <section id="datalad-rerun" class="level3">
@@ -590,22 +1173,106 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>This machine-readable record is particularly helpful, because we can now instruct DataLad to <em>rerun</em> this command. This means we don’t have to memorize what we did, and people that we share the dataset with don’t need to ask how this result was produced. They can simply let DataLad tell them.</p>
 <p>This is accomplished with the <code>datalad rerun</code> command.<br>
 For this demonstration, we have prepared this analysis dataset and published it to GitHub at https://github.com/lnnrtwttkhn/datalad-tutorial-myanalysis.</p>
-<div id="4cff6df8" class="cell" data-hide-output="false" data-execution_count="69">
-<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb69-1"><a href="#cb69-1"></a><span class="bu">cd</span> ../</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="1cb09d75" class="cell" data-output-fold="true" data-execution_count="69">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb146"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb146-1"><a href="#cb146-1"></a><span class="bu">cd</span> ../</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="aa0f69f2" class="cell" data-execution_count="70">
-<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb70-1"><a href="#cb70-1"></a><span class="fu">git</span> clone https://github.com/lnnrtwttkhn/datalad-tutorial-myanalysis analysis_clone</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="d2d85f7d" class="cell" data-output-fold="true" data-execution_count="70">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb147"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb147-1"><a href="#cb147-1"></a><span class="fu">git</span> clone https://github.com/lnnrtwttkhn/datalad-tutorial-myanalysis analysis_clone</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Cloning into 'analysis_clone'...
+remote: Enumerating objects: 37, done.        
+remote: Counting objects:   2% (1/37)        remote: Counting objects:   5% (2/37)        remote: Counting objects:   8% (3/37)        remote: Counting objects:  10% (4/37)        remote: Counting objects:  13% (5/37)        remote: Counting objects:  16% (6/37)        remote: Counting objects:  18% (7/37)        remote: Counting objects:  21% (8/37)        remote: Counting objects:  24% (9/37)        remote: Counting objects:  27% (10/37)        remote: Counting objects:  29% (11/37)        remote: Counting objects:  32% (12/37)        remote: Counting objects:  35% (13/37)        remote: Counting objects:  37% (14/37)        remote: Counting objects:  40% (15/37)        remote: Counting objects:  43% (16/37)        remote: Counting objects:  45% (17/37)        remote: Counting objects:  48% (18/37)        remote: Counting objects:  51% (19/37)        remote: Counting objects:  54% (20/37)        remote: Counting objects:  56% (21/37)        remote: Counting objects:  59% (22/37)        remote: Counting objects:  62% (23/37)        remote: Counting objects:  64% (24/37)        remote: Counting objects:  67% (25/37)        remote: Counting objects:  70% (26/37)        remote: Counting objects:  72% (27/37)        remote: Counting objects:  75% (28/37)        remote: Counting objects:  78% (29/37)        remote: Counting objects:  81% (30/37)        remote: Counting objects:  83% (31/37)        remote: Counting objects:  86% (32/37)        remote: Counting objects:  89% (33/37)        remote: Counting objects:  91% (34/37)        remote: Counting objects:  94% (35/37)        remote: Counting objects:  97% (36/37)        remote: Counting objects: 100% (37/37)        remote: Counting objects: 100% (37/37), done.        
+remote: Compressing objects:   4% (1/24)        remote: Compressing objects:   8% (2/24)        remote: Compressing objects:  12% (3/24)        remote: Compressing objects:  16% (4/24)        remote: Compressing objects:  20% (5/24)        remote: Compressing objects:  25% (6/24)        remote: Compressing objects:  29% (7/24)        remote: Compressing objects:  33% (8/24)        remote: Compressing objects:  37% (9/24)        remote: Compressing objects:  41% (10/24)        remote: Compressing objects:  45% (11/24)        remote: Compressing objects:  50% (12/24)        remote: Compressing objects:  54% (13/24)        remote: Compressing objects:  58% (14/24)        remote: Compressing objects:  62% (15/24)        remote: Compressing objects:  66% (16/24)        remote: Compressing objects:  70% (17/24)        remote: Compressing objects:  75% (18/24)        remote: Compressing objects:  79% (19/24)        remote: Compressing objects:  83% (20/24)        remote: Compressing objects:  87% (21/24)        remote: Compressing objects:  91% (22/24)        remote: Compressing objects:  95% (23/24)        remote: Compressing objects: 100% (24/24)        remote: Compressing objects: 100% (24/24), done.        
+remote: Total 37 (delta 6), reused 37 (delta 6), pack-reused 0 (from 0)        
+Receiving objects:   2% (1/37)Receiving objects:   5% (2/37)Receiving objects:   8% (3/37)Receiving objects:  10% (4/37)Receiving objects:  13% (5/37)Receiving objects:  16% (6/37)Receiving objects:  18% (7/37)Receiving objects:  21% (8/37)Receiving objects:  24% (9/37)Receiving objects:  27% (10/37)Receiving objects:  29% (11/37)Receiving objects:  32% (12/37)Receiving objects:  35% (13/37)Receiving objects:  37% (14/37)Receiving objects:  40% (15/37)Receiving objects:  43% (16/37)Receiving objects:  45% (17/37)Receiving objects:  48% (18/37)Receiving objects:  51% (19/37)Receiving objects:  54% (20/37)Receiving objects:  56% (21/37)Receiving objects:  59% (22/37)Receiving objects:  62% (23/37)Receiving objects:  64% (24/37)Receiving objects:  67% (25/37)Receiving objects:  70% (26/37)Receiving objects:  72% (27/37)Receiving objects:  75% (28/37)Receiving objects:  78% (29/37)Receiving objects:  81% (30/37)Receiving objects:  83% (31/37)Receiving objects:  86% (32/37)Receiving objects:  89% (33/37)Receiving objects:  91% (34/37)Receiving objects:  94% (35/37)Receiving objects:  97% (36/37)Receiving objects: 100% (37/37)Receiving objects: 100% (37/37), 4.22 KiB | 4.22 MiB/s, done.
+Resolving deltas:   0% (0/6)Resolving deltas:  16% (1/6)Resolving deltas:  33% (2/6)Resolving deltas:  50% (3/6)Resolving deltas:  66% (4/6)Resolving deltas:  83% (5/6)Resolving deltas: 100% (6/6)Resolving deltas: 100% (6/6), done.</code></pre>
 </div>
-<div id="a3ee61eb" class="cell" data-execution_count="71">
-<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb71-1"><a href="#cb71-1"></a><span class="bu">cd</span> analysis_clone</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="96272189" class="cell" data-output-fold="true" data-execution_count="71">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb149"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb149-1"><a href="#cb149-1"></a><span class="bu">cd</span> analysis_clone</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>We can clone this repository and provide, for example, the checksum of the run command to the <code>datalad rerun</code> command. DataLad will read the machine-readable record of what was done and recompute the exact same thing.</p>
-<div id="79e3883f" class="cell" data-hide-output="false" data-execution_count="72">
-<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb72-1"><a href="#cb72-1"></a><span class="ex">datalad</span> rerun 3bb049d</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="87678b00" class="cell" data-output-fold="true" data-execution_count="72">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb150"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb150-1"><a href="#cb150-1"></a><span class="ex">datalad</span> rerun 3bb049d</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<div class="ansi-escaped-output">
+<pre>It is highly recommended to configure Git before using DataLad. Set both 'user.name' and 'user.email' configuration variables.
+
+[INFO   ] run commit 3bb049d; (Analyze iris data...) 
+
+[INFO   ] Making sure inputs are available (this may take some time) 
+
+
+Cloning:   0%|                             | 0.00/4.00 [00:00&lt;?, ? candidates/s]
+
+
+Enumerating: 0.00 Objects [00:00, ? Objects/s]
+
+
+                                              
+
+
+Counting:   0%|                               | 0.00/25.0 [00:00&lt;?, ? Objects/s]
+
+
+                                                                                
+
+
+Compressing:   0%|                            | 0.00/19.0 [00:00&lt;?, ? Objects/s]
+
+
+                                                                                
+
+
+Receiving:   0%|                              | 0.00/25.0 [00:00&lt;?, ? Objects/s]
+
+
+                                                                                
+
+
+Resolving:   0%|                               | 0.00/3.00 [00:00&lt;?, ? Deltas/s]
+
+
+                                                                                
+                                                                                
+<span class="ansi-bold">install</span>(<span class="ansi-red-fg ansi-bold">error</span>): input (<span class="ansi-magenta-fg ansi-bold">dataset</span>) [No working git-annex installation of version &gt;= 10.20230126. Visit http://handbook.datalad.org/r.html?install for instructions on how to install DataLad and git-annex.]<span class="ansi-red-fg ansi-bold"> [No working git-annex installation of version &gt;= 10.20230126. Visit http://handbook.datalad.org/r.html?install for instructions on how to install DataLad and git-annex.]</span>
+
+[<span class="ansi-red-fg ansi-bold">ERROR  </span>] No working git-annex installation of version &gt;= 10.20230126. Visit http://handbook.datalad.org/r.html?install for instructions on how to install DataLad and git-annex. 
+</pre>
+</div>
+</div>
+<div class="cell-output cell-output-error">
+<pre><code>: 1</code></pre>
+</div>
 </div>
 <p>This allows others to easily rerun my computations. It also spares you the need to remember how you executed a script, and you can inquire about where the results came from.</p>
-<div id="2e087475" class="cell" data-hide-output="false" data-execution_count="73">
-<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb73-1"><a href="#cb73-1"></a><span class="fu">git</span> log pairwise_relationships.png</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="b0249804" class="cell" data-output-fold="true" data-execution_count="73">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb152"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb152-1"><a href="#cb152-1"></a><span class="fu">git</span> log pairwise_relationships.png</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>commit 3bb049dfdf42d5fd08e12b064a1eb8423951fad3 (HEAD -&gt; main, origin/main, origin/HEAD)
+Author: Lennart Wittkuhn &lt;lennart.wittkuhn@tutanota.com&gt;
+Date:   Mon Jul 7 21:54:32 2025 +0200
+
+    [DATALAD RUNCMD] Analyze iris data with classification analysis
+    
+    === Do not change lines below ===
+    {
+     "chain": [],
+     "cmd": "python3 code/script.py",
+     "dsid": "a60bb21c-c42a-439a-aca4-9d450d33ae63",
+     "exit": 0,
+     "extra_inputs": [],
+     "inputs": [
+      "input/iris.csv"
+     ],
+     "outputs": [
+      "prediction_report.csv",
+      "pairwise_relationships.png"
+     ],
+     "pwd": "."
+    }
+    ^^^ Do not change lines above ^^^</code></pre>
+</div>
 </div>
 <p><strong>Done! Thanks for coding along!</strong></p>
 
@@ -615,295 +1282,299 @@ For this demonstration, we have prepared this analysis dataset and published it 
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
-window.document.addEventListener("DOMContentLoaded", function (event) {
-  const toggleBodyColorMode = (bsSheetEl) => {
-    const mode = bsSheetEl.getAttribute("data-mode");
-    const bodyEl = window.document.querySelector("body");
-    if (mode === "dark") {
-      bodyEl.classList.add("quarto-dark");
-      bodyEl.classList.remove("quarto-light");
-    } else {
-      bodyEl.classList.add("quarto-light");
-      bodyEl.classList.remove("quarto-dark");
-    }
-  }
-  const toggleBodyColorPrimary = () => {
-    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-    if (bsSheetEl) {
-      toggleBodyColorMode(bsSheetEl);
-    }
-  }
-  toggleBodyColorPrimary();  
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
-  const isCodeAnnotation = (el) => {
-    for (const clz of el.classList) {
-      if (clz.startsWith('code-annotation-')) {                     
-        return true;
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
       }
+      return false;
     }
-    return false;
-  }
-  const onCopySuccess = function(e) {
-    // button target
-    const button = e.trigger;
-    // don't keep focus
-    button.blur();
-    // flash "checked"
-    button.classList.add('code-copy-button-checked');
-    var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
-    let tooltip;
-    if (window.bootstrap) {
-      button.setAttribute("data-bs-toggle", "tooltip");
-      button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
-      tooltip = new bootstrap.Tooltip(button, 
-        { trigger: "manual", 
-          customClass: "code-copy-button-tooltip",
-          offset: [0, -8]});
-      tooltip.show();    
-    }
-    setTimeout(function() {
-      if (tooltip) {
-        tooltip.hide();
-        button.removeAttribute("data-bs-title");
-        button.removeAttribute("data-bs-toggle");
-        button.removeAttribute("data-bs-placement");
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
       }
-      button.setAttribute("title", currentTitle);
-      button.classList.remove('code-copy-button-checked');
-    }, 1000);
-    // clear code selection
-    e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
       for (const childEl of codeEl.children) {
         if (isCodeAnnotation(childEl)) {
           childEl.remove();
         }
       }
       return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
-  });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
     });
-    clipboardModal.on('success', onCopySuccess);
-  }
-  const viewSource = window.document.getElementById('quarto-view-source') ||
-                     window.document.getElementById('quarto-code-tools-source');
-  if (viewSource) {
-    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
-    viewSource.addEventListener("click", function(e) {
-      if (sourceUrl) {
-        // rstudio viewer pane
-        if (/\bcapabilities=\b/.test(window.location)) {
-          window.open(sourceUrl);
-        } else {
-          window.location.href = sourceUrl;
-        }
-      } else {
-        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
-        modal.show();
-      }
-      return false;
-    });
-  }
-  function toggleCodeHandler(show) {
-    return function(e) {
-      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
-      for (let i=0; i<detailsSrc.length; i++) {
-        const details = detailsSrc[i].parentElement;
-        if (show) {
-          details.open = true;
-        } else {
-          details.removeAttribute("open");
-        }
-      }
-      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
-      const fromCls = show ? "hidden" : "unhidden";
-      const toCls = show ? "unhidden" : "hidden";
-      for (let i=0; i<cellCodeDivs.length; i++) {
-        const codeDiv = cellCodeDivs[i];
-        if (codeDiv.classList.contains(fromCls)) {
-          codeDiv.classList.remove(fromCls);
-          codeDiv.classList.add(toCls);
-        } 
-      }
-      return false;
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
     }
-  }
-  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
-  if (hideAllCode) {
-    hideAllCode.addEventListener("click", toggleCodeHandler(false));
-  }
-  const showAllCode = window.document.getElementById("quarto-show-all-code");
-  if (showAllCode) {
-    showAllCode.addEventListener("click", toggleCodeHandler(true));
-  }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/lennartwittkuhn\.com\/rdm-datalad\/");
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
-          // target, if specified
-          link.setAttribute("target", "_blank");
-          if (link.getAttribute("rel") === null) {
-            link.setAttribute("rel", "noopener");
-          }
-      }
-    }
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-    const config = {
-      allowHTML: true,
-      maxWidth: 500,
-      delay: 100,
-      arrow: false,
-      appendTo: function(el) {
-          return el.parentElement;
-      },
-      interactive: true,
-      interactiveBorder: 10,
-      theme: 'quarto',
-      placement: 'bottom-start',
-    };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
-    window.tippy(el, config); 
-  }
-  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-  for (var i=0; i<noterefs.length; i++) {
-    const ref = noterefs[i];
-    tippyHover(ref, function() {
-      // use id or data attribute instead here
-      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-      try { href = new URL(href).hash; } catch {}
-      const id = href.replace(/^#\/?/, "");
-      const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
-        }
-      }
-    }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
           } else {
-            container.appendChild(child.cloneNode(true));
-            break;
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+        for (let i=0; i<detailsSrc.length; i++) {
+          const details = detailsSrc[i].parentElement;
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
           }
         }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
+        const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
         }
-        return container.innerHTML
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/lennartwittkuhn\.com\/rdm-datalad\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
       } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
         if (window.Quarto?.typesetMath) {
           window.Quarto.typesetMath(note);
         }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      // TODO in 1.5, we should make sure this works without a callout special case
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
       }
     }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
           }
         } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
           .then(res => res.text())
           .then(html => {
             const parser = new DOMParser();
             const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
+            const note = htmlDoc.querySelector('main.content');
             if (note !== null) {
-              const html = processXRef(id, note);
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
               instance.setContent(html);
             } 
           }).finally(() => {
@@ -911,224 +1582,200 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             instance.show();
           });
         }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
-    });
-  }
-      let selectedAnnoteEl;
-      const selectorForAnnotation = ( cell, annotation) => {
-        let cellAttr = 'data-code-cell="' + cell + '"';
-        let lineAttr = 'data-code-annotation="' +  annotation + '"';
-        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-        return selector;
-      }
-      const selectCodeLines = (annoteEl) => {
-        const doc = window.document;
-        const targetCell = annoteEl.getAttribute("data-target-cell");
-        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-        const lineIds = lines.map((line) => {
-          return targetCell + "-" + line;
-        })
-        let top = null;
-        let height = null;
-        let parent = null;
-        if (lineIds.length > 0) {
-            //compute the position of the single el (top and bottom and make a div)
-            const el = window.document.getElementById(lineIds[0]);
-            top = el.offsetTop;
-            height = el.offsetHeight;
-            parent = el.parentElement.parentElement;
-          if (lineIds.length > 1) {
-            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-            height = bottom - top;
-          }
-          if (top !== null && height !== null && parent !== null) {
-            // cook up a div (if necessary) and position it 
-            let div = window.document.getElementById("code-annotation-line-highlight");
-            if (div === null) {
-              div = window.document.createElement("div");
-              div.setAttribute("id", "code-annotation-line-highlight");
-              div.style.position = 'absolute';
-              parent.appendChild(div);
-            }
-            div.style.top = top - 2 + "px";
-            div.style.height = height + 4 + "px";
-            div.style.left = 0;
-            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-            if (gutterDiv === null) {
-              gutterDiv = window.document.createElement("div");
-              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-              gutterDiv.style.position = 'absolute';
-              const codeCell = window.document.getElementById(targetCell);
-              const gutter = codeCell.querySelector('.code-annotation-gutter');
-              gutter.appendChild(gutterDiv);
-            }
-            gutterDiv.style.top = top - 2 + "px";
-            gutterDiv.style.height = height + 4 + "px";
-          }
-          selectedAnnoteEl = annoteEl;
-        }
-      };
-      const unselectCodeLines = () => {
-        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-        elementsIds.forEach((elId) => {
-          const div = window.document.getElementById(elId);
-          if (div) {
-            div.remove();
-          }
-        });
-        selectedAnnoteEl = undefined;
-      };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
-      const annoteTargets = window.document.querySelectorAll('.code-annotation-anchor');
-      for (let i=0; i<annoteTargets.length; i++) {
-        const annoteTarget = annoteTargets[i];
-        const targetCell = annoteTarget.getAttribute("data-target-cell");
-        const targetAnnotation = annoteTarget.getAttribute("data-target-annotation");
-        const contentFn = () => {
-          const content = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-          if (content) {
-            const tipContent = content.cloneNode(true);
-            tipContent.classList.add("code-annotation-tip-content");
-            return tipContent.outerHTML;
-          }
-        }
-        const config = {
-          allowHTML: true,
-          content: contentFn,
-          onShow: (instance) => {
-            selectCodeLines(instance.reference);
-            instance.reference.classList.add('code-annotation-active');
-            window.tippy.hideAll();
-          },
-          onHide: (instance) => {
-            unselectCodeLines();
-            instance.reference.classList.remove('code-annotation-active');
-          },
-          maxWidth: 300,
-          delay: [50, 0],
-          duration: [200, 0],
-          offset: [5, 10],
-          arrow: true,
-          appendTo: function(el) {
-            return el.parentElement.parentElement.parentElement;
-          },
-          interactive: true,
-          interactiveBorder: 10,
-          theme: 'quarto',
-          placement: 'right',
-          popperOptions: {
-            modifiers: [
-            {
-              name: 'flip',
-              options: {
-                flipVariations: false, // true by default
-                allowedAutoPlacements: ['right'],
-                fallbackPlacements: ['right', 'top', 'top-start', 'top-end', 'bottom', 'bottom-start', 'bottom-end', 'left'],
-              },
-            },
-            {
-              name: 'preventOverflow',
-              options: {
-                mainAxis: false,
-                altAxis: false
-              }
-            }
-            ]        
-          }      
-        };
-        window.tippy(annoteTarget, config); 
-      }
-  const findCites = (el) => {
-    const parentEl = el.parentElement;
-    if (parentEl) {
-      const cites = parentEl.dataset.cites;
-      if (cites) {
-        return {
-          el,
-          cites: cites.split(' ')
-        };
-      } else {
-        return findCites(el.parentElement)
-      }
-    } else {
-      return undefined;
-    }
-  };
-  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-  for (var i=0; i<bibliorefs.length; i++) {
-    const ref = bibliorefs[i];
-    const citeInfo = findCites(ref);
-    if (citeInfo) {
-      tippyHover(citeInfo.el, function() {
-        var popup = window.document.createElement('div');
-        citeInfo.cites.forEach(function(cite) {
-          var citeDiv = window.document.createElement('div');
-          citeDiv.classList.add('hanging-indent');
-          citeDiv.classList.add('csl-entry');
-          var biblioDiv = window.document.getElementById('ref-' + cite);
-          if (biblioDiv) {
-            citeDiv.innerHTML = biblioDiv.innerHTML;
-          }
-          popup.appendChild(citeDiv);
-        });
-        return popup.innerHTML;
+      }, function(instance) {
       });
     }
-  }
-});
-</script>
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        const annoteTargets = window.document.querySelectorAll('.code-annotation-anchor');
+        for (let i=0; i<annoteTargets.length; i++) {
+          const annoteTarget = annoteTargets[i];
+          const targetCell = annoteTarget.getAttribute("data-target-cell");
+          const targetAnnotation = annoteTarget.getAttribute("data-target-annotation");
+          const contentFn = () => {
+            const content = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+            if (content) {
+              const tipContent = content.cloneNode(true);
+              tipContent.classList.add("code-annotation-tip-content");
+              return tipContent.outerHTML;
+            }
+          }
+          const config = {
+            allowHTML: true,
+            content: contentFn,
+            onShow: (instance) => {
+              selectCodeLines(instance.reference);
+              instance.reference.classList.add('code-annotation-active');
+              window.tippy.hideAll();
+            },
+            onHide: (instance) => {
+              unselectCodeLines();
+              instance.reference.classList.remove('code-annotation-active');
+            },
+            maxWidth: 300,
+            delay: [50, 0],
+            duration: [200, 0],
+            offset: [5, 10],
+            arrow: true,
+            appendTo: function(el) {
+              return el.parentElement.parentElement.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'quarto',
+            placement: 'right',
+            popperOptions: {
+              modifiers: [
+              {
+                name: 'flip',
+                options: {
+                  flipVariations: false, // true by default
+                  allowedAutoPlacements: ['right'],
+                  fallbackPlacements: ['right', 'top', 'top-start', 'top-end', 'bottom', 'bottom-start', 'bottom-end', 'left'],
+                },
+              },
+              {
+                name: 'preventOverflow',
+                options: {
+                  mainAxis: false,
+                  altAxis: false
+                }
+              }
+              ]        
+            }      
+          };
+          window.tippy(annoteTarget, config); 
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
 </div> <!-- /content -->
 
 
