@@ -62,8 +62,6 @@ If you're new to Git, don't worry!
 This configuration simply involves setting your name and email address, which will associate your changes in a project with you as the author.
 
 Below, we provide instructions on how to configure your Git identity.
-However, please note that a central Git configuration has already been set up for you during the `postBuild` process of Binder, so you don't need to perform this step manually.
-That's why the code examples below are commented out.
 
 ```{bash}
 #| eval: false
@@ -384,7 +382,7 @@ In total, there are more than 15 GB of podcasts that you now have access to.
 datalad status --annex
 ```
 
-You can retrieve individual files, groups of files, directories, or entire datasets using the ` datalad get` command.
+You can retrieve individual files, groups of files, directories, or entire datasets using the `datalad get` command.
 This command fetches the content for you.
 
 ```{bash}
@@ -392,7 +390,7 @@ This command fetches the content for you.
 datalad get Long_Now__Seminars_About_Long_term_Thinking/2003_11_15__Brian_Eno__The_Long_Now.mp3
 ```
 
-Content that is already present is not re-retrieved.  
+Content that is already present is not re-retrieved.
 
 ```{bash}
 #| output-fold: true
@@ -417,7 +415,8 @@ datalad get Long_Now__Seminars_About_Long_term_Thinking/2003_12_13__Peter_Schwar
 
 Datasets can contain other datasets (subdatasets), nested arbitrarily deep.
 Each dataset has an independent revision history, but can be registered at a precise version in higher-level datasets.
-This allows to combine datasets and to perform commands recursively across a hierarchy of datasets, and it is the basis for advanced provenance capture abilities.
+This allows you to combine datasets and to perform commands recursively across a hierarchy of datasets, and it is the basis for advanced provenance capture abilities.
+This allows you to combine datasets and perform commands recursively across a hierarchy of datasets, and it is the basis for advanced provenance capture abilities.
 
 <img src="https://handbook.datalad.org/en/latest/_images/linkage_subds.svg" style="width: 600px;"/>
 
@@ -445,8 +444,7 @@ cd ../../
 git log -n 1
 ```
 
-The subproject commit registered the most recent commit of the subdataset, and thus
-the subdataset version:
+The subproject commit registered the most recent commit of the subdataset, and thus the subdataset version:
 
 ```{bash}
 #| output-fold: true
@@ -477,7 +475,8 @@ cd ../
 datalad clone https://github.com/psychoinformatics-de/paper-remodnav.git
 ```
 
-The top-level dataset has many subdatasets. One of it, `remodnav`, is a dataset that contains the sourcecode for a Python package called `remodnav` used in eyetracking analyses:
+The top-level dataset has many subdatasets.
+One of them, `remodnav`, is a dataset that contains the source code for a Python package called `remodnav` used in eye-tracking analyses:
 
 ```{bash}
 #| output-fold: true
@@ -518,9 +517,9 @@ This command not only retrieves file contents, but it also installs subdatasets.
 So, if you want to be really lazy, just run `datalad get --recursive -n` in the root of a dataset to install all available subdatasets.
 The `-n` option prevents `get` from downloading any data, so only the subdatasets are installed without any data being downloaded.
 Here, the depth of recursion is limited.
-For one, it would take a while to install all subdatasets, but the very raw eye tracking dataset contains subject IDs that should not be shared.
+For one, it would take a while to install all subdatasets, but the very raw eye-tracking dataset contains subject IDs that should not be shared.
 Therefore, this subdataset is not accessible.
-If you try to install all subdatasets, the source eye tracking data will throw an error, because it is not made publicly available.
+If you try to install all subdatasets, the source eye-tracking data will throw an error, because it is not made publicly available.
 
 Afterwards, you can see that the `remodnav` subdataset also contains further subdatasets.
 In this case, these subdatasets contain data used for testing and validating software performance.
@@ -550,9 +549,9 @@ It is also possible to test how much results change by resetting the subdataset 
 
 ## Full provenance capture and reproducibility
 
-DataLad allows to capture full provenance (i.e., a record that describes entities and processes that were involved in producing or influencing a digital resource):
+DataLad allows you to capture full provenance (i.e., a record that describes entities and processes that were involved in producing or influencing a digital resource):
 The origin of datasets, the origin of files obtained from web sources, complete machine-readable and automatically reproducible records of how files were created (including software environments).
-You or your collaborators can thus reobtain or reproducibly recompute content with a single command, and make use of extensive provenance of dataset content (who created it, when, and how?).
+You or your collaborators can thus re-obtain or reproducibly recompute content with a single command, and make use of extensive provenance of dataset content (who created it, when, and how?).
 
 <img src="https://handbook.datalad.org/en/latest/_images/reproducible_execution.svg" style="width: 600px;"/>
 
@@ -569,8 +568,7 @@ First, create a new dataset, in this case with the `yoda` configuration:
 datalad create -c yoda myanalysis
 ```
 
-This sets up a helpful structure for my dataset with a code directory and some README files,
-and applies helpful configurations:
+This sets up a helpful structure for the dataset with a code directory and some README files, and applies helpful configurations:
 
 ```{bash}
 #| output-fold: true
@@ -595,7 +593,7 @@ datalad clone -d . https://github.com/datalad-handbook/iris_data.git input/
 
 The last thing needed is code to run on the data and produce results.
 For this, here is a k-means classification analysis script written in Python.
-You can find more details about this analysis in the [section on a YODA-compliant data analysis projects](https://handbook.datalad.org/en/latest/basics/101-130-yodaproject.html).
+You can find more details about this analysis in the [section on a YODA-compliant data analysis project](https://handbook.datalad.org/en/latest/basics/101-130-yodaproject.html).
 
 ```{bash}
 #| output-fold: true
@@ -672,7 +670,7 @@ datalad status
 
 Then, give the command you would execute with `datalad run`, in this case `python code/script.py`.
 DataLad will take the command, run it, and save all of the changes in the dataset under the commit message specified with the `-m` option.
-Thus, it associates the script with the results.  
+Thus, it associates the script with the results.
 
 But it can be even more helpful.
 Here, we also specify the input data that the command needs, and DataLad will retrieve the data beforehand.
@@ -689,7 +687,7 @@ datalad run -m "Analyze iris data with classification analysis" \
 ```
 
 DataLad creates a commit in the dataset history.
-This commit includes my commit message as a human-readable summary of what was done.
+This commit includes the commit message as a human-readable summary of what was done.
 It contains the produced output, and it has a machine-readable record that includes information on the input data, the results, and the command that was run to create this result.
 
 ```{bash}
@@ -703,7 +701,7 @@ This machine-readable record is particularly helpful, because we can now instruc
 This means we don't have to memorize what we did, and people that we share the dataset with don’t need to ask how this result was produced.
 They can simply let DataLad tell them.
 
-This is accomplished with the `datalad rerun` command.  
+This is accomplished with the `datalad rerun` command.
 For this demonstration, we have prepared this analysis dataset and published it to GitHub at https://github.com/lnnrtwttkhn/datalad-tutorial-myanalysis.
 
 ```{bash}
@@ -729,7 +727,7 @@ DataLad will read the machine-readable record of what was done and recompute the
 datalad rerun 3bb049d
 ```
 
-This allows others to easily rerun my computations.
+This allows others to easily rerun your computations.
 It also spares you the need to remember how you executed a script, and you can inquire about where the results came from.
 
 ```{bash}
