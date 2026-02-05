@@ -20,8 +20,18 @@ Below, we provide instructions on how to configure your Git identity.
 
 ```{bash}
 #| eval: false
-# git config user.name "Your name"
-# git config user.email "Your email address"
+#| echo: true
+git config user.name "Your name"
+git config user.email "Your email address"
+```
+
+For this tutorial, we configure an example name and email address:
+
+```{bash}
+#| eval: false
+#| echo: true
+git config --global user.name "Ford Escort"
+git config --global user.email 42@H2G2.com
 ```
 
 ```{bash}
