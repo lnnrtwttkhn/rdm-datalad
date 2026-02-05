@@ -46,7 +46,12 @@ In the command line, all operations begin with the general `datalad` command.
 # datalad
 ```
 
+The basic `datalad` command without any arguments will show you a brief overview of available subcommands.
+This is useful for getting a quick reference of what DataLad can do.
+
 For example, I can type `datalad --help` to find out more about the available commands.
+This will show you detailed information about command-line options and a complete list of all available DataLad commands.
+You can also get help for specific commands by running `datalad <command> --help`, for example `datalad create --help`.
 
 ### DataLad Python API
 
@@ -73,12 +78,16 @@ import datalad.api as dl
 You can find more details about how to [install DataLad and its dependencies on all operating systems in the DataLad Handbook](https://handbook.datalad.org/en/latest/intro/installation.html).
 This section also explains how to install DataLad on shared machines where you may not have administrative privileges (`sudo` rights), such as high-performance computing clusters.
 If you already have DataLad installed, **make sure that it is a recent version**.
+DataLad is actively developed, and newer versions often include bug fixes, performance improvements, and new features.
 You can check the installed version using the `datalad --version` command:
 
 ```{bash}
 #| output-fold: true
 datalad --version
 ```
+
+This command shows not only the DataLad version but also information about the underlying Git and git-annex versions that DataLad depends on.
+If your version is significantly older than the latest release, consider updating to take advantage of recent improvements.
 
 ## Creating a DataLad dataset
 
@@ -94,15 +103,19 @@ This command requires only a name for the dataset.
 It will then create a new directory with that name and instruct DataLad to manage it.
 
 Additionally, the command includes an option, `-c text2git`.
-The `-c` option allows for specific configurations of the dataset at the time of creation.
+The `-c` option allows for specific configurations (also called "procedures") of the dataset at the time of creation.
+The `text2git` configuration is particularly useful because it tells DataLad to store text files (like code, scripts, documentation) directly in Git instead of using git-annex.
+This means that text files will be version-controlled in the traditional Git way, making them easier to view, edit, and track changes.
+Binary files (like images, data files) will still be managed by git-annex for efficient storage.
 You can find detailed information about the `text2git` configuration in the DataLad handbook, specifically in the [sections on configurations and procedures](https://handbook.datalad.org/en/latest/basics/basics-configuration.html).
-Don't worry about configurations for now.
-In general, this configuration serves as a very useful standard for datasets.
 
 ```{bash}
 #| output-fold: true
 datalad create -c text2git DataLad-101
 ```
+
+This command creates a new directory called `DataLad-101` and initializes it as a DataLad dataset.
+The dataset will be empty initially, but it's now ready to track and manage your files and their history.
 
 Right after dataset creation, there is a new directory on the computer called `DataLad-101`.
 Let's navigate into this directory using the `cd` command and list the directory contents using `ls`.
@@ -112,17 +125,25 @@ Let's navigate into this directory using the `cd` command and list the directory
 cd DataLad-101
 ```
 
+The `cd` command stands for "change directory" and is used to navigate between folders in your filesystem.
+Here we're moving into our newly created DataLad dataset.
+
 ```{bash}
 #| output-fold: true
 ls # ls does not show any output, because the dataset is empty
 ```
+
+The `ls` command lists the contents of the current directory.
+Since our dataset was just created, it appears empty to the `ls` command.
+However, DataLad has actually created some hidden files (files starting with `.`) that contain the dataset's metadata and version control information.
+You could see these hidden files by running `ls -la`, which shows all files including hidden ones.
 
 Datasets have the exciting feature of recording everything done within them.
 They provide version control for all content managed by DataLad, regardless of its size.
 Additionally, datasets maintain a complete history that you can interact with.
 This history is already present, although it is quite short at this point in time.
 Let’s take a look at it nonetheless.
-This history exists thanks to Git.
+This history exists thanks to Git, which is the version control system that DataLad builds upon.
 You can access the history of a dataset using any tool that displays Git history.
 For simplicity, we will use Git's built-in `git log` command.
 
@@ -130,6 +151,11 @@ For simplicity, we will use Git's built-in `git log` command.
 #| output-fold: true
 git log
 ```
+
+The `git log` command shows the commit history of the repository.
+Each commit represents a snapshot of your dataset at a particular point in time.
+You'll see information like the commit hash (a unique identifier), the author, the date, and the commit message.
+Even though we haven't added any files yet, DataLad has already made an initial commit when creating the dataset.
 
 ## Version control workflows
 
@@ -149,16 +175,32 @@ Remember, a dataset is simply a directory on your computer.
 mkdir books
 ```
 
+The `mkdir` command stands for "make directory" and creates a new folder.
+Here we're creating a subfolder called `books` inside our DataLad dataset to organize our content.
+Good organization is key to maintaining clean and understandable datasets.
+
 ```{bash}
 #| output-fold: true
 cd books
 ```
+
+Now we navigate into the `books` directory we just created.
 
 ```{bash}
 #| output-fold: true
 curl -L -o TLCL.pdf https://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download
 curl -L -o byte-of-python.pdf https://edisciplinas.usp.br/pluginfile.php/3252353/mod_resource/content/1/b_Swaroop_Byte_of_python.pdf
 ```
+
+The `curl` command is a powerful tool for downloading files from the internet.
+Here's what each option means:
+
+- `-L` tells curl to follow redirects (many URLs redirect to the actual file location)
+- `-o filename.pdf` specifies the output filename for the downloaded file
+- The URL is the web address where the file is located
+
+We're downloading two educational books: "The Linux Command Line" (TLCL) and "A Byte of Python".
+These downloads will demonstrate how DataLad tracks and manages binary files.
 
 Let's navigate back to the dataset root (`DataLad-101` folder) and run the `tree` command which can visualize the directory hierarchy:
 
@@ -167,10 +209,17 @@ Let's navigate back to the dataset root (`DataLad-101` folder) and run the `tree
 cd ../
 ```
 
+The `cd ../` command moves up one directory level, taking us back to the root of our DataLad dataset.
+The `../` notation means "parent directory".
+
 ```{bash}
 #| output-fold: true
 tree
 ```
+
+The `tree` command provides a visual representation of your directory structure in a tree-like format.
+This is especially useful for understanding the organization of your dataset and seeing all files and folders at a glance.
+If `tree` is not available on your system, you can install it or use alternatives like `find . -type d` to list directories.
 
 Use the `datalad status` command to find out what has happened in the dataset.
 This command is very helpful as it reports on the current state of your dataset.
@@ -184,6 +233,15 @@ If you know Git, you can think of `datalad status` as the `git status` of DataLa
 datalad status
 ```
 
+The `datalad status` command will show you:
+
+- **Untracked files**: New files that DataLad hasn't been told to manage yet
+- **Modified files**: Files that have changed since the last save
+- **Clean state**: No changes detected
+
+Run `datalad status` frequently to understand what changes have occurred in your dataset.
+This is one of the most important diagnostic commands in DataLad.
+
 Any content that we want DataLad to manage needs to be explicitly added to DataLad.
 It is not enough to simply place it inside the dataset.
 To give new or changed content to DataLad, we need to save it using `datalad save`.
@@ -196,6 +254,21 @@ The commit message is a short text description that explains the changes made wh
 datalad save -m "Add books on Python and Unix to read later"
 ```
 
+The `datalad save` command is similar to `git add` and `git commit` combined.
+When you run this command:
+
+1. DataLad stages all untracked and modified files
+2. Creates a commit with the provided message
+3. For large files, stores them efficiently using git-annex
+
+Good commit messages should be:
+
+- **Descriptive**: Explain what was added or changed
+- **Concise**: Keep them short but informative
+- **Imperative mood**: Use commands like "Add", "Fix", "Update"
+
+Without a path specified, `datalad save` will save all changes in the dataset.
+
 With `git log -n 1` you can take a look at the most recent commit in the history:
 
 ```{bash}
@@ -203,12 +276,22 @@ With `git log -n 1` you can take a look at the most recent commit in the history
 git log -n 1
 ```
 
+The `-n 1` option limits the output to just the most recent commit.
+This is useful when you want to quickly see what was last saved without scrolling through the entire history.
+You can change the number to see more commits, for example `-n 5` would show the last 5 commits.
+
 `datalad save` saves all untracked content to the dataset.
 Sometimes, this can be inconvenient.
 One significant advantage of a dataset's history is that it allows you to revert changes you are not happy with.
 However, this is only easily possible at the level of single commits.
 If one save commits several unrelated files or changes, it can be difficult to disentangle them if you ever want to revert some of those changes.
 To address this, you can provide a path to the specific file you want to save, allowing you to specify more precisely what will be saved together.
+
+This granular approach to version control is one of the best practices in data management:
+
+- **Logical grouping**: Save related changes together
+- **Atomic commits**: Each commit should represent one logical change
+- **Easier reverting**: You can undo specific changes without affecting others
 
 Let's demonstrate this by adding another book from the internet:
 
@@ -239,6 +322,15 @@ Now when you run `datalad save`, attach a path to the command:
 datalad save -m "Add reference book about Git" books/progit.pdf
 ```
 
+By specifying the file path `books/progit.pdf`, we're telling DataLad to only save this specific file.
+This creates a focused commit that only includes the Git book, making the history cleaner and more meaningful.
+You can specify multiple files, directories, or use wildcards if needed.
+For example:
+
+- `datalad save -m "message" file1.txt file2.txt` (save specific files)
+- `datalad save -m "message" code/` (save entire directory)
+- `datalad save -m "message" *.py` (save all Python files)
+
 Let's take a look at files that are frequently modified, such as code or text.
 To demonstrate this, we will create a file and modify it.
 We will use a [here doc](https://en.wikipedia.org/wiki/Here_document) for this, but you can also write the note using an editor of your choice.
@@ -252,6 +344,15 @@ The dataset is created empty.
 
 EOT
 ```
+
+This command uses a "here document" (heredoc) to create a text file:
+
+- `cat << EOT` starts a heredoc with "EOT" as the delimiter
+- Everything between the two `EOT` markers becomes the file content
+- `> notes.txt` redirects this content to a new file called `notes.txt`
+- The final `EOT` on its own line ends the heredoc
+
+This is a convenient way to create multi-line text files from the command line.
 
 `datalad status` will, as expected, say that there is a new untracked file in the dataset:
 
@@ -279,6 +380,13 @@ Note to self: Always use informative and concise commit messages.
 EOT
 ```
 
+Notice the use of `>>` instead of `>` in this command:
+
+- `>` redirects output and **overwrites** the file (creates new file or replaces existing content)
+- `>>` redirects output and **appends** to the file (adds content to the end of existing file)
+
+This demonstrates how you can modify existing files, which is common when working with documentation, code, or data analysis notes.
+
 A `datalad status` command reports the file as not untracked.
 However, because it differs from the state it was saved under, it is reported as modified.
 
@@ -286,6 +394,16 @@ However, because it differs from the state it was saved under, it is reported as
 #| output-fold: true
 datalad status
 ```
+
+DataLad can detect when files have been modified since the last save.
+The status will now show `notes.txt` as "modified" rather than "untracked".
+This means:
+
+- **Untracked**: File is new and hasn't been added to version control
+- **Modified**: File was previously saved but has changes since the last save
+- **Clean**: No changes detected since last save
+
+Tracking these states helps you understand what changes need to be saved.
 
 Let’s save this:
 
@@ -301,6 +419,16 @@ neatly summarizes all of the changes that have been done:
 #| output-fold: true
 git log -n 2
 ```
+
+The `git log -n 2` command shows the last 2 commits in the repository history.
+This allows you to see how your dataset has evolved over time.
+Each commit includes:
+
+- **Commit hash**: A unique identifier for the commit
+- **Author and date**: Who made the change and when
+- **Commit message**: The description of what was changed
+
+This history is invaluable for understanding how your project developed and for collaborating with others.
 
 ## Dataset consumption
 
@@ -327,6 +455,19 @@ This is accomplished using the `--dataset` flag.
 datalad clone --dataset . https://github.com/datalad-datasets/longnow-podcasts.git recordings/longnow
 ```
 
+The `datalad clone` command downloads and installs an existing DataLad dataset:
+
+- `--dataset .` tells DataLad to register this as a subdataset of the current dataset (the `.` means current directory)
+- The GitHub URL is the source of the dataset we want to clone
+- `recordings/longnow` is the local path where the dataset will be installed
+
+**Subdatasets** are datasets contained within other datasets. This hierarchical structure allows you to:
+
+- Modularize your project by keeping related data separate
+- Version control the relationship between datasets
+- Update subdatasets independently
+- Share and collaborate on different parts of a project separately
+
 There are new directories in the `DataLad-101` dataset.
 Within these new directories, there are hundreds of MP3 files.
 
@@ -334,6 +475,11 @@ Within these new directories, there are hundreds of MP3 files.
 #| output-fold: true
 tree -d # we limit the output of the tree command to directories
 ```
+
+The `tree -d` command shows only directories (folders), not individual files.
+This is useful when you have many files and want to see just the organizational structure.
+Without the `-d` flag, the tree command would list all hundreds of MP3 files, which would be overwhelming.
+This gives us a clean view of how the podcast dataset is organized.
 
 Let's move into one of these directories and take a look at its contents:
 
@@ -374,6 +520,14 @@ cd ../
 du -sh  # Unix command to show size of contents
 ```
 
+The `du` command stands for "disk usage" and shows how much disk space files and directories use:
+
+- `-s` means "summarize" - show only the total for each directory
+- `-h` means "human readable" - show sizes in KB, MB, GB instead of just bytes
+
+It is tiny! The dataset appears to be only a few MB despite containing hundreds of audio files.
+This is because DataLad has only downloaded the metadata and file information, not the actual audio content.
+
 It is tiny!
 However, we can also find out how large the dataset would be if we had all of its contents by using `datalad status` with the `--annex` flag.
 In total, there are more than 15 GB of podcasts that you now have access to.
@@ -383,6 +537,15 @@ In total, there are more than 15 GB of podcasts that you now have access to.
 datalad status --annex
 ```
 
+The `--annex` flag shows information about git-annex managed content:
+
+- **Available content**: What's currently downloaded to your local machine
+- **Total size**: The complete size of all files if they were all downloaded
+- **File counts**: How many files are available vs. total
+
+This gives you a complete picture of the dataset's scope without having to download everything upfront.
+This is one of DataLad's key features: you can browse and understand large datasets without committing to downloading terabytes of data.
+
 You can retrieve individual files, groups of files, directories, or entire datasets using the `datalad get` command.
 This command fetches the content for you.
 
@@ -391,12 +554,33 @@ This command fetches the content for you.
 datalad get Long_Now__Seminars_About_Long_term_Thinking/2003_11_15__Brian_Eno__The_Long_Now.mp3
 ```
 
+The `datalad get` command downloads the actual content of files that are managed by git-annex.
+You can use it in several ways:
+
+- Get a specific file: `datalad get path/to/file.pdf`
+- Get multiple files: `datalad get file1.mp3 file2.mp3`
+- Get an entire directory: `datalad get recordings/`
+- Get with wildcards: `datalad get *.mp3`
+
+DataLad will only download files that aren't already present, saving time and bandwidth.
+This on-demand approach means you only download what you actually need to work with.
+
 Content that is already present is not re-retrieved.
 
 ```{bash}
 #| output-fold: true
 datalad get Long_Now__Seminars_About_Long_term_Thinking/2003_11_15__Brian_Eno__The_Long_Now.mp3  \Long_Now__Seminars_About_Long_term_Thinking/2003_12_13__Peter_Schwartz__The_Art_Of_The_Really_Long_View.mp3  \Long_Now__Seminars_About_Long_term_Thinking/2004_01_10__George_Dyson__There_s_Plenty_of_Room_at_the_Top__Long_term_Thinking_About_Large_scale_Computing.mp3
 ```
+
+This command demonstrates getting multiple files at once.
+The `\` at the end of each line is a line continuation character, allowing you to split a long command across multiple lines for readability.
+DataLad will:
+
+1. Check which files are already present
+2. Only download the files that aren't available locally
+3. Report on what was retrieved
+
+This smart behavior prevents unnecessary re-downloads and makes DataLad efficient for working with large datasets.
 
 If you no longer need the data locally, you can drop the content from your dataset to save disk space.
 
@@ -405,12 +589,31 @@ If you no longer need the data locally, you can drop the content from your datas
 datalad drop Long_Now__Seminars_About_Long_term_Thinking/2003_12_13__Peter_Schwartz__The_Art_Of_The_Really_Long_View.mp3
 ```
 
+The `datalad drop` command removes the content of files from your local storage while keeping the file metadata.
+This is useful for managing disk space when working with large datasets:
+
+- The file still appears in your dataset
+- DataLad remembers where to get the content from
+- You can re-download it anytime with `datalad get`
+- Only the actual file content is removed, not the file itself
+
+This allows you to keep a "skeleton" of large datasets locally while only downloading content when needed.
+
 Afterwards, as long as DataLad knows where a file came from, its content can be retrieved again.
 
 ```{bash}
 #| output-fold: true
 datalad get Long_Now__Seminars_About_Long_term_Thinking/2003_12_13__Peter_Schwartz__The_Art_Of_The_Really_Long_View.mp3
 ```
+
+This demonstrates the power of DataLad's content tracking:
+
+- DataLad maintains a record of where each file originated
+- Content can be retrieved from the original source even after being dropped
+- This enables efficient disk space management without losing access to data
+- The get/drop cycle can be repeated as many times as needed
+
+This feature is particularly valuable when working with large datasets on systems with limited storage.
 
 ## Dataset nesting
 
@@ -429,7 +632,16 @@ This means that the data we retrieved retains all of its provenance.
 #| output-fold: true
 git log --reverse
 ```
+The `git log --reverse` command shows the commit history in reverse chronological order (oldest first).
+This is useful to see how a repository evolved from its beginning.
+Key points about subdataset history:
 
+- **Complete history**: The subdataset retains its full development history
+- **Provenance**: You can trace exactly how the data was created and modified
+- **Independent versioning**: The subdataset has its own version history separate from the parent dataset
+- **Transparency**: You can see who contributed what and when
+
+This preserved history is crucial for reproducible research and data transparency.
 How does this look in the top-level dataset?
 If we query the history of `DataLad-101`, there will be no commits related to MP3 files or any of the commits we have seen in the subdataset.
 Instead, we can see that the superdataset recorded the `recordings/longnow` dataset as a subdataset.
@@ -445,6 +657,15 @@ cd ../../
 git log -n 1
 ```
 
+This demonstrates an important concept in DataLad dataset nesting:
+
+- **Parent dataset**: Records subdatasets as references, not their full content
+- **Version pinning**: The parent dataset tracks exactly which version of the subdataset is being used
+- **Separation of concerns**: Each dataset maintains its own history independently
+- **Reproducibility**: You can recreate the exact same combination of datasets later
+
+This approach allows for modular project organization while maintaining precise version control.
+
 The subproject commit registered the most recent commit of the subdataset, and thus the subdataset version:
 
 ```{bash}
@@ -456,6 +677,15 @@ cd recordings/longnow
 #| output-fold: true
 git log --oneline
 ```
+
+The `git log --oneline` command shows a condensed view of the commit history:
+
+- Each commit is shown on one line
+- Shows the short commit hash (first 7 characters)
+- Shows only the commit message (no author, date, etc.)
+
+This format is useful when you want a quick overview of what changes have been made without the full details.
+The commit hash displayed here is what the parent dataset uses to track which specific version of the subdataset is being used.
 
 ```{bash}
 #| output-fold: true
@@ -489,6 +719,16 @@ cd paper-remodnav
 datalad subdatasets
 ```
 
+The `datalad subdatasets` command lists all subdatasets contained within the current dataset.
+For each subdataset, it shows:
+
+- **Path**: Where the subdataset is located within the parent dataset
+- **URL**: The source location of the subdataset
+- **Status**: Whether it's installed or just registered
+
+This gives you a complete overview of the dataset's modular structure and dependencies.
+Complex research projects often involve multiple datasets, and this command helps you understand the relationships between them.
+
 After cloning a dataset, its subdatasets will be recognized, but just as content is not yet retrieved for files in datasets, the subdatasets of datasets are not yet installed.
 If we navigate into an uninstalled subdataset, it will appear as an empty directory.
 
@@ -509,6 +749,16 @@ In order to install a subdataset, we use `datalad get` with the `--recursive` fl
 datalad get --recursive --recursion-limit 2 -n .
 ```
 
+This command demonstrates several advanced DataLad options:
+
+- `--recursive`: Operates on subdatasets as well as the current dataset
+- `--recursion-limit 2`: Limits how deep the recursion goes (prevents going too deep in nested structures)
+- `-n`: "No data" mode - installs subdatasets without downloading their actual content
+- `.`: Operates on the current directory
+
+This approach is useful when you want to explore the structure of a complex project without downloading potentially large amounts of data upfront.
+You get access to all the metadata and organization without the storage burden.
+
 ```{bash}
 #| output-fold: true
 ls
@@ -521,6 +771,15 @@ Here, the depth of recursion is limited.
 For one, it would take a while to install all subdatasets, but the very raw eye-tracking dataset contains subject IDs that should not be shared.
 Therefore, this subdataset is not accessible.
 If you try to install all subdatasets, the source eye-tracking data will throw an error, because it is not made publicly available.
+
+This demonstrates important concepts in data management:
+
+- **Privacy and ethics**: Some data cannot be publicly shared due to privacy concerns
+- **Selective access**: DataLad can handle mixed public/private data scenarios
+- **Efficient exploration**: You can survey large project structures without downloading everything
+- **Graceful failure**: DataLad will continue processing available datasets even if some are inaccessible
+
+The "lazy" approach (installing structure without data) is often the best way to start exploring unfamiliar datasets.
 
 Afterwards, you can see that the `remodnav` subdataset also contains further subdatasets.
 In this case, these subdatasets contain data used for testing and validating software performance.
@@ -544,6 +803,16 @@ cd remodnav/tests/data/anderson_etal
 #| output-fold: true
 git log -n 3
 ```
+
+This example illustrates several important aspects of scientific data management:
+
+- **Data errors happen**: Even published data can contain mistakes
+- **Version control helps**: You can track exactly when and how data was corrected
+- **Transparency**: The fix is documented and visible in the history
+- **Collaboration**: Researchers can contribute improvements to shared datasets
+- **Impact assessment**: You can see exactly what changed between versions
+
+The ability to track and correct data errors while maintaining complete provenance is crucial for scientific reproducibility.
 
 Because DataLad can link subdatasets to precise versions, it is possible to consciously decide and openly record which version of the data is used.
 It is also possible to test how much results change by resetting the subdataset to an earlier state or updating the dataset to a more recent version.
@@ -569,6 +838,15 @@ First, create a new dataset, in this case with the `yoda` configuration:
 datalad create -c yoda myanalysis
 ```
 
+The `yoda` configuration sets up a dataset following the **YODA principles** (YODA = "YODa's Organigram on Data Analyses"):
+
+- **Structured organization**: Creates a logical directory structure for data analysis projects
+- **Separation of concerns**: Keeps code, data, and outputs in separate locations
+- **Reproducibility**: Establishes conventions that support reproducible research
+- **Best practices**: Applies proven configurations for data analysis workflows
+
+This configuration is specifically designed for data analysis projects and provides a standardized way to organize research.
+
 This sets up a helpful structure for the dataset with a code directory and some README files, and applies helpful configurations:
 
 ```{bash}
@@ -581,6 +859,19 @@ cd myanalysis
 tree
 ```
 
+The YODA configuration creates several key directories and files:
+
+- **`code/`**: Where you store your analysis scripts and source code
+- **`README.md`**: Documentation for your project
+- **`.datalad/`**: DataLad configuration and metadata (hidden directory)
+- **Configuration settings**: Optimized for typical data analysis workflows
+
+This structure follows research data management best practices:
+
+- Clear separation between code and data
+- Documentation is prominently placed
+- Ready for immediate use in data analysis projects
+
 Read more about the YODA principles and the YODA configuration in the [section on YODA](https://handbook.datalad.org/en/latest/basics/101-127-yoda.html) in the DataLad Handbook.
 
 Next, install the input data as a subdataset.
@@ -591,6 +882,17 @@ Here, we're installing it into a directory named `input`.
 #| output-fold: true
 datalad clone -d . https://github.com/datalad-handbook/iris_data.git input/
 ```
+
+This command demonstrates a key YODA principle - **input data should be separate from your analysis code**:
+- `datalad clone -d .` installs the dataset as a subdataset of the current dataset
+- The iris dataset is a classic machine learning dataset (flower measurements)
+- Installing as `input/` clearly identifies this as input data for the analysis
+- The data remains linked to its original source for provenance tracking
+
+By organizing data this way, you maintain clear boundaries between:
+- **Input data**: What you're analyzing (should not be modified)
+- **Code**: How you're analyzing it
+- **Results**: What you discover (generated by your analysis)
 
 The last thing needed is code to run on the data and produce results.
 For this, here is a k-means classification analysis script written in Python.
@@ -687,6 +989,21 @@ datalad run -m "Analyze iris data with classification analysis" \
 "python3 code/script.py"
 ```
 
+The `datalad run` command is a powerful tool for **reproducible computational workflows**:
+
+**Core features:**
+- **Command execution**: Runs your specified command
+- **Input tracking**: Records what data the command uses (`--input`)
+- **Output tracking**: Records what files the command produces (`--output`)
+- **Automatic saving**: Commits all changes with the provided message
+- **Provenance recording**: Creates a machine-readable record of the entire process
+
+**Why this matters:**
+- **Reproducibility**: Others can see exactly how results were generated
+- **Dependency tracking**: DataLad knows what data is needed to recreate results
+- **Change detection**: Can identify when inputs change and outputs need updating
+- **Automation**: The entire analysis becomes repeatable with a single command
+
 DataLad creates a commit in the dataset history.
 This commit includes the commit message as a human-readable summary of what was done.
 It contains the produced output, and it has a machine-readable record that includes information on the input data, the results, and the command that was run to create this result.
@@ -695,6 +1012,21 @@ It contains the produced output, and it has a machine-readable record that inclu
 #| output-fold: true
 git log -n 1
 ```
+
+This commit contains several types of information:
+
+**Human-readable:**
+- **Commit message**: Describes what analysis was performed
+- **Changed files**: Shows what outputs were generated
+- **Author and timestamp**: Who ran the analysis and when
+
+**Machine-readable provenance:**
+- **Exact command**: The complete command that was executed
+- **Input dependencies**: Which files were used as inputs
+- **Output products**: Which files were generated
+- **Environment information**: Details about the computational environment
+
+This rich metadata enables both humans and computers to understand exactly how results were produced.
 
 ### `datalad rerun`
 
@@ -728,6 +1060,23 @@ DataLad will read the machine-readable record of what was done and recompute the
 datalad rerun 3bb049d
 ```
 
+The `datalad rerun` command demonstrates the ultimate goal of reproducible research:
+
+**What `datalad rerun` does:**
+- **Reads the provenance record**: Extracts the exact command, inputs, and outputs from the commit
+- **Recreates the environment**: Sets up the same conditions as the original run
+- **Re-executes the command**: Runs the exact same command that generated the original results
+- **Validates outputs**: Ensures the results match what was originally produced
+
+**Why this is revolutionary:**
+- **Perfect reproducibility**: No ambiguity about how results were generated
+- **Effortless replication**: Others can reproduce your work with a single command
+- **Dependency management**: DataLad automatically retrieves required input data
+- **Update workflows**: Easily update results when input data or code changes
+- **Scientific transparency**: Computational methods become fully transparent
+
+This capability transforms scientific computing from "trust me, this is how I did it" to "here's exactly how to do it yourself."
+
 This allows others to easily rerun your computations.
 It also spares you the need to remember how you executed a script, and you can inquire about where the results came from.
 
@@ -735,6 +1084,24 @@ It also spares you the need to remember how you executed a script, and you can i
 #| output-fold: true
 git log pairwise_relationships.png
 ```
+
+This command shows the complete history of a specific file (`pairwise_relationships.png`).
+You can trace exactly:
+
+- **When the file was created**: The exact timestamp
+- **How it was created**: The command that generated it
+- **What inputs were used**: The data that contributed to this result
+- **Who created it**: The author of the analysis
+- **Why it was created**: The commit message explaining the purpose
+
+**The broader impact:**
+This level of provenance tracking transforms research in several ways:
+
+- **Eliminates "mystery results"**: Every output has a clear, traceable origin
+- **Enables confident reuse**: You know exactly what each file represents
+- **Facilitates collaboration**: Team members can understand and build on each other's work
+- **Supports peer review**: Reviewers can examine the exact computational methods
+- **Enables meta-analysis**: Researchers can compare and combine methods across studies
 
 **Done! Thanks for coding along!**
 
