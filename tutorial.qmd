@@ -28,8 +28,8 @@ Below, we provide instructions on how to configure your Git identity.
 #| eval: true
 #| echo: false
 #| output: false
-git config user.name "Ford Escort"
-git config user.email 42@H2G2.com
+git config --global user.name "Ford Escort"
+git config --global user.email 42@H2G2.com
 # fatal: detected dubious ownership in repository at '/app'
 # To add an exception for this directory, call:
 git config --global --add safe.directory /app
