@@ -106,7 +106,3 @@ This work is licensed under a [Creative Commons Attribution Share Alike 4.0 Inte
 ## 🙏 Acknowledgments
 
 This tutorial was initially created by Adina Wagner for the 2020 OHBM Brainhack Traintrack session on DataLad. This version has been adapted and extended for broader educational use.
-
----
-
-*Part of the Research Data Management educational series*
