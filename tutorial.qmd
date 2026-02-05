@@ -1002,6 +1002,7 @@ datalad run -m "Analyze iris data with classification analysis" \
 The `datalad run` command is a powerful tool for **reproducible computational workflows**:
 
 **Core features:**
+
 - **Command execution**: Runs your specified command
 - **Input tracking**: Records what data the command uses (`--input`)
 - **Output tracking**: Records what files the command produces (`--output`)
@@ -1009,6 +1010,7 @@ The `datalad run` command is a powerful tool for **reproducible computational wo
 - **Provenance recording**: Creates a machine-readable record of the entire process
 
 **Why this matters:**
+
 - **Reproducibility**: Others can see exactly how results were generated
 - **Dependency tracking**: DataLad knows what data is needed to recreate results
 - **Change detection**: Can identify when inputs change and outputs need updating
