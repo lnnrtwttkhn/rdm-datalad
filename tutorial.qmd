@@ -15,6 +15,7 @@ It is a command-line tool, free and open source, and available for all major ope
 In the command line, all operations begin with the general `datalad` command.
 
 ```{bash}
+#| output-fold: true
 # datalad
 ```
 
@@ -26,6 +27,7 @@ If you already have DataLad installed, **make sure that it is a recent version**
 You can check the installed version using the `datalad --version` command:
 
 ```{bash}
+#| output-fold: true
 datalad --version
 ```
 
@@ -40,6 +42,7 @@ However, please note that a central Git configuration has already been set up fo
 That's why the code examples below is commented out.
 
 ```{bash}
+#| output-fold: true
 # git config user.name "Your name"
 # git config user.email "Your email address"
 ```
@@ -64,6 +67,7 @@ Dont't worry about configurations for now.
 In general, this configuration serves as a very useful standard for datasets.
 
 ```{bash}
+#| output-fold: true
 datalad create -c text2git DataLad-101
 ```
 
@@ -71,10 +75,12 @@ Right after dataset creation, there is a new directory on the computer called `D
 Let's navigate into this directory using the `cd` command and list the directory contents using `ls`.
 
 ```{bash}
+#| output-fold: true
 cd DataLad-101
 ```
 
 ```{bash}
+#| output-fold: true
 ls # ls does not show any output, because the dataset is empty
 ```
 
@@ -88,6 +94,7 @@ You can access the history of a dataset using any tool that displays Git history
 For simplicity, we will use Git's built-in `git log` command.
 
 ```{bash}
+#| output-fold: true
 git log
 ```
 
@@ -105,14 +112,17 @@ However, if you prefer, you can also download the books manually and save them i
 Remember, a dataset is simply a directory on your computer.
 
 ```{bash}
+#| output-fold: true
 mkdir books
 ```
 
 ```{bash}
+#| output-fold: true
 cd books
 ```
 
 ```{bash}
+#| output-fold: true
 curl -L -o TLCL.pdf https://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download
 curl -L -o byte-of-python.pdf https://edisciplinas.usp.br/pluginfile.php/3252353/mod_resource/content/1/b_Swaroop_Byte_of_python.pdf
 ```
@@ -120,10 +130,12 @@ curl -L -o byte-of-python.pdf https://edisciplinas.usp.br/pluginfile.php/3252353
 Let's navigate back to the dataset root (`DataLad-101` folder)  and run he `tree` command which can visualize the directory hierarchy:
 
 ```{bash}
+#| output-fold: true
 cd ../
 ```
 
 ```{bash}
+#| output-fold: true
 tree
 ```
 
@@ -135,6 +147,7 @@ In general, it is very useful to maintain a clean dataset state.
 If you know Git, you can think about `datalad status` as the `git status` of DataLad.
 
 ```{bash}
+#| output-fold: true
 datalad status
 ```
 
@@ -146,12 +159,14 @@ A "commit" is a snapshot of your project's files at a specific point in time.
 The commit message is a short text description that explains the changes made when saving the current changes in a Datalad dataset.
 
 ```{bash}
+#| output-fold: true
 datalad save -m "Add books on Python and Unix to read later"
 ```
 
 With `git log -n 1` you can take a look at the most recent commit in the history:
 
 ```{bash}
+#| output-fold: true
 git log -n 1
 ```
 
@@ -165,24 +180,29 @@ To address this, you can provide a path to the specific file you want to save, a
 Let's demonstrate this by adding another book from the internet:
 
 ```{bash}
+#| output-fold: true
 cd books
 ```
 
 ```{bash}
+#| output-fold: true
 curl -L -o progit.pdf https://github.com/progit/progit2/releases/download/2.1.154/progit.pdf
 ```
 
 ```{bash}
+#| output-fold: true
 cd ../
 ```
 
 ```{bash}
+#| output-fold: true
 datalad status
 ```
 
 Now when you run `datalad save`, attach a path to the command:
 
 ```{bash}
+#| output-fold: true
 datalad save -m "Add reference book about Git" books/progit.pdf
 ```
 
@@ -192,6 +212,7 @@ We will use a [here doc](https://en.wikipedia.org/wiki/Here_document) for this, 
 If you execute this code snippet, make sure to copy and paste everything, starting with `cat` and ending with the second `EOT`.
 
 ```{bash}
+#| output-fold: true
 cat << EOT > notes.txt
 A DataLad dataset can be created with "datalad create PATH".
 The dataset is created empty.
@@ -203,6 +224,7 @@ EOT
 dataset:
 
 ```{bash}
+#| output-fold: true
 datalad status
 ```
 
@@ -210,12 +232,14 @@ We can save the newly created `notes.txt`-file with the `datalad save` command a
 As this is the only change in the dataset, there is no need to provide a path:
 
 ```{bash}
+#| output-fold: true
 datalad save -m "Add notes on datalad create"
 ```
 
 Let’s now add another note to modifiy this file:
 
 ```{bash}
+#| output-fold: true
 cat << EOT >> notes.txt
 The command "datalad save [-m] PATH" saves the file (modifications) to history.
 Note to self: Always use informative and concise commit messages.
@@ -227,12 +251,14 @@ A `datalad status` command reports the file as not untracked.
 However, because it differs from the state it was saved under, it is reported as modified.
 
 ```{bash}
+#| output-fold: true
 datalad status
 ```
 
 Let’s save this:
 
 ```{bash}
+#| output-fold: true
 datalad save -m "Add notes on datalad save"
 ```
 
@@ -240,6 +266,7 @@ If you take a look at the history of this file with `git log`, the history
 neatly summarizes all of the changes that have been done:
 
 ```{bash}
+#| output-fold: true
 git log -n 2
 ```
 
@@ -253,6 +280,7 @@ You can install existing datasets and update them from their sources, or create 
 To demonstrate this, let's first create a new subdirectory to be organized:
 
 ```{bash}
+#| output-fold: true
 mkdir recordings
 ```
 
@@ -263,6 +291,7 @@ Importantly, we are installing this dataset as a subdataset of `DataLad-101`, wh
 This is accomplished using the `--dataset` flag.
 
 ```{bash}
+#| output-fold: true
 datalad clone --dataset . https://github.com/datalad-datasets/longnow-podcasts.git recordings/longnow
 ```
 
@@ -270,16 +299,19 @@ There are new directories in the `DataLad-101` dataset.
 Within these new directories, there are hundreds of MP3 files.
 
 ```{bash}
+#| output-fold: true
 tree -d # we limit the output of the tree command to directories
 ```
 
 Let's move into one of these directories and take a look at its contents:
 
 ```{bash}
+#| output-fold: true
 cd recordings/longnow/Long_Now__Seminars_About_Long_term_Thinking
 ```
 
 ```{bash}
+#| output-fold: true
 ls
 ```
 
@@ -292,6 +324,7 @@ While we can read the file names and determine what the dataset contains, we don
 If we were to try to play one of the recordings using the Python `Audio` functionality, this would fail.
 
 ```{bash}
+#| output-fold: true
 # vlc --intf dummy --play-and-exit "2003_11_15__Brian_Eno__The_Long_Now.mp3"
 ```
 
@@ -300,10 +333,12 @@ One advantage is speed, and another is reduced disk usage.
 Here is the total size of this dataset:
 
 ```{bash}
+#| output-fold: true
 cd ../
 ```
 
 ```{bash}
+#| output-fold: true
 du -sh  # Unix command to show size of contents
 ```
 
@@ -312,6 +347,7 @@ However, we can also find out how large the dataset would be if we had all of it
 In total, there are more than 15 GB of podcasts that you now have access to.
 
 ```{bash}
+#| output-fold: true
 datalad status --annex
 ```
 
@@ -319,24 +355,28 @@ You can retrieve individual files, groups of files, directories, or entire datas
 This command fetches the content for you.
 
 ```{bash}
+#| output-fold: true
 datalad get Long_Now__Seminars_About_Long_term_Thinking/2003_11_15__Brian_Eno__The_Long_Now.mp3
 ```
 
 Content that is already present is not re-retrieved.  
 
 ```{bash}
+#| output-fold: true
 datalad get Long_Now__Seminars_About_Long_term_Thinking/2003_11_15__Brian_Eno__The_Long_Now.mp3  \Long_Now__Seminars_About_Long_term_Thinking/2003_12_13__Peter_Schwartz__The_Art_Of_The_Really_Long_View.mp3  \Long_Now__Seminars_About_Long_term_Thinking/2004_01_10__George_Dyson__There_s_Plenty_of_Room_at_the_Top__Long_term_Thinking_About_Large_scale_Computing.mp3
 ```
 
 If you no longer need the data locally, you can drop the content from your dataset to save disk space.
 
 ```{bash}
+#| output-fold: true
 datalad drop Long_Now__Seminars_About_Long_term_Thinking/2003_12_13__Peter_Schwartz__The_Art_Of_The_Really_Long_View.mp3
 ```
 
 Afterwards, as long as DataLad knows where a file came from, its content can be retrieved again.
 
 ```{bash}
+#| output-fold: true
 datalad get Long_Now__Seminars_About_Long_term_Thinking/2003_12_13__Peter_Schwartz__The_Art_Of_The_Really_Long_View.mp3
 ```
 
@@ -353,6 +393,7 @@ We can see that it has preserved its history completely.
 This means that the data we retrieved retains all of its provenance.
 
 ```{bash}
+#| output-fold: true
 git log --reverse
 ```
 
@@ -362,10 +403,12 @@ Instead, we can see that the superdataset recorded the `recordings/longnow` data
 This means it recorded where this dataset came from and what version it is in.
 
 ```{bash}
+#| output-fold: true
 cd ../../
 ```
 
 ```{bash}
+#| output-fold: true
 git log -n 1
 ```
 
@@ -373,14 +416,17 @@ The subproject commit registered the most recent commit of the subdataset, and t
 the subdataset version:
 
 ```{bash}
+#| output-fold: true
 cd recordings/longnow
 ```
 
 ```{bash}
+#| output-fold: true
 git log --oneline
 ```
 
 ```{bash}
+#| output-fold: true
 cd ../../
 ```
 
@@ -389,20 +435,24 @@ cd ../../
 We'll clone a repository for a [paper](https://doi.org/10.3758/s13428-020-01428-x) that [shares manuscript, code, and data](https://github.com/psychoinformatics-de/paper-remodnav/):
 
 ```{bash}
+#| output-fold: true
 cd ../
 ```
 
 ```{bash}
+#| output-fold: true
 datalad clone https://github.com/psychoinformatics-de/paper-remodnav.git
 ```
 
 The top-level dataset has many subdatasets. One of it, `remodnav`, is a dataset that contains the sourcecode for a Python package called `remodnav` used in eyetracking analyses:
 
 ```{bash}
+#| output-fold: true
 cd paper-remodnav
 ```
 
 ```{bash}
+#| output-fold: true
 datalad subdatasets
 ```
 
@@ -410,20 +460,24 @@ After cloning a dataset, its subdatasets will be recognized, but just as content
 If we navigate into an uninstalled subdataset, it will appear as an empty directory.
 
 ```{bash}
+#| output-fold: true
 cd remodnav
 ```
 
 ```{bash}
+#| output-fold: true
 ls
 ```
 
 In order to install a subdataset, we use `datalad get` with the `--recursive` flag:
 
 ```{bash}
+#| output-fold: true
 datalad get --recursive --recursion-limit 2 -n .
 ```
 
 ```{bash}
+#| output-fold: true
 ls
 ```
 
@@ -439,6 +493,7 @@ Afterwards, you can see that the `remodnav` subdataset also contains further sub
 In this case, these subdatasets contain data used for testing and validating software performance.
 
 ```{bash}
+#| output-fold: true
 datalad subdatasets
 ```
 
@@ -448,10 +503,12 @@ The mistake was still present in the data they were using.
 By inspecting the history of this dataset, you can see that at one point, they contributed a fix that changed the data.
 
 ```{bash}
+#| output-fold: true
 cd remodnav/tests/data/anderson_etal
 ```
 
 ```{bash}
+#| output-fold: true
 git log -n 3
 ```
 
@@ -467,12 +524,14 @@ You or your collaborators can thus reobtain or reproducibly recompute content wi
 <img src="https://handbook.datalad.org/en/latest/_images/reproducible_execution.svg" style="width: 600px;"/>
 
 ```{bash}
+#| output-fold: true
 cd ../../../../../../
 ```
 
 First, create a new dataset, in this case with the `yoda` configuration:
 
 ```{bash}
+#| output-fold: true
 #| scrolled: true
 datalad create -c yoda myanalysis
 ```
@@ -481,10 +540,12 @@ This sets up a helpful structure for my dataset with a code directory and some R
 and applies helpful configurations:
 
 ```{bash}
+#| output-fold: true
 cd myanalysis
 ```
 
 ```{bash}
+#| output-fold: true
 tree
 ```
 
@@ -495,6 +556,7 @@ For this, the DataLad developers created a [DataLad dataset](https://github.com/
 Here, we're installing it into a directory named `input`.
 
 ```{bash}
+#| output-fold: true
 datalad clone -d . https://github.com/datalad-handbook/iris_data.git input/
 ```
 
@@ -503,6 +565,7 @@ For this, here is a k-means classification analysis script written in Python.
 You can find more details about this analysis in the [section on a YODA-compliant data analysis projects](https://handbook.datalad.org/en/latest/basics/101-130-yodaproject.html).
 
 ```{bash}
+#| output-fold: true
 cat << EOT > code/script.py
 
 import pandas as pd
@@ -551,12 +614,14 @@ EOT
 So far the script is untracked:
 
 ```{bash}
+#| output-fold: true
 datalad status
 ```
 
 Let's save it with a `datalad save` command:
 
 ```{bash}
+#| output-fold: true
 datalad save -m "Add script for kNN classification and plotting" code/script.py
 ```
 
@@ -568,6 +633,7 @@ In principle, it is simple.
 You start with a clean dataset:
 
 ```{bash}
+#| output-fold: true
 datalad status
 ```
 
@@ -581,6 +647,7 @@ We also specify the output of the command.
 Specifying the outputs will allow us to rerun the command later and update any outdated results.
 
 ```{bash}
+#| output-fold: true
 datalad run -m "Analyze iris data with classification analysis" \
 --input "input/iris.csv" \
 --output "prediction_report.csv" \
@@ -593,6 +660,7 @@ This commit includes my commit message as a human-readable summary of what was d
 It contains the produced output, and it has a machine-readable record that includes information on the input data, the results, and the command that was run to create this result.
 
 ```{bash}
+#| output-fold: true
 git log -n 1
 ```
 
@@ -606,14 +674,17 @@ This is accomplished with the `datalad rerun` command.
 For this demonstration, we have prepared this analysis dataset and published it to GitHub at https://github.com/lnnrtwttkhn/datalad-tutorial-myanalysis.
 
 ```{bash}
+#| output-fold: true
 cd ../
 ```
 
 ```{bash}
+#| output-fold: true
 git clone https://github.com/lnnrtwttkhn/datalad-tutorial-myanalysis analysis_clone
 ```
 
 ```{bash}
+#| output-fold: true
 cd analysis_clone
 ```
 
@@ -621,6 +692,7 @@ We can clone this repository and provide, for example, the checksum of the run c
 DataLad will read the machine-readable record of what was done and recompute the exact same thing.
 
 ```{bash}
+#| output-fold: true
 datalad rerun 3bb049d
 ```
 
@@ -628,6 +700,7 @@ This allows others to easily rerun my computations.
 It also spares you the need to remember how you executed a script, and you can inquire about where the results came from.
 
 ```{bash}
+#| output-fold: true
 git log pairwise_relationships.png
 ```
 
