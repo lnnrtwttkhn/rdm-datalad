@@ -1,0 +1,109 @@
+project:
+  type: website
+  execute-dir: project
+  output-dir: _site
+  pre-render: make generate-install
+  post-render: make ipynb
+  preview:
+    port: 4200
+    browser: true
+    watch-inputs: true
+    navigate: true
+
+author:
+  - id: wittkuhn
+    name: Dr. Lennart Wittkuhn
+    url: "{{< var project.homepage >}}"
+    email: "{{< var project.email >}}"
+    orcid: "{{< var project.orcid >}}"
+    attributes:
+      corresponding: true
+
+website:
+  site-url: https://lennartwittkuhn.com/rdm-datalad/
+  repo-url: https://github.com/lnnrtwttkhn/rdm-datalad
+  repo-actions: [edit, source, issue]
+  search: false
+  page-navigation: false
+  back-to-top-navigation: true
+  navbar:
+    search: false
+    left:
+      - text: "Home"
+        href: index.qmd
+      - text: "Setup"
+        href: setup.qmd
+      - text: "Tutorial"
+        href: tutorial.qmd
+  other-links:
+    - text: Tutorial Notebook
+      href: tutorial.ipynb
+      icon: journal-code
+    - text: Tutorial (Colab)
+      href: tutorial_colab.ipynb
+      icon: google
+
+# table of contents:
+toc-depth: 3
+toc-title: "Contents"
+# numbering:
+number-sections: false
+number-depth: 1
+# layout:
+fig-cap-location: bottom
+tbl-cap-location: top
+page-layout: article
+title-block-style: default
+# code:
+code-line-numbers: true
+code-annotations: true
+highlight-style: monokai
+# execution:
+execute:
+  eval: false
+  freeze: false
+  cache: false
+# references
+# bibliography: references.bib
+# language
+lang: en
+# rendering:
+from: "markdown+emoji"
+
+format:
+  html:
+    subtitle: "{{< var project.subtitle >}}"
+    date: today
+    # format options:
+    theme: default
+    anchor-sections: true
+    smooth-scroll: true
+    html-math-method: katex
+    email-obfuscation: none
+    # table of contents:
+    toc: true
+    toc-location: right
+    toc-expand: true
+    # layout:
+    page-layout: article
+    title-block-style: default
+    # code:
+    highlight-style: github
+    code-fold: false
+    code-summary: "Code"
+    code-overflow: scroll
+    code-copy: true
+    code-link: false
+    code-annotations: hover
+    code-tools:
+      source: "https://github.com/lnnrtwttkhn/rdm-datalad"
+      toggle: true
+      caption: "Code"
+    # links:
+    link-external-icon: false
+    link-external-newwindow: true
+    # references:
+    citations-hover: true
+    citation-location: document
+    # metadata
+    license: "CC BY-SA 4.0"

@@ -1,0 +1,51 @@
+---
+title: "Home: Research Data Management with DataLad"
+engine: jupyter
+jupyter: bash
+---
+
+::: {.callout-note title="Acknowledgements" collapse="true"}
+
+This tutorial was initially created by Adina Wagner for the 2020 OHBM Brainhack Traintrack session on DataLad.
+This notebook accompanies [this tutorial video](https://www.youtube.com/watch?v=L5A0MXqFrOY) by Adina Wagner.
+:::
+
+## What is DataLad?
+
+[DataLad](https://www.datalad.org/) is a data management multitool that can assist you in handling the entire life cycle of digital objects.
+It is a command-line tool, free and open source, and available for all major operating systems.
+In the command line, all operations begin with the general `datalad` command.
+
+## Tutorial contents
+
+This tutorial covers:
+
+0. **Introduction and setup** - Getting started with DataLad
+1. **Creating a DataLad dataset** - Basic dataset creation and management
+2. **Version control workflows** - Managing data and code changes over time
+3. **Dataset consumption and nesting** - Working with existing datasets and subdatasets
+4. **Dataset nesting** - Advanced nested dataset structures
+5. **More on data versioning, nesting, and a glimpse into reproducible paper** - Real-world examples
+6. **Full provenance capture and reproducibility** - Complete workflow tracking and replication
+
+## Getting started
+
+To start the tutorial:
+
+1. Visit the [Setup](setup.qmd) page for installation instructions
+2. Follow along with the [Tutorial](tutorial.qmd) for hands-on practice
+
+## Key features of DataLad
+
+- **Version control for data** - Track changes to datasets of any size
+- **Data consumption** - Install and manage datasets from remote sources
+- **Reproducible workflows** - Capture complete provenance of data processing
+- **Collaboration** - Share and synchronize datasets across teams
+- **Storage flexibility** - Work with data locally or on remote storage
+
+## Resources
+
+- [DataLad Documentation](https://docs.datalad.org/)
+- [DataLad Handbook](https://handbook.datalad.org/)
+- [DataLad on GitHub](https://github.com/datalad/datalad)
+- [DataLad Installation Guide](https://handbook.datalad.org/en/latest/intro/installation.html)
