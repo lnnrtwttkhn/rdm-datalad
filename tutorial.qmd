@@ -3,30 +3,10 @@ title: Version Control of Data with DataLad
 engine: jupyter
 jupyter: bash
 ---
-
-
-## Contents
-
-0. [Introduction and setup](#0)
-1. [Creating a Datalad dataset](#1)
-2. [Version control workflows](#2)
-3. [Dataset consumption and nesting](#3)
-4. [Dataset nesting](#4)
-5. [More on data versioning, nesting, and a glimpse into reproducible paper](#5)
-6. [Full provenance capture and reproducibility](#6)
-
-## About this notebook
-
-You can execute all the code cells below in this Jupyter Notebook running in [MyBinder](https://mybinder.org/).
-Alternatively, if you have DataLad and its dependencies installed, you can copy and paste the code into your computer's command line to follow along.
-
 ## Acknowledgements
 
 This tutorial was initially created by Adina Wagner for the 2020 OHBM Brainhack Traintrack session on DataLad.
 This notebook accompanies [this tutorial video](https://www.youtube.com/watch?v=L5A0MXqFrOY) by Adina Wagner.
-
-
-<div id="0"></div>
 
 ## 0. Introduction & setup
 
@@ -63,11 +43,9 @@ That's why the code examples below is commented out.
 
 ```{bash}
 #| hide-output: false
-# git config --global --add user.name "Your name"
-# git config --global --add user.email "Your email address"
+# git config user.name "Your name"
+# git config user.email "Your email address"
 ```
-
-<div id="1"></div>
 
 ## 1. Creating a DataLad dataset
 
@@ -118,8 +96,6 @@ For simplicity, we will use Git's built-in `git log` command.
 #| hide-output: false
 git log
 ```
-
-<div id="2"></div>
 
 ## 2. Version control workflows
 
@@ -287,8 +263,6 @@ neatly summarizes all of the changes that have been done:
 git log -n 2
 ```
 
-<div id="3"></div>
-
 ## 3. Dataset consumption
 
 DataLad lets you consume datasets provided by others, and collaborate with them.
@@ -396,8 +370,6 @@ Afterwards, as long as DataLad knows where a file came from, its content can be 
 datalad get Long_Now__Seminars_About_Long_term_Thinking/2003_12_13__Peter_Schwartz__The_Art_Of_The_Really_Long_View.mp3
 ```
 
-<div id="4"></div>
-
 ## 4. Dataset nesting
 
 Datasets can contain other datasets (subdatasets), nested arbitrarily deep.
@@ -444,8 +416,6 @@ git log --oneline
 ```{bash}
 cd ../../
 ```
-
-<div id="5"></div>
 
 ## 5. More on data versioning, nesting, and a glimpse into reproducible paper
 
@@ -526,8 +496,6 @@ git log -n 3
 
 Because DataLad can link subdatasets to precise versions, it is possible to consciously decide and openly record which version of the data is used.
 It is also possible to test how much results change by resetting the subdataset to an earlier state or updating the dataset to a more recent version.
-
-<div id="6"></div>
 
 ## 6. Full provenance capture and reproducibility
 
