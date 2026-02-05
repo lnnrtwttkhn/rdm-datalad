@@ -10,7 +10,7 @@ install:
 	uv run python generate_install.py
 	uv run quarto convert tutorial.qmd
 
-make: generate-install
+.PHONY: generate-install
 generate-install:
 	uv run python3 generate_install.py
 
