@@ -10,6 +10,31 @@ filters:
 This tutorial was initially created by Adina Wagner for the 2020 OHBM Brainhack Traintrack session on DataLad.
 This notebook accompanies [this tutorial video](https://www.youtube.com/watch?v=L5A0MXqFrOY) by Adina Wagner.
 
+### Configuring your Git identity
+
+The first step, if you haven't done so already, is to configure your [Git](https://git-scm.com/) identity.
+If you're new to Git, don't worry!
+This configuration simply involves setting your name and email address, which will associate your changes in a project with you as the author.
+
+Below, we provide instructions on how to configure your Git identity.
+
+```{bash}
+#| eval: false
+# git config user.name "Your name"
+# git config user.email "Your email address"
+```
+
+```{bash}
+#| eval: true
+#| echo: false
+#| output: false
+git config user.name "Ford Escort"
+git config user.email 42@H2G2.com
+# fatal: detected dubious ownership in repository at '/app'
+# To add an exception for this directory, call:
+git config --global --add safe.directory /app
+```
+
 ## Introduction & setup
 
 [DataLad](https://www.datalad.org/) is a data management multitool that assists you in handling the entire lifecycle of digital objects.
@@ -53,30 +78,6 @@ You can check the installed version using the `datalad --version` command:
 ```{bash}
 #| output-fold: true
 datalad --version
-```
-
-### Configuring your Git identity
-
-The first step, if you haven't done so already, is to configure your [Git](https://git-scm.com/) identity.
-If you're new to Git, don't worry!
-This configuration simply involves setting your name and email address, which will associate your changes in a project with you as the author.
-
-Below, we provide instructions on how to configure your Git identity.
-
-```{bash}
-#| eval: false
-# git config user.name "Your name"
-# git config user.email "Your email address"
-```
-
-```{bash}
-#| echo: false
-#| output: false
-git config user.name "Ford Escort"
-git config user.email 42@H2G2.com
-# fatal: detected dubious ownership in repository at '/app'
-# To add an exception for this directory, call:
-git config --global --add safe.directory /app
 ```
 
 ## Creating a DataLad dataset
