@@ -21,6 +21,27 @@ In the command line, all operations begin with the general `datalad` command.
 
 For example, I can type `datalad --help` to find out more about the available commands.
 
+### DataLad Python API
+
+DataLad also has a Python API that can be used in Python scripts and Jupyter notebooks. This is particularly useful for programmatic data management and integration into data analysis workflows.
+
+```{bash}
+#| output-fold: true
+python3 -c "import datalad.api as dl; print('DataLad Python API is available')"
+```
+
+In Python scripts, you can import the DataLad API as follows:
+
+```python
+import datalad.api as dl
+
+# Example: get data programmatically
+# dl.get('path/to/file')
+
+# Example: save changes programmatically  
+# dl.save(message='Automated save from script')
+```
+
 You can find more details about how to [install DataLad and its dependencies on all operating systems in the DataLad Handbook](https://handbook.datalad.org/en/latest/intro/installation.html).
 This section also explains how to install DataLad on shared machines where you may not have administrative privileges (`sudo` rights), such as high-performance computing clusters.
 If you already have DataLad installed, **make sure that it is a recent version**.
