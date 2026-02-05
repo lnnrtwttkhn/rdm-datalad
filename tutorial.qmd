@@ -2,6 +2,8 @@
 title: Version Control of Data with DataLad
 engine: jupyter
 jupyter: bash
+filters:
+  - collapse-output
 ---
 ## Acknowledgements
 
@@ -10,7 +12,7 @@ This notebook accompanies [this tutorial video](https://www.youtube.com/watch?v=
 
 ## Introduction & setup
 
-[DataLad](https://www.datalad.org/) is a data management multitool that can assist you in handling the entire life cycle of digital objects.
+[DataLad](https://www.datalad.org/) is a data management multitool that assists you in handling the entire lifecycle of digital objects.
 It is a command-line tool, free and open source, and available for all major operating systems.
 In the command line, all operations begin with the general `datalad` command.
 
@@ -23,7 +25,8 @@ For example, I can type `datalad --help` to find out more about the available co
 
 ### DataLad Python API
 
-DataLad also has a Python API that can be used in Python scripts and Jupyter notebooks. This is particularly useful for programmatic data management and integration into data analysis workflows.
+DataLad also has a Python API that can be used in Python scripts and Jupyter notebooks.
+This is particularly useful for programmatic data management and integration into data analysis workflows.
 
 ```{bash}
 #| output-fold: true
@@ -60,7 +63,7 @@ This configuration simply involves setting your name and email address, which wi
 
 Below, we provide instructions on how to configure your Git identity.
 However, please note that a central Git configuration has already been set up for you during the `postBuild` process of Binder, so you don't need to perform this step manually.
-That's why the code examples below is commented out.
+That's why the code examples below are commented out.
 
 ```{bash}
 #| output-fold: true
@@ -84,7 +87,7 @@ It will then create a new directory with that name and instruct DataLad to manag
 Additionally, the command includes an option, `-c text2git`.
 The `-c` option allows for specific configurations of the dataset at the time of creation.
 You can find detailed information about the `text2git` configuration in the DataLad handbook, specifically in the [sections on configurations and procedures](https://handbook.datalad.org/en/latest/basics/basics-configuration.html).
-Dont't worry about configurations for now.
+Don't worry about configurations for now.
 In general, this configuration serves as a very useful standard for datasets.
 
 ```{bash}
@@ -122,7 +125,7 @@ git log
 ## Version control workflows
 
 Building on top of [Git](https://git-scm.com/) and [git-annex](https://git-annex.branchable.com/), DataLad allows you to version control arbitrarily large files in datasets.
-You can keep track of revisions of data of any size, and view, interact with or restore any version of your dataset’s history.
+You can keep track of revisions of data of any size, and view, interact with, or restore any version of your dataset's history.
 
 <img src="https://handbook.datalad.org/en/latest/_images/local_wf.svg" style="width: 400px;"/>
 
@@ -148,7 +151,7 @@ curl -L -o TLCL.pdf https://sourceforge.net/projects/linuxcommand/files/TLCL/19.
 curl -L -o byte-of-python.pdf https://edisciplinas.usp.br/pluginfile.php/3252353/mod_resource/content/1/b_Swaroop_Byte_of_python.pdf
 ```
 
-Let's navigate back to the dataset root (`DataLad-101` folder)  and run he `tree` command which can visualize the directory hierarchy:
+Let's navigate back to the dataset root (`DataLad-101` folder) and run the `tree` command which can visualize the directory hierarchy:
 
 ```{bash}
 #| output-fold: true
@@ -165,7 +168,7 @@ This command is very helpful as it reports on the current state of your dataset.
 Any new or changed content will be highlighted.
 If nothing has changed, the `datalad status` command will report what is known as a clean dataset state.
 In general, it is very useful to maintain a clean dataset state.
-If you know Git, you can think about `datalad status` as the `git status` of DataLad.
+If you know Git, you can think of `datalad status` as the `git status` of DataLad.
 
 ```{bash}
 #| output-fold: true
@@ -177,7 +180,7 @@ It is not enough to simply place it inside the dataset.
 To give new or changed content to DataLad, we need to save it using `datalad save`.
 This is the first time we need to specify a "commit message", which is done using the `-m` option of the command.
 A "commit" is a snapshot of your project's files at a specific point in time.
-The commit message is a short text description that explains the changes made when saving the current changes in a Datalad dataset.
+The commit message is a short text description that explains the changes made when saving the current changes in a DataLad dataset.
 
 ```{bash}
 #| output-fold: true
@@ -241,15 +244,14 @@ The dataset is created empty.
 EOT
 ```
 
-`datalad status` will, as expected, say that there is a new untracked file in the
-dataset:
+`datalad status` will, as expected, say that there is a new untracked file in the dataset:
 
 ```{bash}
 #| output-fold: true
 datalad status
 ```
 
-We can save the newly created `notes.txt`-file with the `datalad save` command and a helpful commit message.
+We can save the newly created `notes.txt` file with the `datalad save` command and a helpful commit message.
 As this is the only change in the dataset, there is no need to provide a path:
 
 ```{bash}
@@ -257,7 +259,7 @@ As this is the only change in the dataset, there is no need to provide a path:
 datalad save -m "Add notes on datalad create"
 ```
 
-Let’s now add another note to modifiy this file:
+Let's now add another note to modify this file:
 
 ```{bash}
 #| output-fold: true
