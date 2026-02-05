@@ -6,6 +6,7 @@ on:
       - 'Dockerfile'
       - 'pyproject.toml'
       - 'uv.lock'
+      - '.github/workflows/docker.yml'
 
 jobs:
   build:
