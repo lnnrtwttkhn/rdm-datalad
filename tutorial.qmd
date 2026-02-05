@@ -25,15 +25,6 @@ The first step, if you haven't done so already, is to configure your [Git](https
 If you're new to Git, don't worry!
 This configuration simply involves setting your name and email address, which will associate your changes in a project with you as the author.
 
-Below, we provide instructions on how to configure your Git identity.
-
-```{bash}
-#| eval: false
-#| echo: true
-git config user.name "Your name"
-git config user.email "Your email address"
-```
-
 For this tutorial, we configure an example name and email address:
 
 ```{bash}
