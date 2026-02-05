@@ -1,7 +1,7 @@
 [project]
 name = "rdm-datalad"
 version = "0.1.0"
-description = "Add your description here"
+description = "Tutorial: Research Data Management with DataLad - Interactive educational content for learning data management workflows"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
