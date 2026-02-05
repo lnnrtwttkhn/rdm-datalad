@@ -1,0 +1,18 @@
+project:
+  name: "rdm-datalad"
+  subtitle: "Tutorial: Research Data Management with DataLad"
+  author: "Dr. Lennart Wittkuhn"
+  source: "https://github.com/lnnrtwttkhn/rdm-datalad"
+  website: "https://lennartwittkuhn.com/rdm-datalad"
+  issues: "https://github.com/lnnrtwttkhn/rdm-datalad/issues"
+  license-long: "Creative Commons Attribution Share Alike 4.0 International ([CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/))"
+  license-short: "[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)"
+  license-badge: "[![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC_BY_SA_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0/)"
+  homepage: "https://lennartwittkuhn.com/"
+  email: "lennart.wittkuhn@tutanota.com"
+  mailto: "lennart.wittkuhn@tutanota.com"
+  github: https://github.com/lnnrtwttkhn
+  linkedin: https://www.linkedin.com/in/lennart-wittkuhn/
+  scholar: https://scholar.google.com/citations?user=GXvJB1kAAAAJ&hl=en
+  orcid: 0000-0003-2966-6888
+  orcid-link: "https://orcid.org/0000-0003-2966-6888"

@@ -1,0 +1,38 @@
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+      - quarto
+
+env:
+  QUARTO_PROFILE: ci
+  CONTAINER_IMAGE: lnnrtwttkhn/rdm-datalad:latest
+
+name: Quarto Publish
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Pull Docker image
+        run: |
+          docker pull ${{ env.CONTAINER_IMAGE }}
+
+      - name: Render Quarto website in Docker
+        run: |
+          docker run --rm -v ${{ github.workspace }}:/app ${{ env.CONTAINER_IMAGE }} \
+            sh -c "uv run make generate-install && uv run quarto add --no-prompt mcanouil/quarto-collapse-output && uv run quarto render /app --profile ci"
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_site
