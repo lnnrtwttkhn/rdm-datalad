@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.55">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Dr.&nbsp;Lennart Wittkuhn">
+<meta name="dcterms.date" content="2026-02-05">
+
+<title>FAQ: Frequently Asked Questions</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./setup.html"> 
+<span class="menu-text">Setup</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./tutorial.html"> 
+<span class="menu-text">Tutorial</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./faq.html" aria-current="page"> 
+<span class="menu-text">FAQ</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
+    <h2 id="toc-title">Contents</h2>
+   
+  <ul>
+  <li><a href="#general-questions" id="toc-general-questions" class="nav-link active" data-scroll-target="#general-questions">General Questions</a>
+  <ul class="collapse">
+  <li><a href="#what-is-datalad" id="toc-what-is-datalad" class="nav-link" data-scroll-target="#what-is-datalad">What is DataLad?</a></li>
+  <li><a href="#why-use-datalad-instead-of-git" id="toc-why-use-datalad-instead-of-git" class="nav-link" data-scroll-target="#why-use-datalad-instead-of-git">Why use DataLad instead of Git?</a></li>
+  <li><a href="#do-i-need-to-know-git-to-use-datalad" id="toc-do-i-need-to-know-git-to-use-datalad" class="nav-link" data-scroll-target="#do-i-need-to-know-git-to-use-datalad">Do I need to know Git to use DataLad?</a></li>
+  </ul></li>
+  <li><a href="#installation-and-setup" id="toc-installation-and-setup" class="nav-link" data-scroll-target="#installation-and-setup">Installation and Setup</a>
+  <ul class="collapse">
+  <li><a href="#how-do-i-install-datalad" id="toc-how-do-i-install-datalad" class="nav-link" data-scroll-target="#how-do-i-install-datalad">How do I install DataLad?</a></li>
+  <li><a href="#im-getting-command-not-found-errors.-what-should-i-do" id="toc-im-getting-command-not-found-errors.-what-should-i-do" class="nav-link" data-scroll-target="#im-getting-command-not-found-errors.-what-should-i-do">I’m getting “command not found” errors. What should I do?</a></li>
+  <li><a href="#do-i-need-git-annex" id="toc-do-i-need-git-annex" class="nav-link" data-scroll-target="#do-i-need-git-annex">Do I need git-annex?</a></li>
+  </ul></li>
+  <li><a href="#working-with-datasets" id="toc-working-with-datasets" class="nav-link" data-scroll-target="#working-with-datasets">Working with Datasets</a>
+  <ul class="collapse">
+  <li><a href="#whats-the-difference-between-datalad-save-and-git-commit" id="toc-whats-the-difference-between-datalad-save-and-git-commit" class="nav-link" data-scroll-target="#whats-the-difference-between-datalad-save-and-git-commit">What’s the difference between <code>datalad save</code> and <code>git commit</code>?</a></li>
+  <li><a href="#how-do-i-share-my-dataset" id="toc-how-do-i-share-my-dataset" class="nav-link" data-scroll-target="#how-do-i-share-my-dataset">How do I share my dataset?</a></li>
+  <li><a href="#can-i-use-datalad-with-existing-git-repositories" id="toc-can-i-use-datalad-with-existing-git-repositories" class="nav-link" data-scroll-target="#can-i-use-datalad-with-existing-git-repositories">Can I use DataLad with existing Git repositories?</a></li>
+  </ul></li>
+  <li><a href="#data-management" id="toc-data-management" class="nav-link" data-scroll-target="#data-management">Data Management</a>
+  <ul class="collapse">
+  <li><a href="#how-does-datalad-handle-large-files" id="toc-how-does-datalad-handle-large-files" class="nav-link" data-scroll-target="#how-does-datalad-handle-large-files">How does DataLad handle large files?</a></li>
+  <li><a href="#what-happens-when-i-datalad-drop-a-file" id="toc-what-happens-when-i-datalad-drop-a-file" class="nav-link" data-scroll-target="#what-happens-when-i-datalad-drop-a-file">What happens when I <code>datalad drop</code> a file?</a></li>
+  <li><a href="#how-do-i-know-which-files-are-available" id="toc-how-do-i-know-which-files-are-available" class="nav-link" data-scroll-target="#how-do-i-know-which-files-are-available">How do I know which files are available?</a></li>
+  </ul></li>
+  <li><a href="#collaboration" id="toc-collaboration" class="nav-link" data-scroll-target="#collaboration">Collaboration</a>
+  <ul class="collapse">
+  <li><a href="#how-do-multiple-people-work-on-the-same-dataset" id="toc-how-do-multiple-people-work-on-the-same-dataset" class="nav-link" data-scroll-target="#how-do-multiple-people-work-on-the-same-dataset">How do multiple people work on the same dataset?</a></li>
+  <li><a href="#can-i-work-offline" id="toc-can-i-work-offline" class="nav-link" data-scroll-target="#can-i-work-offline">Can I work offline?</a></li>
+  </ul></li>
+  <li><a href="#reproducibility" id="toc-reproducibility" class="nav-link" data-scroll-target="#reproducibility">Reproducibility</a>
+  <ul class="collapse">
+  <li><a href="#what-is-datalad-run" id="toc-what-is-datalad-run" class="nav-link" data-scroll-target="#what-is-datalad-run">What is <code>datalad run</code>?</a></li>
+  <li><a href="#how-do-i-reproduce-someone-elses-analysis" id="toc-how-do-i-reproduce-someone-elses-analysis" class="nav-link" data-scroll-target="#how-do-i-reproduce-someone-elses-analysis">How do I reproduce someone else’s analysis?</a></li>
+  </ul></li>
+  <li><a href="#troubleshooting" id="toc-troubleshooting" class="nav-link" data-scroll-target="#troubleshooting">Troubleshooting</a>
+  <ul class="collapse">
+  <li><a href="#my-dataset-is-in-a-dirty-state.-what-does-this-mean" id="toc-my-dataset-is-in-a-dirty-state.-what-does-this-mean" class="nav-link" data-scroll-target="#my-dataset-is-in-a-dirty-state.-what-does-this-mean">My dataset is in a “dirty” state. What does this mean?</a></li>
+  <li><a href="#im-getting-permission-errors.-how-do-i-fix-this" id="toc-im-getting-permission-errors.-how-do-i-fix-this" class="nav-link" data-scroll-target="#im-getting-permission-errors.-how-do-i-fix-this">I’m getting permission errors. How do I fix this?</a></li>
+  <li><a href="#datalad-operations-are-very-slow.-why" id="toc-datalad-operations-are-very-slow.-why" class="nav-link" data-scroll-target="#datalad-operations-are-very-slow.-why">DataLad operations are very slow. Why?</a></li>
+  </ul></li>
+  <li><a href="#advanced-usage" id="toc-advanced-usage" class="nav-link" data-scroll-target="#advanced-usage">Advanced Usage</a>
+  <ul class="collapse">
+  <li><a href="#how-do-i-organize-related-datasets" id="toc-how-do-i-organize-related-datasets" class="nav-link" data-scroll-target="#how-do-i-organize-related-datasets">How do I organize related datasets?</a></li>
+  <li><a href="#can-i-use-datalad-with-cloud-storage" id="toc-can-i-use-datalad-with-cloud-storage" class="nav-link" data-scroll-target="#can-i-use-datalad-with-cloud-storage">Can I use DataLad with cloud storage?</a></li>
+  <li><a href="#how-do-i-automate-datalad-workflows" id="toc-how-do-i-automate-datalad-workflows" class="nav-link" data-scroll-target="#how-do-i-automate-datalad-workflows">How do I automate DataLad workflows?</a></li>
+  </ul></li>
+  <li><a href="#getting-help" id="toc-getting-help" class="nav-link" data-scroll-target="#getting-help">Getting Help</a>
+  <ul class="collapse">
+  <li><a href="#where-can-i-find-more-information" id="toc-where-can-i-find-more-information" class="nav-link" data-scroll-target="#where-can-i-find-more-information">Where can I find more information?</a></li>
+  <li><a href="#how-do-i-report-bugs-or-request-features" id="toc-how-do-i-report-bugs-or-request-features" class="nav-link" data-scroll-target="#how-do-i-report-bugs-or-request-features">How do I report bugs or request features?</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/lnnrtwttkhn/rdm-datalad/edit/main/faq.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lnnrtwttkhn/rdm-datalad/blob/main/faq.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/lnnrtwttkhn/rdm-datalad/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div><div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="tutorial.ipynb"><i class="bi bi-journal-code"></i>Tutorial Notebook</a></li><li><a href="tutorial_colab.ipynb"><i class="bi bi-google"></i>Tutorial (Colab)</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title">FAQ: Frequently Asked Questions</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source" data-quarto-source-url="https://github.com/lnnrtwttkhn/rdm-datalad"><i class="bi"></i> Code</button></div></div>
+<p class="subtitle lead">Tutorial: Research Data Management with DataLad</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p><a href="https://lennartwittkuhn.com/">Dr.&nbsp;Lennart Wittkuhn</a> <a href="mailto:lennart.wittkuhn@tutanota.com" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> <a href="https://orcid.org/0000-0003-2966-6888" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">February 5, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="general-questions" class="level2">
+<h2 class="anchored" data-anchor-id="general-questions">General Questions</h2>
+<section id="what-is-datalad" class="level3">
+<h3 class="anchored" data-anchor-id="what-is-datalad">What is DataLad?</h3>
+<p>DataLad is a free and open-source command-line tool for data management. It helps you version control datasets of any size, track data provenance, and create reproducible computational workflows.</p>
+</section>
+<section id="why-use-datalad-instead-of-git" class="level3">
+<h3 class="anchored" data-anchor-id="why-use-datalad-instead-of-git">Why use DataLad instead of Git?</h3>
+<p>While DataLad is built on top of Git, it extends Git’s capabilities to handle large files and datasets efficiently. Git alone struggles with files larger than a few megabytes, whereas DataLad can manage terabytes of data.</p>
+</section>
+<section id="do-i-need-to-know-git-to-use-datalad" class="level3">
+<h3 class="anchored" data-anchor-id="do-i-need-to-know-git-to-use-datalad">Do I need to know Git to use DataLad?</h3>
+<p>Basic Git knowledge is helpful but not required. DataLad provides higher-level commands that abstract many Git operations. However, understanding Git concepts like commits, branches, and repositories will make DataLad easier to use.</p>
+</section>
+</section>
+<section id="installation-and-setup" class="level2">
+<h2 class="anchored" data-anchor-id="installation-and-setup">Installation and Setup</h2>
+<section id="how-do-i-install-datalad" class="level3">
+<h3 class="anchored" data-anchor-id="how-do-i-install-datalad">How do I install DataLad?</h3>
+<p>See our <a href="./setup.html">Setup page</a> for detailed installation instructions for different platforms.</p>
+</section>
+<section id="im-getting-command-not-found-errors.-what-should-i-do" class="level3">
+<h3 class="anchored" data-anchor-id="im-getting-command-not-found-errors.-what-should-i-do">I’m getting “command not found” errors. What should I do?</h3>
+<ol type="1">
+<li>Ensure DataLad is installed: <code>pip install datalad</code></li>
+<li>Check if it’s in your PATH: <code>which datalad</code></li>
+<li>Try restarting your terminal</li>
+<li>If using a virtual environment, make sure it’s activated</li>
+</ol>
+</section>
+<section id="do-i-need-git-annex" class="level3">
+<h3 class="anchored" data-anchor-id="do-i-need-git-annex">Do I need git-annex?</h3>
+<p>Git-annex is recommended but not strictly required. It enables DataLad to efficiently manage large files. Some DataLad features may be limited without it.</p>
+</section>
+</section>
+<section id="working-with-datasets" class="level2">
+<h2 class="anchored" data-anchor-id="working-with-datasets">Working with Datasets</h2>
+<section id="whats-the-difference-between-datalad-save-and-git-commit" class="level3">
+<h3 class="anchored" data-anchor-id="whats-the-difference-between-datalad-save-and-git-commit">What’s the difference between <code>datalad save</code> and <code>git commit</code>?</h3>
+<p><code>datalad save</code> is a higher-level command that handles both text files (via Git) and large files (via git-annex) automatically. <code>git commit</code> only works with text files tracked by Git.</p>
+</section>
+<section id="how-do-i-share-my-dataset" class="level3">
+<h3 class="anchored" data-anchor-id="how-do-i-share-my-dataset">How do I share my dataset?</h3>
+<p>You can push your dataset to any Git hosting service (GitHub, GitLab, etc.) or create a sibling dataset on a shared server. Use <code>datalad siblings</code> to manage remote locations.</p>
+</section>
+<section id="can-i-use-datalad-with-existing-git-repositories" class="level3">
+<h3 class="anchored" data-anchor-id="can-i-use-datalad-with-existing-git-repositories">Can I use DataLad with existing Git repositories?</h3>
+<p>Yes! You can convert an existing Git repository to a DataLad dataset using <code>datalad create -f</code> in the repository directory.</p>
+</section>
+</section>
+<section id="data-management" class="level2">
+<h2 class="anchored" data-anchor-id="data-management">Data Management</h2>
+<section id="how-does-datalad-handle-large-files" class="level3">
+<h3 class="anchored" data-anchor-id="how-does-datalad-handle-large-files">How does DataLad handle large files?</h3>
+<p>DataLad uses git-annex to store large files efficiently. Only file metadata is stored in Git, while the actual content can be stored separately and retrieved on demand with <code>datalad get</code>.</p>
+</section>
+<section id="what-happens-when-i-datalad-drop-a-file" class="level3">
+<h3 class="anchored" data-anchor-id="what-happens-when-i-datalad-drop-a-file">What happens when I <code>datalad drop</code> a file?</h3>
+<p><code>datalad drop</code> removes the file content from your local storage but keeps the metadata. You can retrieve the content again with <code>datalad get</code> as long as it’s available from a known location.</p>
+</section>
+<section id="how-do-i-know-which-files-are-available" class="level3">
+<h3 class="anchored" data-anchor-id="how-do-i-know-which-files-are-available">How do I know which files are available?</h3>
+<p>Use <code>datalad status --annex</code> to see information about file availability and storage usage.</p>
+</section>
+</section>
+<section id="collaboration" class="level2">
+<h2 class="anchored" data-anchor-id="collaboration">Collaboration</h2>
+<section id="how-do-multiple-people-work-on-the-same-dataset" class="level3">
+<h3 class="anchored" data-anchor-id="how-do-multiple-people-work-on-the-same-dataset">How do multiple people work on the same dataset?</h3>
+<p>DataLad supports collaborative workflows similar to Git. Multiple people can clone a dataset, make changes, and push/pull updates. Use <code>datalad update</code> to get changes from collaborators.</p>
+</section>
+<section id="can-i-work-offline" class="level3">
+<h3 class="anchored" data-anchor-id="can-i-work-offline">Can I work offline?</h3>
+<p>Yes, once you’ve retrieved file content with <code>datalad get</code>, you can work offline. You’ll need internet connectivity to sync changes with remote repositories.</p>
+</section>
+</section>
+<section id="reproducibility" class="level2">
+<h2 class="anchored" data-anchor-id="reproducibility">Reproducibility</h2>
+<section id="what-is-datalad-run" class="level3">
+<h3 class="anchored" data-anchor-id="what-is-datalad-run">What is <code>datalad run</code>?</h3>
+<p><code>datalad run</code> executes commands while automatically tracking inputs, outputs, and the command itself. This creates a complete record of how results were generated.</p>
+</section>
+<section id="how-do-i-reproduce-someone-elses-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="how-do-i-reproduce-someone-elses-analysis">How do I reproduce someone else’s analysis?</h3>
+<p>If the analysis was created with <code>datalad run</code>, you can use <code>datalad rerun</code> with the commit hash to automatically reproduce the exact same computation.</p>
+</section>
+</section>
+<section id="troubleshooting" class="level2">
+<h2 class="anchored" data-anchor-id="troubleshooting">Troubleshooting</h2>
+<section id="my-dataset-is-in-a-dirty-state.-what-does-this-mean" class="level3">
+<h3 class="anchored" data-anchor-id="my-dataset-is-in-a-dirty-state.-what-does-this-mean">My dataset is in a “dirty” state. What does this mean?</h3>
+<p>A “dirty” dataset has uncommitted changes. Run <code>datalad status</code> to see what’s changed, then use <code>datalad save</code> to commit the changes.</p>
+</section>
+<section id="im-getting-permission-errors.-how-do-i-fix-this" class="level3">
+<h3 class="anchored" data-anchor-id="im-getting-permission-errors.-how-do-i-fix-this">I’m getting permission errors. How do I fix this?</h3>
+<p>This often happens on shared systems. Try: 1. Using a virtual environment 2. Installing with <code>pip install --user datalad</code> 3. Checking file/directory permissions</p>
+</section>
+<section id="datalad-operations-are-very-slow.-why" class="level3">
+<h3 class="anchored" data-anchor-id="datalad-operations-are-very-slow.-why">DataLad operations are very slow. Why?</h3>
+<p>Large datasets or slow network connections can cause delays. Consider: 1. Only getting the files you need 2. Using <code>--recursion-limit</code> to limit subdataset operations 3. Checking your network connection</p>
+</section>
+</section>
+<section id="advanced-usage" class="level2">
+<h2 class="anchored" data-anchor-id="advanced-usage">Advanced Usage</h2>
+<section id="how-do-i-organize-related-datasets" class="level3">
+<h3 class="anchored" data-anchor-id="how-do-i-organize-related-datasets">How do I organize related datasets?</h3>
+<p>Use subdatasets to create hierarchical structures. Install related datasets as subdatasets of a parent dataset to maintain clear relationships.</p>
+</section>
+<section id="can-i-use-datalad-with-cloud-storage" class="level3">
+<h3 class="anchored" data-anchor-id="can-i-use-datalad-with-cloud-storage">Can I use DataLad with cloud storage?</h3>
+<p>Yes, DataLad supports various cloud storage backends through git-annex special remotes, including AWS S3, Google Cloud Storage, and many others.</p>
+</section>
+<section id="how-do-i-automate-datalad-workflows" class="level3">
+<h3 class="anchored" data-anchor-id="how-do-i-automate-datalad-workflows">How do I automate DataLad workflows?</h3>
+<p>DataLad operations can be scripted and integrated into continuous integration systems. Many operations support batch processing and can be automated with shell scripts or Python.</p>
+</section>
+</section>
+<section id="getting-help" class="level2">
+<h2 class="anchored" data-anchor-id="getting-help">Getting Help</h2>
+<section id="where-can-i-find-more-information" class="level3">
+<h3 class="anchored" data-anchor-id="where-can-i-find-more-information">Where can I find more information?</h3>
+<ul>
+<li><a href="https://handbook.datalad.org/">DataLad Handbook</a> - Comprehensive guide</li>
+<li><a href="https://docs.datalad.org/">DataLad Documentation</a> - API reference</li>
+<li><a href="https://github.com/datalad/datalad">DataLad GitHub</a> - Source code and issues</li>
+<li><a href="https://matrix.to/#/#datalad:matrix.org">DataLad Chat</a> - Community chat</li>
+</ul>
+</section>
+<section id="how-do-i-report-bugs-or-request-features" class="level3">
+<h3 class="anchored" data-anchor-id="how-do-i-report-bugs-or-request-features">How do I report bugs or request features?</h3>
+<p>Visit the <a href="https://github.com/datalad/datalad/issues">DataLad GitHub repository</a> to report bugs or request features.</p>
+
+
+</section>
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></div></div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/lennartwittkuhn\.com\/rdm-datalad\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      const annoteTargets = window.document.querySelectorAll('.code-annotation-anchor');
+      for (let i=0; i<annoteTargets.length; i++) {
+        const annoteTarget = annoteTargets[i];
+        const targetCell = annoteTarget.getAttribute("data-target-cell");
+        const targetAnnotation = annoteTarget.getAttribute("data-target-annotation");
+        const contentFn = () => {
+          const content = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          if (content) {
+            const tipContent = content.cloneNode(true);
+            tipContent.classList.add("code-annotation-tip-content");
+            return tipContent.outerHTML;
+          }
+        }
+        const config = {
+          allowHTML: true,
+          content: contentFn,
+          onShow: (instance) => {
+            selectCodeLines(instance.reference);
+            instance.reference.classList.add('code-annotation-active');
+            window.tippy.hideAll();
+          },
+          onHide: (instance) => {
+            unselectCodeLines();
+            instance.reference.classList.remove('code-annotation-active');
+          },
+          maxWidth: 300,
+          delay: [50, 0],
+          duration: [200, 0],
+          offset: [5, 10],
+          arrow: true,
+          appendTo: function(el) {
+            return el.parentElement.parentElement.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'quarto',
+          placement: 'right',
+          popperOptions: {
+            modifiers: [
+            {
+              name: 'flip',
+              options: {
+                flipVariations: false, // true by default
+                allowedAutoPlacements: ['right'],
+                fallbackPlacements: ['right', 'top', 'top-start', 'top-end', 'bottom', 'bottom-start', 'bottom-end', 'left'],
+              },
+            },
+            {
+              name: 'preventOverflow',
+              options: {
+                mainAxis: false,
+                altAxis: false
+              }
+            }
+            ]        
+          }      
+        };
+        window.tippy(annoteTarget, config); 
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/lnnrtwttkhn/rdm-datalad/edit/main/faq.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lnnrtwttkhn/rdm-datalad/blob/main/faq.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/lnnrtwttkhn/rdm-datalad/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer><script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
