@@ -9,9 +9,12 @@ filters:
 ## Acknowledgements
 
 This tutorial was initially created by Adina Wagner for the 2020 OHBM Brainhack Traintrack session on DataLad.
+You can find the original [notebook](https://handbook.datalad.org/en/latest/code_from_chapters/OHBM.html) here.
 This notebook accompanies [this tutorial video](https://www.youtube.com/watch?v=L5A0MXqFrOY) by Adina Wagner.
 
-## Installation
+## Setup
+
+### Installation
 
 Depending on your environment, paste the installation command here:
 
@@ -45,21 +48,23 @@ git config --global user.email 42@H2G2.com
 git config --global --add safe.directory /app
 ```
 
-## Introduction & setup
+## Introduction
 
-[DataLad](https://www.datalad.org/) is a data management multitool that assists you in handling the entire lifecycle of digital objects.
-It is a command-line tool, free and open source, and available for all major operating systems.
+[DataLad](https://www.datalad.org/) is a data management tool that assists you in handling the entire lifecycle of digital objects.
+It is a command-line tool, free and [open source](https://github.com/datalad/datalad), and available for all major operating systems.
 In the command line, all operations begin with the general `datalad` command.
 
 ```{bash}
 #| output-fold: true
-# datalad
+#| eval: false
+#| echo: true
+datalad
 ```
 
 The basic `datalad` command without any arguments will show you a brief overview of available subcommands.
 This is useful for getting a quick reference of what DataLad can do.
 
-For example, I can type `datalad --help` to find out more about the available commands.
+For example, you can type `datalad --help` to find out more about the available commands.
 This will show you detailed information about command-line options and a complete list of all available DataLad commands.
 You can also get help for specific commands by running `datalad <command> --help`, for example `datalad create --help`.
 
