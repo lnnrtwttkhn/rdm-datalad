@@ -34,6 +34,11 @@ Select `Colab` if you are using [Google Colab](#google-colab).
 
 ### Google Colab
 
+::: {.callout-warning title="Notebook in Google Colab not working"}
+Unfortunately, executing the notebook in Google Colab currently does not work.
+Please copy-paste the commands into the Terminal in Google Colab.
+:::
+
 1. Open <https://colab.research.google.com/>
 1. Sign in with a Google account
 1. Select `File` > `Open notebook`
