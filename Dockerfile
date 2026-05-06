@@ -7,6 +7,9 @@ ARG QUARTO_VERSION=1.8.27
 # Set working directory
 WORKDIR /app
 
+# Mark /app as safe for Git (avoids "dubious ownership" warnings when running as root)
+RUN git config --global --add safe.directory /app
+
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
     curl \
