@@ -1,6 +1,7 @@
 # Variables
 IMAGE_NAME = lnnrtwttkhn/rdm-datalad
 CONTAINER_NAME = rdm-datalad-container
+DATALAD_IMAGE_NAME = lnnrtwttkhn/rdm-datalad-datalad
 
 .PHONY: install
 install:
@@ -21,3 +22,11 @@ ipynb:
 	uv run python3 convert_colab.py
 	uv run quarto convert tutorial_colab.qmd
 	mv tutorial_colab.ipynb _site/
+
+.PHONY: build-datalad
+build-datalad:
+	docker build -f Dockerfile.datalad -t $(DATALAD_IMAGE_NAME) .
+
+.PHONY: run-datalad
+run-datalad:
+	docker run --rm -it $(DATALAD_IMAGE_NAME)

@@ -1,0 +1,32 @@
+# DataLad environment
+# Dependencies based on https://handbook.datalad.org/en/latest/intro/installation.html
+FROM python:3.12-slim
+
+# Set working directory
+WORKDIR /app
+
+# Install DataLad and all its dependencies via apt.
+# This installs: git, git-annex, p7zip, openssh-client, rsync, wget, etc.
+# Then install datalad-next (not yet in apt) via pip.
+RUN apt-get update && apt-get install -y \
+    datalad \
+    openssh-client \
+    rsync \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install datalad-next extension (not available via apt)
+RUN pip install --no-cache-dir datalad-next
+
+# Enable the datalad-next extension globally
+RUN git config --global --add datalad.extensions.load next
+
+# Set Git user.name
+RUN git config --global user.name "Jane Doe"
+
+# Set Git user.email
+RUN git config --global user.email jane.doe@example.com
+
+# Verify installations
+RUN datalad --version && git annex version --raw
+
+CMD ["/bin/bash"]

@@ -47,6 +47,63 @@ Please copy-paste the commands into the Terminal in Google Colab.
 
 {{< include _colab_install.md >}}
 
+### Docker Container
+
+The tutorial can also be run inside a Docker container that has DataLad and all its dependencies pre-installed.
+This requires [Docker](https://docs.docker.com/get-docker/) to be installed on your system.
+
+1. Clone the repository and navigate into it:
+
+    ```bash
+    git clone {{< var project.source >}}
+    cd {{< var project.name >}}
+    ```
+
+1. Build the DataLad Docker image:
+
+    ```bash
+    make build-datalad
+    ```
+
+    Or directly with Docker:
+
+    ```bash
+    docker build -f Dockerfile.datalad -t lnnrtwttkhn/rdm-datalad-datalad .
+    ```
+
+1. Start an interactive shell inside the container:
+
+    ```bash
+    make run-datalad
+    ```
+
+    Or directly with Docker:
+
+    ```bash
+    docker run --rm -it lnnrtwttkhn/rdm-datalad-datalad
+    ```
+
+    This drops you into a Bash shell with DataLad, git-annex, and all dependencies ready to use.
+
+1. Verify the installation inside the container:
+
+    ```bash
+    datalad --version
+    git annex version
+    ```
+
+1. You can now copy-paste all commands from the tutorial directly into this shell.
+
+::: {.callout-note}
+The container image is built from `Dockerfile.datalad` in the repository root.
+Each `make run-datalad` call starts a fresh, temporary container (`--rm`).
+To persist data between sessions, mount a local directory:
+
+```bash
+docker run --rm -it -v "$(pwd)":/work lnnrtwttkhn/rdm-datalad-datalad
+```
+:::
+
 ### Terminal
 
 1. Open a Terminal and copy-paste all commands in the tutorial
