@@ -107,3 +107,173 @@ docker run --rm -it -v "$(pwd)":/work lnnrtwttkhn/rdm-datalad-datalad
 ### Terminal
 
 1. Open a Terminal and copy-paste all commands in the tutorial
+
+## Connecting to a remote repository hosting service
+
+### Authentication
+
+To connect your DataLad repository to a remote repository, you need to establish an authentication method.
+Authentication verifies your identity before granting access to a remote repository — similar to showing your ID before entering a restricted area.
+It ensures that only authorized people or programs can read from or write to the repository.
+Different platforms support different authentication methods.
+We introduce the most common ones below, separately for each platform.
+
+### Secure Shell Protocol (SSH)
+
+The Secure Shell Protocol (SSH) is a cryptographic network protocol for operating network services securely over an unsecured network.
+Its most notable applications are remote login and command-line execution.
+You can read and write data in remote repositories like GitHub and GitLab using SSH.
+For more details on SSH, see [Wikipedia](https://en.wikipedia.org/wiki/Secure_Shell).
+
+::: {#nte-ssh .callout-note title="How does SSH work: The key and padlock analogy." collapse="true"}
+When you set up SSH, you generate a **key pair**: the *private key* stays on your device, while the *public key* is copied to the servers you want access to.
+
+Think of your **public key as a padlock**.
+You can make lots of copies of this padlock and distribute them to different places - servers, computers, or anything you want to secure (just like sharing a padlock to secure different lockers). These places install your padlock, but no one can open it because they don't have your key.
+
+Your **private key is the actual key** that opens those padlocks.
+You keep it safe and never share it.
+As long as your key stays secure, it doesn't matter how many padlocks you've distributed.
+
+!"Understanding public key private key concepts" by [Blake Smith](https://blakesmith.me/) (License: Unknown; [Source on GitHub](https://blakesmith.me/2010/02/08/understanding-public-key-private-key-concepts.html))](https://blakesmith.me/images/public_private_many.png){#fig-ssh-key-public-private width="60%"}
+
+When you try to connect to a server, SSH checks if the padlock (public key) on that server matches your key.
+If they match, the door opens.
+
+This system ensures that only someone with the private key (you) can unlock what's protected by the padlocks (public keys).
+For extra security, you can protect your private key with an additional password.
+Even if someone steals your key, they still need the combination (password) to use it.
+For additional discussion of using an additional password for a private SSH key, see @tip-ssh-password.
+
+:::
+
+We provide basic instructions that are applicable to many remote repositories below.
+For more detailed instructions, see the [GitHub Documentation](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/about-ssh).
+The most basic SSH key setup works like this:
+
+1. Generating a new SSH key.
+1. Copying the SSH key to your clipboard.
+1. Adding the SSH key to your GitHub or GitLab account.
+
+#### Generating a new SSH key
+
+1. Open the Command Line.
+2. Run the command below, replacing the example email address with your own.
+
+```bash
+ssh-keygen -t ed25519 -C "your_email@example.com" # <1>
+```
+1. Replace `your_email@example.com` with your email address.
+
+This will result in an output similar to this:
+
+```console
+Generating public/private ed25519 key pair.
+Enter file in which to save the key (/Users/user/.ssh/id_ed25519): 
+```
+
+3. When asked to "Enter a file in which to save the key", press {{< kbd Enter >}} to accept the default location.
+
+::: {.callout-caution title="SSH key already exists?" collapse="true"}
+
+If the SSH key already exists, you will get an output similar to this:
+
+```console
+/Users/user/.ssh/id_ed25519 already exists.
+Overwrite (y/n)? n
+```
+
+If you don't want to overwrite the existing key, type `n` and hit {{< kbd Enter >}}.
+You can now use the existing key and move on with the next step (adding the SSH key to your remote repository hosting service).
+
+:::
+
+4. When prompted, enter a secure passphrase.
+If you do not want to use a passphrase, press {{< kbd Enter >}} twice to skip.
+
+```console
+Enter passphrase (empty for no passphrase): [Type a passphrase]
+Enter same passphrase again: [Type passphrase again]
+```
+
+::: {#tip-ssh-password .callout-tip title="Do I have to provide a password for my SSH key?" collapse="true"}
+If someone gains access to your computer, they can use your SSH keys to access all systems that rely on those keys.
+For extra security, you can protect your private key with a passphrase.
+Even if someone steals your private key, they still need the passphrase to use it.
+Adding a passphrase to your private SSH key therefore makes it significantly more secure.
+
+To avoid typing the passphrase each time you connect, you can securely store it in an SSH agent.
+For more details, see the [GitHub documentation](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/working-with-ssh-key-passphrases).
+:::
+
+::: {#nte-t-flag .callout-note title="What does the `-t` flag in the `ssh-keygen` command do?" collapse="true"}
+The `-t` flag in the `ssh-keygen` command specifies the **type of key** to generate.
+Common options include `rsa`, `ecdsa`, and `ed25519`.
+For example, `-t ed25519` generates a modern and secure Ed25519 key, which is recommended for most users.
+This flag ensures you're using the desired encryption algorithm when creating your SSH key.
+:::
+
+After entering (or skipping) a passphrase, your terminal output should look similar to this: 
+
+```console
+Your identification has been saved in /Users/user/.ssh/id_ed25519
+Your public key has been saved in /Users/user/.ssh/id_ed25519.pub
+The key fingerprint is:
+SHA256: A2C4D8E9F9B3B2A4157C8D9E1FBB4D567543F2C9C4E6A3D422D8F7A1B3E5C6D0 user@email.com
+The key's randomart image is:
++--[ED25519 256]--+
+|               . |
+|              +  |
+|             Eo. |
+|    .         =+.|
+|   . .. S    = =o|
+|. . ...+ .  . B +|
+|.+ = .+ *  . +.*o|
+|..=..+.= ..   Bo=|
+| .o.o..   ..  .++|
++----[SHA256]-----+
+```
+
+#### Copying the public SSH key to your clipboard
+
+Now copy the SSH public key to your clipboard.
+The following command will paste the contents of the `id_ed25519.pub` file to your Terminal (assuming your SSH key is in the default location).
+
+```bash
+clip < ~/.ssh/id_ed25519.pub
+```
+
+If the `clip` command isn't working, find the hidden `.ssh` folder in your home directory, open the `id_ed25519.pub` file in your favorite text editor, and copy the contents to your clipboard.
+
+## {{< fa brands linux >}} Linux
+
+```bash
+cat ~/.ssh/id_ed25519.pub
+```
+
+Then select and copy the contents of the `id_ed25519.pub` file displayed in the terminal to your clipboard.
+
+Alternatively, find the hidden `.ssh` folder in your home directory, open the `id_ed25519.pub` file in your favorite text editor, and copy the contents to your clipboard.
+
+:::
+
+#### Adding the SSH key to your account
+
+Finally, add the public SSH key to your account on the remote repository hosting service.
+
+::: {.panel-tabset}
+
+## {{< fa brands github >}} GitHub
+
+1. In the upper-right corner of any page on GitHub, click your profile photo, then click **Settings**.
+1. In the "Access" section of the sidebar, click **SSH and GPG keys**.
+1. Click **New SSH key** or **Add SSH key**.
+1. In the "Title" field, add a descriptive label for the new key.
+For example, if you're using a personal laptop, you might call it "Personal laptop".
+1. Choose the type of key, either authentication or signing.
+Usually, you want to select "authentication" here.
+1. In the "Key" field, paste your public key.
+1. Click **Add SSH key**.
+1. If prompted, confirm access to your GitHub account.
+
+:::
