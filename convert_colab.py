@@ -7,13 +7,17 @@ def replace_bash_chunk(match):
     # Add ! magic to each line that isn't empty
     lines = command_content.split('\n')
     python_lines = []
+    continuation = False
     for line in lines:
-        if re.match(r'\s*cd\b', line):  # cd must use %cd to persist in kernel
+        if continuation:
+            python_lines.append(line)
+        elif re.match(r'\s*cd\b', line):  # cd must use %cd to persist in kernel
             python_lines.append(f"%{line}")
         elif line.strip():  # other non-empty lines use ! to run in shell
             python_lines.append(f"!{line}")
         else:
             python_lines.append(line)
+        continuation = line.rstrip().endswith('\\')
 
     return f"```{{python}}\n{chr(10).join(python_lines)}\n```"
 
