@@ -136,10 +136,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#download-notebooks" id="toc-download-notebooks" class="nav-link active" data-scroll-target="#download-notebooks">Download notebooks</a></li>
   <li><a href="#computational-environments" id="toc-computational-environments" class="nav-link" data-scroll-target="#computational-environments">Computational environments</a>
   <ul class="collapse">
-  <li><a href="#jupyterhub-at-uhh" id="toc-jupyterhub-at-uhh" class="nav-link" data-scroll-target="#jupyterhub-at-uhh">JupyterHub at UHH</a></li>
   <li><a href="#google-colab" id="toc-google-colab" class="nav-link" data-scroll-target="#google-colab">Google Colab</a></li>
   <li><a href="#docker-container" id="toc-docker-container" class="nav-link" data-scroll-target="#docker-container">Docker Container</a></li>
   <li><a href="#terminal" id="toc-terminal" class="nav-link" data-scroll-target="#terminal">Terminal</a></li>
+  <li><a href="#jupyterhub-at-uhh" id="toc-jupyterhub-at-uhh" class="nav-link" data-scroll-target="#jupyterhub-at-uhh">JupyterHub at UHH</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/lnnrtwttkhn/rdm-datalad/edit/main/setup.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lnnrtwttkhn/rdm-datalad/blob/main/setup.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/lnnrtwttkhn/rdm-datalad/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div><div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="tutorial.ipynb"><i class="bi bi-journal-code"></i>Tutorial Notebook</a></li><li><a href="tutorial_colab.ipynb"><i class="bi bi-google"></i>Tutorial (Colab)</a></li></ul></div></nav>
@@ -182,27 +182,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="download-notebooks" class="level2">
 <h2 class="anchored" data-anchor-id="download-notebooks">Download notebooks</h2>
 <p>Download notebooks from the right sidebar. Select <code>Colab</code> if you are using <a href="#google-colab">Google Colab</a>.</p>
+<div class="callout callout-style-default callout-important callout-titled" title="How to download notebooks">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>How to download notebooks
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>To download a notebook, <strong>right-click</strong> the download button and select <strong>“Save link as …”</strong> (or <strong>“Save as …”</strong>). Do <strong>not</strong> left-click the link, as this may open the file in the browser instead of downloading it.</p>
+</div>
+</div>
 </section>
 <section id="computational-environments" class="level2">
 <h2 class="anchored" data-anchor-id="computational-environments">Computational environments</h2>
-<section id="jupyterhub-at-uhh" class="level3">
-<h3 class="anchored" data-anchor-id="jupyterhub-at-uhh">JupyterHub at UHH</h3>
-<ol type="1">
-<li><p>Open <a href="https://code.min.uni-hamburg.de/" class="uri">https://code.min.uni-hamburg.de/</a></p></li>
-<li><p>Select <code>File</code> &gt; <code>New Launcher</code></p></li>
-<li><p>At the bottom, select <code>Terminal</code></p></li>
-<li><p>In the Terminal, enter:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">git</span> clone https://github.com/lnnrtwttkhn/rdm-datalad</span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="bu">cd</span> rdm-datalad</span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="fu">make</span> install</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
-<li><p>From the sidebar on the left, you can now open the tutorial notebook in the <code>rdm-datalad</code> folder:</p>
+<p>There are several options for running the tutorial notebook. Choose the environment that best fits your setup:</p>
 <ul>
-<li><code>tutorial.ipynb</code></li>
-</ul></li>
-<li><p>Paste the installation command into the first cell of the notebook:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="bu">source</span> .venv/bin/activate</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
-</ol>
-</section>
+<li><strong><a href="#google-colab">Google Colab</a>:</strong> Run the notebook in the cloud using a free Google account (no local installation required).</li>
+<li><strong><a href="#docker-container">Docker Container</a>:</strong> Run the notebook in a pre-configured, isolated container on your local machine.</li>
+<li><strong><a href="#terminal">Terminal</a>:</strong> Copy-paste commands directly into a local Terminal without using a notebook. This also works in Google Colab</li>
+<li><strong><a href="#jupyterhub-at-uhh">JupyterHub at UHH</a></strong>. Run the notebook on the JupyterHub server of the University of Hamburg. This requires an account at University of Hamburg.</li>
+</ul>
 <section id="google-colab" class="level3">
 <h3 class="anchored" data-anchor-id="google-colab">Google Colab</h3>
 <div class="callout callout-style-default callout-warning callout-titled" title="Notebook in Google Colab not working">
@@ -225,28 +227,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Select <code>Upload</code> and open or drag the notebook file</li>
 <li>Paste the installation command into the first cell of the notebook:</li>
 </ol>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="op">!</span>apt<span class="op">-</span>get install tree</span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="op">!</span>pip install bash<span class="op">-</span>kernel<span class="op">&gt;=</span><span class="fl">0.10.0</span> datalad<span class="op">&gt;=</span><span class="fl">1.3.1</span> git<span class="op">-</span>annex<span class="op">&gt;=</span><span class="fl">10.20260115</span> ipykernel<span class="op">&gt;=</span><span class="fl">7.1.0</span> nbclient<span class="op">&gt;=</span><span class="fl">0.10.4</span> nbformat<span class="op">&gt;=</span><span class="fl">5.10.4</span> pandas<span class="op">&gt;=</span><span class="fl">3.0.0</span> scikit<span class="op">-</span>learn<span class="op">&gt;=</span><span class="fl">1.8.0</span> seaborn<span class="op">&gt;=</span><span class="fl">0.13.2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="op">!</span>apt<span class="op">-</span>get install tree</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="op">!</span>pip install bash<span class="op">-</span>kernel<span class="op">&gt;=</span><span class="fl">0.10.0</span> datalad<span class="op">&gt;=</span><span class="fl">1.3.1</span> git<span class="op">-</span>annex<span class="op">&gt;=</span><span class="fl">10.20260115</span> ipykernel<span class="op">&gt;=</span><span class="fl">7.1.0</span> nbclient<span class="op">&gt;=</span><span class="fl">0.10.4</span> nbformat<span class="op">&gt;=</span><span class="fl">5.10.4</span> pandas<span class="op">&gt;=</span><span class="fl">3.0.0</span> scikit<span class="op">-</span>learn<span class="op">&gt;=</span><span class="fl">1.8.0</span> seaborn<span class="op">&gt;=</span><span class="fl">0.13.2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="docker-container" class="level3">
 <h3 class="anchored" data-anchor-id="docker-container">Docker Container</h3>
 <p>The tutorial can also be run inside a Docker container that has DataLad and all its dependencies pre-installed. This requires <a href="https://docs.docker.com/get-docker/">Docker</a> to be installed on your system.</p>
 <ol type="1">
 <li><p>Clone the repository and navigate into it:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">git</span> clone https://github.com/lnnrtwttkhn/rdm-datalad</span>
-<span id="cb4-2"><a href="#cb4-2"></a><span class="bu">cd</span> rdm-datalad</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">git</span> clone https://github.com/lnnrtwttkhn/rdm-datalad</span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="bu">cd</span> rdm-datalad</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
 <li><p>Build the DataLad Docker image:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">make</span> build-datalad</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">make</span> build-datalad</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Or directly with Docker:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1"></a><span class="ex">docker</span> build <span class="at">-f</span> Dockerfile.datalad <span class="at">-t</span> lnnrtwttkhn/rdm-datalad-datalad .</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a><span class="ex">docker</span> build <span class="at">-f</span> Dockerfile.datalad <span class="at">-t</span> lnnrtwttkhn/rdm-datalad-datalad .</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
 <li><p>Start an interactive shell inside the container:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">make</span> run-datalad</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">make</span> run-datalad</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Or directly with Docker:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1"></a><span class="ex">docker</span> run <span class="at">--rm</span> <span class="at">-it</span> lnnrtwttkhn/rdm-datalad-datalad</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1"></a><span class="ex">docker</span> run <span class="at">--rm</span> <span class="at">-it</span> lnnrtwttkhn/rdm-datalad-datalad</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>This drops you into a Bash shell with DataLad, git-annex, and all dependencies ready to use.</p></li>
 <li><p>Verify the installation inside the container:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1"></a><span class="ex">datalad</span> <span class="at">--version</span></span>
-<span id="cb9-2"><a href="#cb9-2"></a><span class="fu">git</span> annex version</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1"></a><span class="ex">datalad</span> <span class="at">--version</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="fu">git</span> annex version</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
 <li><p>You can now copy-paste all commands from the tutorial directly into this shell.</p></li>
 </ol>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -260,7 +262,7 @@ Note
 </div>
 <div class="callout-body-container callout-body">
 <p>The container image is built from <code>Dockerfile.datalad</code> in the repository root. Each <code>make run-datalad</code> call starts a fresh, temporary container (<code>--rm</code>). To persist data between sessions, mount a local directory:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1"></a><span class="ex">docker</span> run <span class="at">--rm</span> <span class="at">-it</span> <span class="at">-v</span> <span class="st">"</span><span class="va">$(</span><span class="bu">pwd</span><span class="va">)</span><span class="st">"</span>:/work lnnrtwttkhn/rdm-datalad-datalad</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1"></a><span class="ex">docker</span> run <span class="at">--rm</span> <span class="at">-it</span> <span class="at">-v</span> <span class="st">"</span><span class="va">$(</span><span class="bu">pwd</span><span class="va">)</span><span class="st">"</span>:/work lnnrtwttkhn/rdm-datalad-datalad</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </section>
@@ -268,6 +270,24 @@ Note
 <h3 class="anchored" data-anchor-id="terminal">Terminal</h3>
 <ol type="1">
 <li>Open a Terminal and copy-paste all commands in the tutorial</li>
+</ol>
+</section>
+<section id="jupyterhub-at-uhh" class="level3">
+<h3 class="anchored" data-anchor-id="jupyterhub-at-uhh">JupyterHub at UHH</h3>
+<ol type="1">
+<li><p>Open <a href="https://code.min.uni-hamburg.de/" class="uri">https://code.min.uni-hamburg.de/</a></p></li>
+<li><p>Select <code>File</code> &gt; <code>New Launcher</code></p></li>
+<li><p>At the bottom, select <code>Terminal</code></p></li>
+<li><p>In the Terminal, enter:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">git</span> clone https://github.com/lnnrtwttkhn/rdm-datalad</span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="bu">cd</span> rdm-datalad</span>
+<span id="cb9-3"><a href="#cb9-3"></a><span class="fu">make</span> install</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<li><p>From the sidebar on the left, you can now open the tutorial notebook in the <code>rdm-datalad</code> folder:</p>
+<ul>
+<li><code>tutorial.ipynb</code></li>
+</ul></li>
+<li><p>Paste the installation command into the first cell of the notebook:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1"></a><span class="bu">source</span> .venv/bin/activate</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
 </ol>
 
 
