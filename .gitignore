@@ -8,3 +8,4 @@ mydataset
 *.ipynb
 *_ipynb
 _extensions
+**/*.quarto_ipynb
