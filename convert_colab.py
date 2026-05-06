@@ -9,7 +9,7 @@ def replace_bash_chunk(match):
     python_lines = []
     for line in lines:
         if line.strip():  # If line is not empty
-            python_lines.append(f"!{line}")
+            python_lines.append(f"%{line}")
         else:
             python_lines.append(line)
 
