@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Dr.&nbsp;Lennart Wittkuhn">
-<meta name="dcterms.date" content="2026-02-06">
+<meta name="dcterms.date" content="2026-05-06">
 
 <title>Setup: How to setup and run the tutorial</title>
 <style>
@@ -73,7 +73,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-8b4baf804e461d9b72633f0de59a0cac.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-9fa9e98f73ee3efa585e3f50c18792c0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-5e541dbae3e6ed7453ce4e6ee8581165.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
@@ -138,6 +138,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#jupyterhub-at-uhh" id="toc-jupyterhub-at-uhh" class="nav-link" data-scroll-target="#jupyterhub-at-uhh">JupyterHub at UHH</a></li>
   <li><a href="#google-colab" id="toc-google-colab" class="nav-link" data-scroll-target="#google-colab">Google Colab</a></li>
+  <li><a href="#docker-container" id="toc-docker-container" class="nav-link" data-scroll-target="#docker-container">Docker Container</a></li>
   <li><a href="#terminal" id="toc-terminal" class="nav-link" data-scroll-target="#terminal">Terminal</a></li>
   </ul></li>
   </ul>
@@ -166,7 +167,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">February 6, 2026</p>
+      <p class="date">May 6, 2026</p>
     </div>
   </div>
   
@@ -226,6 +227,42 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ol>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="op">!</span>apt<span class="op">-</span>get install tree</span>
 <span id="cb3-2"><a href="#cb3-2"></a><span class="op">!</span>pip install bash<span class="op">-</span>kernel<span class="op">&gt;=</span><span class="fl">0.10.0</span> datalad<span class="op">&gt;=</span><span class="fl">1.3.1</span> git<span class="op">-</span>annex<span class="op">&gt;=</span><span class="fl">10.20260115</span> ipykernel<span class="op">&gt;=</span><span class="fl">7.1.0</span> nbclient<span class="op">&gt;=</span><span class="fl">0.10.4</span> nbformat<span class="op">&gt;=</span><span class="fl">5.10.4</span> pandas<span class="op">&gt;=</span><span class="fl">3.0.0</span> scikit<span class="op">-</span>learn<span class="op">&gt;=</span><span class="fl">1.8.0</span> seaborn<span class="op">&gt;=</span><span class="fl">0.13.2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="docker-container" class="level3">
+<h3 class="anchored" data-anchor-id="docker-container">Docker Container</h3>
+<p>The tutorial can also be run inside a Docker container that has DataLad and all its dependencies pre-installed. This requires <a href="https://docs.docker.com/get-docker/">Docker</a> to be installed on your system.</p>
+<ol type="1">
+<li><p>Clone the repository and navigate into it:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">git</span> clone https://github.com/lnnrtwttkhn/rdm-datalad</span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="bu">cd</span> rdm-datalad</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<li><p>Build the DataLad Docker image:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">make</span> build-datalad</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Or directly with Docker:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1"></a><span class="ex">docker</span> build <span class="at">-f</span> Dockerfile.datalad <span class="at">-t</span> lnnrtwttkhn/rdm-datalad-datalad .</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<li><p>Start an interactive shell inside the container:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">make</span> run-datalad</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Or directly with Docker:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1"></a><span class="ex">docker</span> run <span class="at">--rm</span> <span class="at">-it</span> lnnrtwttkhn/rdm-datalad-datalad</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This drops you into a Bash shell with DataLad, git-annex, and all dependencies ready to use.</p></li>
+<li><p>Verify the installation inside the container:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1"></a><span class="ex">datalad</span> <span class="at">--version</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="fu">git</span> annex version</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<li><p>You can now copy-paste all commands from the tutorial directly into this shell.</p></li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The container image is built from <code>Dockerfile.datalad</code> in the repository root. Each <code>make run-datalad</code> call starts a fresh, temporary container (<code>--rm</code>). To persist data between sessions, mount a local directory:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1"></a><span class="ex">docker</span> run <span class="at">--rm</span> <span class="at">-it</span> <span class="at">-v</span> <span class="st">"</span><span class="va">$(</span><span class="bu">pwd</span><span class="va">)</span><span class="st">"</span>:/work lnnrtwttkhn/rdm-datalad-datalad</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
 </section>
 <section id="terminal" class="level3">
 <h3 class="anchored" data-anchor-id="terminal">Terminal</h3>
