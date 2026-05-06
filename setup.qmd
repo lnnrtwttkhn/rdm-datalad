@@ -7,7 +7,22 @@ title: "Setup: How to setup and run the tutorial"
 Download notebooks from the right sidebar.
 Select `Colab` if you are using [Google Colab](#google-colab).
 
+::: {.callout-important title="How to download notebooks"}
+To download a notebook, **right-click** the download button and select **"Save link as ..."** (or **"Save as ..."**).
+Do **not** left-click the link, as this may open the file in the browser instead of downloading it.
+:::
+
 ## Computational environments
+
+There are several options for running the tutorial notebook.
+Choose the environment that best fits your setup:
+
+- **[Google Colab](#google-colab):** Run the notebook in the cloud using a free Google account (no local installation required).
+- **[Docker Container](#docker-container):** Run the notebook in a pre-configured, isolated container on your local machine.
+- **[Terminal](#terminal):** Copy-paste commands directly into a local Terminal without using a notebook.
+This also works in Google Colab
+- **[JupyterHub at UHH](#jupyterhub-at-uhh)**. Run the notebook on the JupyterHub server of the University of Hamburg.
+This requires an account at University of Hamburg.
 
 ### Google Colab
 
