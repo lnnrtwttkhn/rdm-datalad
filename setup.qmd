@@ -9,29 +9,6 @@ Select `Colab` if you are using [Google Colab](#google-colab).
 
 ## Computational environments
 
-### JupyterHub at UHH
-
-1. Open <https://code.min.uni-hamburg.de/>
-1. Select `File` > `New Launcher`
-1. At the bottom, select `Terminal`
-1. In the Terminal, enter:
-
-    ```bash
-    git clone {{< var project.source >}}
-    cd {{< var project.name >}}
-    make install
-    ```
-
-1. From the sidebar on the left, you can now open the tutorial notebook in the `{{< var project.name >}}` folder:
-
-    - `tutorial.ipynb`
-
-1. Paste the installation command into the first cell of the notebook:
-
-    ```bash
-    source .venv/bin/activate
-    ```
-
 ### Google Colab
 
 ::: {.callout-warning title="Notebook in Google Colab not working"}
@@ -107,3 +84,26 @@ docker run --rm -it -v "$(pwd)":/work lnnrtwttkhn/rdm-datalad-datalad
 ### Terminal
 
 1. Open a Terminal and copy-paste all commands in the tutorial
+
+### JupyterHub at UHH
+
+1. Open <https://code.min.uni-hamburg.de/>
+1. Select `File` > `New Launcher`
+1. At the bottom, select `Terminal`
+1. In the Terminal, enter:
+
+    ```bash
+    git clone {{< var project.source >}}
+    cd {{< var project.name >}}
+    make install
+    ```
+
+1. From the sidebar on the left, you can now open the tutorial notebook in the `{{< var project.name >}}` folder:
+
+    - `tutorial.ipynb`
+
+1. Paste the installation command into the first cell of the notebook:
+
+    ```bash
+    source .venv/bin/activate
+    ```
