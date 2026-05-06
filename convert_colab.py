@@ -8,8 +8,10 @@ def replace_bash_chunk(match):
     lines = command_content.split('\n')
     python_lines = []
     for line in lines:
-        if line.strip():  # If line is not empty
+        if re.match(r'\s*cd\b', line):  # cd must use %cd to persist in kernel
             python_lines.append(f"%{line}")
+        elif line.strip():  # other non-empty lines use ! to run in shell
+            python_lines.append(f"!{line}")
         else:
             python_lines.append(line)
 
