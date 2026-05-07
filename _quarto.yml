@@ -35,6 +35,8 @@ website:
         href: setup.qmd
       - text: "Tutorial"
         href: tutorial.qmd
+      - text: "Publication"
+        href: publication.qmd
   other-links:
     - text: Tutorial Notebook
       href: tutorial.ipynb
