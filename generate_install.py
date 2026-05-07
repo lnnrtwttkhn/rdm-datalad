@@ -12,7 +12,7 @@ def generate_install_commands():
 
     # Write to markdown file
     markdown_content = f"""```python
-!apt-get install tree netbase
+!apt-get install tree netbase sox
 !{pip_command}
 ```"""
 
