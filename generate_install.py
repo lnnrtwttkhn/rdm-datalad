@@ -12,7 +12,7 @@ def generate_install_commands():
 
     # Write to markdown file
     markdown_content = f"""```python
-!apt-get install tree netbase sox
+!apt-get install tree netbase sox libsox-fmt-mp3
 !{pip_command}
 ```"""
 
