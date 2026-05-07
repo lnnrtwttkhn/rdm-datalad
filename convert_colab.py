@@ -4,14 +4,34 @@ def replace_bash_chunk(match):
     """Convert bash chunk to python with jupyter magics."""
     # Extract the command content
     command_content = match.group(1)
+
+    # Check for heredoc pattern: cat << EOT > file or cat << EOT >> file
+    heredoc_match = re.match(
+        r'\s*cat\s+<<\s*EOT\s*(>>?)\s*(\S+)\n(.*?)\nEOT\s*$',
+        command_content,
+        re.DOTALL
+    )
+    if heredoc_match:
+        mode = heredoc_match.group(1)
+        filename = heredoc_match.group(2)
+        content = heredoc_match.group(3)
+        flag = '-a ' if mode == '>>' else ''
+        return f"```{{python}}\n%%writefile {flag}{filename}\n{content}\n```"
+
     # Add ! magic to each line that isn't empty
     lines = command_content.split('\n')
     python_lines = []
+    continuation = False
     for line in lines:
-        if line.strip():  # If line is not empty
+        if continuation:
+            python_lines.append(line)
+        elif re.match(r'\s*cd\b', line):  # cd must use %cd to persist in kernel
+            python_lines.append(f"%{line}")
+        elif line.strip():  # other non-empty lines use ! to run in shell
             python_lines.append(f"!{line}")
         else:
             python_lines.append(line)
+        continuation = line.rstrip().endswith('\\')
 
     return f"```{{python}}\n{chr(10).join(python_lines)}\n```"
 

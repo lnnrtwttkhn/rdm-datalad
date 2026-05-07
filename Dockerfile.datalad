@@ -12,6 +12,7 @@ RUN apt-get update && apt-get install -y \
     datalad \
     openssh-client \
     rsync \
+    sox \
     && rm -rf /var/lib/apt/lists/*
 
 # Install datalad-next extension (not available via apt)

@@ -20,6 +20,9 @@ RUN apt-get update && apt-get install -y \
     gdebi-core \
     pandoc \
     && rm -rf /var/lib/apt/lists/*
+    
+# Mark /app as safe for Git (avoids "dubious ownership" warnings when running as root)
+RUN git config --global --add safe.directory /app
 
 # Install uv using the official method
 COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
