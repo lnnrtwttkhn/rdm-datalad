@@ -112,11 +112,11 @@ docker run --rm -it -v "$(pwd)":/work lnnrtwttkhn/rdm-datalad-datalad
 
 ### Authentication
 
-To connect your DataLad repository to a remote repository, you need to establish an authentication method.
+To connect your DataLad dataset to a remote repository, you need to establish an authentication method.
 Authentication verifies your identity before granting access to a remote repository — similar to showing your ID before entering a restricted area.
 It ensures that only authorized people or programs can read from or write to the repository.
 Different platforms support different authentication methods.
-We introduce the most common ones below, separately for each platform.
+Here, we introduce the Secure Shell Protocol (SSH).
 
 ### Secure Shell Protocol (SSH)
 
@@ -125,7 +125,7 @@ Its most notable applications are remote login and command-line execution.
 You can read and write data in remote repositories like GitHub and GitLab using SSH.
 For more details on SSH, see [Wikipedia](https://en.wikipedia.org/wiki/Secure_Shell).
 
-::: {#nte-ssh .callout-note title="How does SSH work: The key and padlock analogy." collapse="true"}
+::: {#nte-ssh .callout-note title="How does SSH work? The key and padlock analogy" collapse="true"}
 When you set up SSH, you generate a **key pair**: the *private key* stays on your device, while the *public key* is copied to the servers you want access to.
 
 Think of your **public key as a padlock**.
@@ -135,7 +135,7 @@ Your **private key is the actual key** that opens those padlocks.
 You keep it safe and never share it.
 As long as your key stays secure, it doesn't matter how many padlocks you've distributed.
 
-!"Understanding public key private key concepts" by [Blake Smith](https://blakesmith.me/) (License: Unknown; [Source on GitHub](https://blakesmith.me/2010/02/08/understanding-public-key-private-key-concepts.html))](https://blakesmith.me/images/public_private_many.png){#fig-ssh-key-public-private width="60%"}
+!["Understanding public key private key concepts" by [Blake Smith](https://blakesmith.me/) (License: Unknown; [Source on GitHub](https://blakesmith.me/2010/02/08/understanding-public-key-private-key-concepts.html))](https://blakesmith.me/images/public_private_many.png){#fig-ssh-key-public-private width="60%"}
 
 When you try to connect to a server, SSH checks if the padlock (public key) on that server matches your key.
 If they match, the door opens.
@@ -238,24 +238,13 @@ The key's randomart image is:
 
 Now copy the SSH public key to your clipboard.
 The following command will paste the contents of the `id_ed25519.pub` file to your Terminal (assuming your SSH key is in the default location).
-
-```bash
-clip < ~/.ssh/id_ed25519.pub
-```
-
-If the `clip` command isn't working, find the hidden `.ssh` folder in your home directory, open the `id_ed25519.pub` file in your favorite text editor, and copy the contents to your clipboard.
-
-## {{< fa brands linux >}} Linux
+From there you can copy the SSH public key.
 
 ```bash
 cat ~/.ssh/id_ed25519.pub
 ```
 
-Then select and copy the contents of the `id_ed25519.pub` file displayed in the terminal to your clipboard.
-
 Alternatively, find the hidden `.ssh` folder in your home directory, open the `id_ed25519.pub` file in your favorite text editor, and copy the contents to your clipboard.
-
-:::
 
 #### Adding the SSH key to your account
 
@@ -263,7 +252,7 @@ Finally, add the public SSH key to your account on the remote repository hosting
 
 ::: {.panel-tabset}
 
-## {{< fa brands github >}} GitHub
+## GitHub
 
 1. In the upper-right corner of any page on GitHub, click your profile photo, then click **Settings**.
 1. In the "Access" section of the sidebar, click **SSH and GPG keys**.
