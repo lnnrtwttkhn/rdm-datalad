@@ -9,7 +9,7 @@
 <meta name="author" content="Dr.&nbsp;Lennart Wittkuhn">
 <meta name="dcterms.date" content="2026-05-07">
 
-<title>Home: Research Data Management with DataLad</title>
+<title>Publication: How to publish your DataLad datasets</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,6 +21,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -71,7 +106,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
@@ -83,7 +118,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Tutorial</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./publication.html"> 
+    <a class="nav-link active" href="./publication.html" aria-current="page"> 
 <span class="menu-text">Publication</span></a>
   </li>  
 </ul>
@@ -102,20 +137,29 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Contents</h2>
    
   <ul>
-  <li><a href="#what-is-datalad" id="toc-what-is-datalad" class="nav-link active" data-scroll-target="#what-is-datalad">What is DataLad?</a></li>
-  <li><a href="#tutorial-contents" id="toc-tutorial-contents" class="nav-link" data-scroll-target="#tutorial-contents">Tutorial contents</a></li>
-  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting started</a></li>
-  <li><a href="#key-features-of-datalad" id="toc-key-features-of-datalad" class="nav-link" data-scroll-target="#key-features-of-datalad">Key features of DataLad</a></li>
+  <li><a href="#nextcloud" id="toc-nextcloud" class="nav-link active" data-scroll-target="#nextcloud">Nextcloud</a>
+  <ul class="collapse">
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites">Prerequisites</a></li>
+  <li><a href="#create-an-app-password" id="toc-create-an-app-password" class="nav-link" data-scroll-target="#create-an-app-password">Create an App Password</a></li>
+  <li><a href="#publishing-your-dataset-to-nextcloud" id="toc-publishing-your-dataset-to-nextcloud" class="nav-link" data-scroll-target="#publishing-your-dataset-to-nextcloud">Publishing your dataset to Nextcloud</a></li>
   <li><a href="#resources" id="toc-resources" class="nav-link" data-scroll-target="#resources">Resources</a></li>
+  </ul></li>
+  <li><a href="#gin" id="toc-gin" class="nav-link" data-scroll-target="#gin">GIN</a>
+  <ul class="collapse">
+  <li><a href="#introduction-1" id="toc-introduction-1" class="nav-link" data-scroll-target="#introduction-1">Introduction</a></li>
+  <li><a href="#prerequisites-1" id="toc-prerequisites-1" class="nav-link" data-scroll-target="#prerequisites-1">Prerequisites</a></li>
+  <li><a href="#publishing-your-dataset-to-gin" id="toc-publishing-your-dataset-to-gin" class="nav-link" data-scroll-target="#publishing-your-dataset-to-gin">Publishing your dataset to GIN</a></li>
+  </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/lnnrtwttkhn/rdm-datalad/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lnnrtwttkhn/rdm-datalad/blob/main/index.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/lnnrtwttkhn/rdm-datalad/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div><div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="tutorial.ipynb"><i class="bi bi-journal-code"></i>Tutorial Notebook</a></li><li><a href="tutorial_colab.ipynb"><i class="bi bi-google"></i>Tutorial (Colab)</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/lnnrtwttkhn/rdm-datalad/edit/main/publication.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lnnrtwttkhn/rdm-datalad/blob/main/publication.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/lnnrtwttkhn/rdm-datalad/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div><div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="tutorial.ipynb"><i class="bi bi-journal-code"></i>Tutorial Notebook</a></li><li><a href="tutorial_colab.ipynb"><i class="bi bi-google"></i>Tutorial (Colab)</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">Home: Research Data Management with DataLad</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source" data-quarto-source-url="https://github.com/lnnrtwttkhn/rdm-datalad"><i class="bi"></i> Code</button></div></div>
+<div class="quarto-title-block"><div><h1 class="title">Publication: How to publish your DataLad datasets</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source" data-quarto-source-url="https://github.com/lnnrtwttkhn/rdm-datalad"><i class="bi"></i> Code</button></div></div>
 <p class="subtitle lead">Tutorial: Research Data Management with DataLad</p>
 </div>
 
@@ -145,67 +189,167 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="callout callout-style-default callout-note callout-titled" title="Acknowledgements">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Acknowledgements
+Note
 </div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>This tutorial was initially created by Adina Wagner for the 2020 OHBM Brainhack Traintrack session on DataLad. This notebook accompanies <a href="https://www.youtube.com/watch?v=L5A0MXqFrOY">this tutorial video</a> by Adina Wagner.</p>
+<p>Unlike the <a href="./tutorial.html">Tutorial</a>, this chapter does not provide a notebook. Publishing a DataLad dataset requires credentials (such as SSH keys or app passwords) and access to remote services that are specific to your local setup. These steps must be run locally and cannot be executed in a cloud environment like Google Colab.</p>
 </div>
 </div>
-</div>
-<section id="what-is-datalad" class="level2">
-<h2 class="anchored" data-anchor-id="what-is-datalad">What is DataLad?</h2>
-<p><a href="https://www.datalad.org/">DataLad</a> is a data management multitool that can assist you in handling the entire life cycle of digital objects. It is a command-line tool, free and open source, and available for all major operating systems. In the command line, all operations begin with the general <code>datalad</code> command.</p>
+<section id="nextcloud" class="level2">
+<h2 class="anchored" data-anchor-id="nextcloud">Nextcloud</h2>
+<section id="introduction" class="level3">
+<h3 class="anchored" data-anchor-id="introduction">Introduction</h3>
+<p><a href="https://nextcloud.com/">Nextcloud</a> is a self-hosted, open-source cloud storage and collaboration platform. It provides a WebDAV interface, which DataLad can use to publish datasets — including their annexed file contents — without requiring any additional external hosting service. This makes Nextcloud a convenient option for institutions that already operate their own Nextcloud instance, such as many universities.</p>
+<p>Publishing a DataLad dataset to Nextcloud uses the <code>datalad-next</code> extension, which adds the <code>datalad create-sibling-webdav</code> command. Unlike GIN, Nextcloud does not natively understand git or git-annex, so DataLad uses a special export-tree layout to store both the dataset metadata and its file contents on the WebDAV share.</p>
 </section>
-<section id="tutorial-contents" class="level2">
-<h2 class="anchored" data-anchor-id="tutorial-contents">Tutorial contents</h2>
-<p>This tutorial covers:</p>
-<ol start="0" type="1">
-<li><strong>Introduction and setup</strong> - Getting started with DataLad</li>
-<li><strong>Creating a DataLad dataset</strong> - Basic dataset creation and management</li>
-<li><strong>Version control workflows</strong> - Managing data and code changes over time</li>
-<li><strong>Dataset consumption and nesting</strong> - Working with existing datasets and subdatasets</li>
-<li><strong>Dataset nesting</strong> - Advanced nested dataset structures</li>
-<li><strong>More on data versioning, nesting, and a glimpse into reproducible paper</strong> - Real-world examples</li>
-<li><strong>Full provenance capture and reproducibility</strong> - Complete workflow tracking and replication</li>
-</ol>
-</section>
-<section id="getting-started" class="level2">
-<h2 class="anchored" data-anchor-id="getting-started">Getting started</h2>
-<p>To start the tutorial:</p>
+<section id="prerequisites" class="level3">
+<h3 class="anchored" data-anchor-id="prerequisites">Prerequisites</h3>
+<p>In order to use Nextcloud for hosting and sharing your datasets, you need to:</p>
 <ol type="1">
-<li>Visit the <a href="./setup.html">Setup</a> page for installation instructions</li>
-<li>Follow along with the <a href="./tutorial.html">Tutorial</a> for hands-on practice</li>
+<li>Have an existing DataLad dataset (see the <a href="./tutorial.html">Tutorial</a> for instructions on creating one).</li>
+<li>Have access to a Nextcloud instance (either self-hosted or provided by your institution).</li>
+<li>Have <code>datalad-next</code> installed, which provides the <code>datalad create-sibling-webdav</code> command.</li>
+<li>Create an <strong>App Password</strong> on Nextcloud to authenticate DataLad (see below — using your regular Nextcloud password is not recommended).</li>
 </ol>
 </section>
-<section id="key-features-of-datalad" class="level2">
-<h2 class="anchored" data-anchor-id="key-features-of-datalad">Key features of DataLad</h2>
-<ul>
-<li><strong>Version control for data</strong> - Track changes to datasets of any size</li>
-<li><strong>Data consumption</strong> - Install and manage datasets from remote sources</li>
-<li><strong>Reproducible workflows</strong> - Capture complete provenance of data processing</li>
-<li><strong>Collaboration</strong> - Share and synchronize datasets across teams</li>
-<li><strong>Storage flexibility</strong> - Work with data locally or on remote storage</li>
-</ul>
+<section id="create-an-app-password" class="level3">
+<h3 class="anchored" data-anchor-id="create-an-app-password">Create an App Password</h3>
+<p>App passwords allow external applications to access your Nextcloud account without using your main password. This is more secure and lets you revoke access at any time without changing your account password.</p>
+<ol type="1">
+<li>Log in to your Nextcloud instance in a web browser.</li>
+<li>Click your profile icon in the top right and select <strong>Settings</strong>.</li>
+<li>Click <strong>Security</strong> on the left menu.</li>
+<li>Scroll down to the <strong>Devices &amp; sessions</strong> section.</li>
+<li>In the “App name” field, enter a name to identify the device (e.g., “My Work Laptop”).</li>
+<li>Click <strong>Create new app password</strong>.</li>
+<li>Copy the generated password immediately and save it in a password manager — it will not be shown again.</li>
+</ol>
 </section>
-<section id="resources" class="level2">
-<h2 class="anchored" data-anchor-id="resources">Resources</h2>
-<ul>
-<li><a href="https://docs.datalad.org/">DataLad Documentation</a></li>
-<li><a href="https://handbook.datalad.org/">DataLad Handbook</a></li>
-<li><a href="https://github.com/datalad/datalad">DataLad on GitHub</a></li>
-<li><a href="https://handbook.datalad.org/en/latest/intro/installation.html">DataLad Installation Guide</a></li>
-</ul>
+<section id="publishing-your-dataset-to-nextcloud" class="level3">
+<h3 class="anchored" data-anchor-id="publishing-your-dataset-to-nextcloud">Publishing your dataset to Nextcloud</h3>
+<p>Here we describe how to publish your dataset to a Nextcloud instance using <code>datalad create-sibling-webdav</code>. Replace the URL below with the WebDAV URL of your own Nextcloud instance and adjust the path to the desired folder name for your dataset.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="ex">datalad</span> create-sibling-webdav <span class="at">--dataset</span> . <span class="dt">\</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a>  <span class="at">--name</span> nextcloud <span class="at">--mode</span> filetree <span class="dt">\</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a>  <span class="st">'https://cloud.uni-hamburg.de/remote.php/dav/files/USERNAME/mydataset'</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>DataLad will prompt you for your Nextcloud username and the app password you created above:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource console number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a href="#cb2-1"></a>User name and password are required for WebDAV access at https://cloud.uni-hamburg.de/remote.php/dav/files/USERNAME/mydataset</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="ex">user:</span> USERNAME</span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="ex">password:</span> <span class="co"># Enter app password here</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="ex">password</span> <span class="er">(</span><span class="ex">repeat</span><span class="kw">)</span><span class="bu">:</span> <span class="co"># Enter app password again</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>On success, DataLad creates two siblings: a storage sibling that holds the annexed file contents, and a git sibling that holds the dataset history. The output will look similar to this:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource console number-lines code-with-copy"><code class="sourceCode"><span id="cb4-1"><a href="#cb4-1"></a>create_sibling_webdav.storage(ok): . [nextcloud-storage: https://cloud.uni-hamburg.de/remote.php/dav/files/USERNAME/mydataset]</span>
+<span id="cb4-2"><a href="#cb4-2"></a>[INFO   ] Configure additional publication dependency on "nextcloud-storage"</span>
+<span id="cb4-3"><a href="#cb4-3"></a>create_sibling_webdav(ok): . [nextcloud: datalad-annex::?type=webdav&amp;encryption=none&amp;exporttree=yes&amp;url=https%3A//cloud.uni-hamburg.de/remote.php/dav/files/USERNAME/mydataset]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Afterwards, you can push your dataset — including all annexed file contents — with <code>datalad push</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1"></a><span class="ex">datalad</span> push <span class="at">--to</span> nextcloud</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource console number-lines code-with-copy"><code class="sourceCode"><span id="cb6-1"><a href="#cb6-1"></a>copy(ok): .datalad/.gitattributes (dataset)</span>
+<span id="cb6-2"><a href="#cb6-2"></a>copy(ok): .datalad/config (dataset)</span>
+<span id="cb6-3"><a href="#cb6-3"></a>copy(ok): .gitattributes (dataset)</span>
+<span id="cb6-4"><a href="#cb6-4"></a>copy(ok): test.txt (dataset)</span>
+<span id="cb6-5"><a href="#cb6-5"></a>publish(ok): . (dataset) [refs/heads/master-&gt;nextcloud:refs/heads/master [new branch]]</span>
+<span id="cb6-6"><a href="#cb6-6"></a>publish(ok): . (dataset) [refs/heads/git-annex-&gt;nextcloud:refs/heads/git-annex [new branch]]</span>
+<span id="cb6-7"><a href="#cb6-7"></a></span>
+<span id="cb6-8"><a href="#cb6-8"></a>action summary:</span>
+<span id="cb6-9"><a href="#cb6-9"></a>  copy (ok: 4)</span>
+<span id="cb6-10"><a href="#cb6-10"></a>  publish (ok: 2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Your dataset files are now accessible through the Nextcloud web interface and can be shared with collaborators using the standard Nextcloud sharing features.</p>
+</section>
+<section id="resources" class="level3">
+<h3 class="anchored" data-anchor-id="resources">Resources</h3>
+<section id="deposit-and-retrieve-datalad-datasets-with-webdav-services-on-youtube" class="level4">
+<h4 class="anchored" data-anchor-id="deposit-and-retrieve-datalad-datasets-with-webdav-services-on-youtube">“Deposit and retrieve DataLad datasets with WebDAV services” on YouTube</h4>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/XkcwpqPQHQY" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+</section>
+</section>
+</section>
+<section id="gin" class="level2">
+<h2 class="anchored" data-anchor-id="gin">GIN</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>These instructions were taken from <a href="https://handbook.datalad.org/en/latest/basics/101-139-gin.html">Walk-through: Dataset hosting on GIN</a> in the <a href="https://handbook.datalad.org/en/">DataLad Handbook</a>.</p>
+</div>
+</div>
+<section id="introduction-1" class="level3">
+<h3 class="anchored" data-anchor-id="introduction-1">Introduction</h3>
+<p><a href="https://gin.g-node.org/G-Node/Info/wiki">GIN</a> (G-Node infrastructure) is a free data management system designed for comprehensive and reproducible management of scientific data. It is a web-based repository store and provides fine-grained access control to share data. GIN builds up on Git and git-annex, and is an easy alternative to other third-party services to host and share your DataLad datasets. GIN looks and feels similar to GitHub, and among a number advantages, it can assign a DOI to your dataset, making it citeable. Moreover, its web interface and client are useful tools with a variety of features that are worthwhile to check out, as well. It allows to share datasets and their contents with selected collaborators or making them publicly and anonymously available.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://handbook.datalad.org/en/latest/_images/publishing_network_publishgin.svg" class="img-fluid figure-img"></p>
+<figcaption>Some repository hosting services such as GIN have annex support, and can thus hold the complete dataset. This makes publishing datasets very easy.</figcaption>
+</figure>
+</div>
+</section>
+<section id="prerequisites-1" class="level3">
+<h3 class="anchored" data-anchor-id="prerequisites-1">Prerequisites</h3>
+<p>In order to use GIN for hosting and sharing your datasets, you need to</p>
+<ol type="1">
+<li>Have an existing DataLad dataset (see the <a href="./tutorial.html">Tutorial</a> for instructions on creating one).</li>
+<li>Register on <a href="https://gin.g-node.org/">GIN</a>.</li>
+<li>Upload your public SSH key for SSH access (for instructions, see <a href="./setup.html#secure-shell-protocol-ssh">Setup</a>).</li>
+</ol>
+<p>Once you have registered an account on the GIN server by providing your e-mail address, affiliation, and name, and selecting a user name and password, you should upload your SSH key to allow SSH access. To do this, visit the settings of your user account. On the left hand side, select the tab “SSH Keys”, and click the button “Add Key”:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://handbook.datalad.org/en/latest/_images/GIN_SSH_1.png" class="img-fluid figure-img"></p>
+<figcaption>Upload your SSH key to GIN</figcaption>
+</figure>
+</div>
+<p>You should copy the contents of your public key file into the field labeled content, and enter an arbitrary but informative Key Name, such as “My private work station”. Afterwards, you are done!</p>
+</section>
+<section id="publishing-your-dataset-to-gin" class="level3">
+<h3 class="anchored" data-anchor-id="publishing-your-dataset-to-gin">Publishing your dataset to GIN</h3>
+<p>Here, we describe how to publish your dataset to GIN by creating a new, empty repository on GIN via the web interface. For the alternative way via the [<code>datalad create-sibling-gin</code>] command, please see the <a href="https://handbook.datalad.org/en/latest/basics/101-139-gin.html">DataLad Handbook</a>.</p>
+<p>If you choose to create a new repository via GIN’s web interface, make sure to <strong>not</strong> initialize it with a README:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://handbook.datalad.org/en/latest/_images/GIN_newrepo.png" class="img-fluid figure-img"></p>
+<figcaption>Create a new repository on GIN using the web interface</figcaption>
+</figure>
+</div>
+<p>Afterwards, add this repository as a sibling of your dataset. To do this, use the <code>datalad siblings add</code> command and the SSH URL of the repository.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1"></a><span class="ex">datalad</span> siblings add <span class="at">-d</span> . <span class="dt">\</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a>    <span class="at">--name</span> gin <span class="dt">\</span></span>
+<span id="cb7-3"><a href="#cb7-3"></a>    <span class="at">--url</span> git@gin.g-node.org:/adswa/DataLad-101.git</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Note that since this is the first time you will be connecting to the GIN server via SSH, you will likely be asked to confirm to connect. This is a safety measure, and you can type “yes” to continue</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource console number-lines code-with-copy"><code class="sourceCode"><span id="cb8-1"><a href="#cb8-1"></a>The authenticity of host 'gin.g-node.org (141.84.41.219)' can't be established.</span>
+<span id="cb8-2"><a href="#cb8-2"></a>ECDSA key fingerprint is SHA256:E35RRG3bhoAm/WD+0dqKpFnxJ9+yi0uUiFLi+H/lkdU.</span>
+<span id="cb8-3"><a href="#cb8-3"></a>Are you sure you want to continue connecting (yes/no)? yes</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource console number-lines code-with-copy"><code class="sourceCode"><span id="cb9-1"><a href="#cb9-1"></a>[INFO   ] Failed to enable annex remote gin, could be a pure git or not accessible</span>
+<span id="cb9-2"><a href="#cb9-2"></a>[WARNING] Failed to determine if gin carries annex.</span>
+<span id="cb9-3"><a href="#cb9-3"></a>.: gin(-) [git@gin.g-node.org:/adswa/DataLad-101.git (git)]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Afterwards, you can publish your dataset with <code>datalad push</code>. As the repository on GIN supports a dataset annex, there is no publication dependency to an external data hosting service necessary, and the dataset contents stored in Git and in git-annex are published to the same place:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1"></a><span class="ex">datalad</span> push <span class="at">--to</span> gin</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource console number-lines code-with-copy"><code class="sourceCode"><span id="cb11-1"><a href="#cb11-1"></a>copy(ok): books/TLCL.pdf (file) [to gin...]</span>
+<span id="cb11-2"><a href="#cb11-2"></a>copy(ok): books/bash_guide.pdf (file) [to gin...]</span>
+<span id="cb11-3"><a href="#cb11-3"></a>copy(ok): books/byte-of-python.pdf (file) [to gin...]</span>
+<span id="cb11-4"><a href="#cb11-4"></a>copy(ok): books/progit.pdf (file) [to gin...]</span>
+<span id="cb11-5"><a href="#cb11-5"></a>publish(ok): . (dataset) [refs/heads/git-annex-&gt;gin:refs/heads/git-annex ✂FROM✂..✂TO✂]</span>
+<span id="cb11-6"><a href="#cb11-6"></a>publish(ok): . (dataset) [refs/heads/main-&gt;gin:refs/heads/main [new branch]]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>On the GIN web interface you will find all of your dataset – including annexed contents! What is especially cool is that the GIN web interface (unlike GitHub) can even preview your annexed contents.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://handbook.datalad.org/en/latest/_images/GIN_dl101_repo.png" class="img-fluid figure-img"></p>
+<figcaption>A published dataset in a GIN repository at gin.g-node.org</figcaption>
+</figure>
+</div>
 
 
+</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></div></div></section></div></main> <!-- /main -->
@@ -709,5 +853,5 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/lnnrtwttkhn/rdm-datalad/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lnnrtwttkhn/rdm-datalad/blob/main/index.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/lnnrtwttkhn/rdm-datalad/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer><script src="site_libs/quarto-html/zenscroll-min.js"></script>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/lnnrtwttkhn/rdm-datalad/edit/main/publication.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lnnrtwttkhn/rdm-datalad/blob/main/publication.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/lnnrtwttkhn/rdm-datalad/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer><script src="site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

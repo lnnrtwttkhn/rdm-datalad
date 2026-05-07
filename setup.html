@@ -74,6 +74,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-5e541dbae3e6ed7453ce4e6ee8581165.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/kbd/kbd.js"></script>
+<link href="site_libs/quarto-contrib/kbd/kbd.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
@@ -117,6 +119,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link" href="./tutorial.html"> 
 <span class="menu-text">Tutorial</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./publication.html"> 
+<span class="menu-text">Publication</span></a>
+  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -140,6 +146,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#docker-container" id="toc-docker-container" class="nav-link" data-scroll-target="#docker-container">Docker Container</a></li>
   <li><a href="#terminal" id="toc-terminal" class="nav-link" data-scroll-target="#terminal">Terminal</a></li>
   <li><a href="#jupyterhub-at-uhh" id="toc-jupyterhub-at-uhh" class="nav-link" data-scroll-target="#jupyterhub-at-uhh">JupyterHub at UHH</a></li>
+  </ul></li>
+  <li><a href="#connecting-to-a-remote-repository-hosting-service" id="toc-connecting-to-a-remote-repository-hosting-service" class="nav-link" data-scroll-target="#connecting-to-a-remote-repository-hosting-service">Connecting to a remote repository hosting service</a>
+  <ul class="collapse">
+  <li><a href="#authentication" id="toc-authentication" class="nav-link" data-scroll-target="#authentication">Authentication</a></li>
+  <li><a href="#secure-shell-protocol-ssh" id="toc-secure-shell-protocol-ssh" class="nav-link" data-scroll-target="#secure-shell-protocol-ssh">Secure Shell Protocol (SSH)</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/lnnrtwttkhn/rdm-datalad/edit/main/setup.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/lnnrtwttkhn/rdm-datalad/blob/main/setup.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/lnnrtwttkhn/rdm-datalad/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div><div class="quarto-other-links"><h2>Other Links</h2><ul><li><a href="tutorial.ipynb"><i class="bi bi-journal-code"></i>Tutorial Notebook</a></li><li><a href="tutorial_colab.ipynb"><i class="bi bi-google"></i>Tutorial (Colab)</a></li></ul></div></nav>
@@ -276,8 +287,176 @@ Note
 <li><p>Paste the installation command into the first cell of the notebook:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1"></a><span class="bu">source</span> .venv/bin/activate</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
 </ol>
+</section>
+</section>
+<section id="connecting-to-a-remote-repository-hosting-service" class="level2">
+<h2 class="anchored" data-anchor-id="connecting-to-a-remote-repository-hosting-service">Connecting to a remote repository hosting service</h2>
+<section id="authentication" class="level3">
+<h3 class="anchored" data-anchor-id="authentication">Authentication</h3>
+<p>To connect your DataLad dataset to a remote repository, you need to establish an authentication method. Authentication verifies your identity before granting access to a remote repository — similar to showing your ID before entering a restricted area. It ensures that only authorized people or programs can read from or write to the repository. Different platforms support different authentication methods. Here, we introduce the Secure Shell Protocol (SSH).</p>
+</section>
+<section id="secure-shell-protocol-ssh" class="level3">
+<h3 class="anchored" data-anchor-id="secure-shell-protocol-ssh">Secure Shell Protocol (SSH)</h3>
+<p>The Secure Shell Protocol (SSH) is a cryptographic network protocol for operating network services securely over an unsecured network. Its most notable applications are remote login and command-line execution. You can read and write data in remote repositories like GitHub and GitLab using SSH. For more details on SSH, see <a href="https://en.wikipedia.org/wiki/Secure_Shell">Wikipedia</a>.</p>
+<div id="nte-ssh" class="callout callout-style-default callout-note callout-titled" title="How does SSH work? The key and padlock analogy">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note&nbsp;1: How does SSH work? The key and padlock analogy
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>When you set up SSH, you generate a <strong>key pair</strong>: the <em>private key</em> stays on your device, while the <em>public key</em> is copied to the servers you want access to.</p>
+<p>Think of your <strong>public key as a padlock</strong>. You can make lots of copies of this padlock and distribute them to different places - servers, computers, or anything you want to secure (just like sharing a padlock to secure different lockers). These places install your padlock, but no one can open it because they don’t have your key.</p>
+<p>Your <strong>private key is the actual key</strong> that opens those padlocks. You keep it safe and never share it. As long as your key stays secure, it doesn’t matter how many padlocks you’ve distributed.</p>
+<div id="fig-ssh-key-public-private" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ssh-key-public-private-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://blakesmith.me/images/public_private_many.png" class="img-fluid figure-img" style="width:60.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ssh-key-public-private-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: “Understanding public key private key concepts” by <a href="https://blakesmith.me/">Blake Smith</a> (License: Unknown; <a href="https://blakesmith.me/2010/02/08/understanding-public-key-private-key-concepts.html">Source on GitHub</a>)
+</figcaption>
+</figure>
+</div>
+<p>When you try to connect to a server, SSH checks if the padlock (public key) on that server matches your key. If they match, the door opens.</p>
+<p>This system ensures that only someone with the private key (you) can unlock what’s protected by the padlocks (public keys). For extra security, you can protect your private key with an additional password. Even if someone steals your key, they still need the combination (password) to use it. For additional discussion of using an additional password for a private SSH key, see <a href="#tip-ssh-password" class="quarto-xref">Tip&nbsp;1</a>.</p>
+</div>
+</div>
+</div>
+<p>We provide basic instructions that are applicable to many remote repositories below. For more detailed instructions, see the <a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/about-ssh">GitHub Documentation</a>. The most basic SSH key setup works like this:</p>
+<ol type="1">
+<li>Generating a new SSH key.</li>
+<li>Copying the SSH key to your clipboard.</li>
+<li>Adding the SSH key to your GitHub or GitLab account.</li>
+</ol>
+<section id="generating-a-new-ssh-key" class="level4">
+<h4 class="anchored" data-anchor-id="generating-a-new-ssh-key">Generating a new SSH key</h4>
+<ol type="1">
+<li>Open the Command Line.</li>
+<li>Run the command below, replacing the example email address with your own.</li>
+</ol>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="annotated-cell-2"><pre class="sourceCode numberSource bash code-annotation-code number-lines code-with-copy code-annotated"><code class="sourceCode bash"><button class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="1">1</button><span id="annotated-cell-2-1" class="code-annotation-target"><a href="#annotated-cell-2-1"></a><span class="fu">ssh-keygen</span> <span class="at">-t</span> ed25519 <span class="at">-C</span> <span class="st">"your_email@example.com"</span></span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<dl class="code-annotation-container-hidden code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-2" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-2" data-code-lines="1" data-code-annotation="1">Replace <code>your_email@example.com</code> with your email address.</span>
+</dd>
+</dl>
+<p>This will result in an output similar to this:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource console number-lines code-with-copy"><code class="sourceCode"><span id="cb11-1"><a href="#cb11-1"></a>Generating public/private ed25519 key pair.</span>
+<span id="cb11-2"><a href="#cb11-2"></a>Enter file in which to save the key (/Users/user/.ssh/id_ed25519): </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ol start="3" type="1">
+<li>When asked to “Enter a file in which to save the key”, press <kbd title="Enter" aria-hidden="true">Enter</kbd><span class="visually-hidden">Enter</span> to accept the default location.</li>
+</ol>
+<div class="callout callout-style-default callout-caution callout-titled" title="SSH key already exists?">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Caution</span>SSH key already exists?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>If the SSH key already exists, you will get an output similar to this:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource console number-lines code-with-copy"><code class="sourceCode"><span id="cb12-1"><a href="#cb12-1"></a>/Users/user/.ssh/id_ed25519 already exists.</span>
+<span id="cb12-2"><a href="#cb12-2"></a>Overwrite (y/n)? n</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>If you don’t want to overwrite the existing key, type <code>n</code> and hit <kbd title="Enter" aria-hidden="true">Enter</kbd><span class="visually-hidden">Enter</span>. You can now use the existing key and move on with the next step (adding the SSH key to your remote repository hosting service).</p>
+</div>
+</div>
+</div>
+<ol start="4" type="1">
+<li>When prompted, enter a secure passphrase. If you do not want to use a passphrase, press <kbd title="Enter" aria-hidden="true">Enter</kbd><span class="visually-hidden">Enter</span> twice to skip.</li>
+</ol>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource console number-lines code-with-copy"><code class="sourceCode"><span id="cb13-1"><a href="#cb13-1"></a>Enter passphrase (empty for no passphrase): [Type a passphrase]</span>
+<span id="cb13-2"><a href="#cb13-2"></a>Enter same passphrase again: [Type passphrase again]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="tip-ssh-password" class="callout callout-style-default callout-tip callout-titled" title="Do I have to provide a password for my SSH key?">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip&nbsp;1: Do I have to provide a password for my SSH key?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>If someone gains access to your computer, they can use your SSH keys to access all systems that rely on those keys. For extra security, you can protect your private key with a passphrase. Even if someone steals your private key, they still need the passphrase to use it. Adding a passphrase to your private SSH key therefore makes it significantly more secure.</p>
+<p>To avoid typing the passphrase each time you connect, you can securely store it in an SSH agent. For more details, see the <a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/working-with-ssh-key-passphrases">GitHub documentation</a>.</p>
+</div>
+</div>
+</div>
+<div id="nte-t-flag" class="callout callout-style-default callout-note callout-titled" title="What does the `-t` flag in the `ssh-keygen` command do?">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note&nbsp;2: What does the <code>-t</code> flag in the <code>ssh-keygen</code> command do?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The <code>-t</code> flag in the <code>ssh-keygen</code> command specifies the <strong>type of key</strong> to generate. Common options include <code>rsa</code>, <code>ecdsa</code>, and <code>ed25519</code>. For example, <code>-t ed25519</code> generates a modern and secure Ed25519 key, which is recommended for most users. This flag ensures you’re using the desired encryption algorithm when creating your SSH key.</p>
+</div>
+</div>
+</div>
+<p>After entering (or skipping) a passphrase, your terminal output should look similar to this:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource console number-lines code-with-copy"><code class="sourceCode"><span id="cb14-1"><a href="#cb14-1"></a>Your identification has been saved in /Users/user/.ssh/id_ed25519</span>
+<span id="cb14-2"><a href="#cb14-2"></a>Your public key has been saved in /Users/user/.ssh/id_ed25519.pub</span>
+<span id="cb14-3"><a href="#cb14-3"></a>The key fingerprint is:</span>
+<span id="cb14-4"><a href="#cb14-4"></a>SHA256: A2C4D8E9F9B3B2A4157C8D9E1FBB4D567543F2C9C4E6A3D422D8F7A1B3E5C6D0 user@email.com</span>
+<span id="cb14-5"><a href="#cb14-5"></a>The key's randomart image is:</span>
+<span id="cb14-6"><a href="#cb14-6"></a>+--[ED25519 256]--+</span>
+<span id="cb14-7"><a href="#cb14-7"></a>|               . |</span>
+<span id="cb14-8"><a href="#cb14-8"></a>|              +  |</span>
+<span id="cb14-9"><a href="#cb14-9"></a>|             Eo. |</span>
+<span id="cb14-10"><a href="#cb14-10"></a>|    .         =+.|</span>
+<span id="cb14-11"><a href="#cb14-11"></a>|   . .. S    = =o|</span>
+<span id="cb14-12"><a href="#cb14-12"></a>|. . ...+ .  . B +|</span>
+<span id="cb14-13"><a href="#cb14-13"></a>|.+ = .+ *  . +.*o|</span>
+<span id="cb14-14"><a href="#cb14-14"></a>|..=..+.= ..   Bo=|</span>
+<span id="cb14-15"><a href="#cb14-15"></a>| .o.o..   ..  .++|</span>
+<span id="cb14-16"><a href="#cb14-16"></a>+----[SHA256]-----+</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="copying-the-public-ssh-key-to-your-clipboard" class="level4">
+<h4 class="anchored" data-anchor-id="copying-the-public-ssh-key-to-your-clipboard">Copying the public SSH key to your clipboard</h4>
+<p>Now copy the SSH public key to your clipboard. The following command will paste the contents of the <code>id_ed25519.pub</code> file to your Terminal (assuming your SSH key is in the default location). From there you can copy the SSH public key.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1"></a><span class="fu">cat</span> ~/.ssh/id_ed25519.pub</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Alternatively, find the hidden <code>.ssh</code> folder in your home directory, open the <code>id_ed25519.pub</code> file in your favorite text editor, and copy the contents to your clipboard.</p>
+</section>
+<section id="adding-the-ssh-key-to-your-account" class="level4">
+<h4 class="anchored" data-anchor-id="adding-the-ssh-key-to-your-account">Adding the SSH key to your account</h4>
+<p>Finally, add the public SSH key to your account on the remote repository hosting service.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">GitHub</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<ol type="1">
+<li>In the upper-right corner of any page on GitHub, click your profile photo, then click <strong>Settings</strong>.</li>
+<li>In the “Access” section of the sidebar, click <strong>SSH and GPG keys</strong>.</li>
+<li>Click <strong>New SSH key</strong> or <strong>Add SSH key</strong>.</li>
+<li>In the “Title” field, add a descriptive label for the new key. For example, if you’re using a personal laptop, you might call it “Personal laptop”.</li>
+<li>Choose the type of key, either authentication or signing. Usually, you want to select “authentication” here.</li>
+<li>In the “Key” field, paste your public key.</li>
+<li>Click <strong>Add SSH key</strong>.</li>
+<li>If prompted, confirm access to your GitHub account.</li>
+</ol>
+</div>
+</div>
+</div>
 
 
+</section>
 </section>
 </section>
 

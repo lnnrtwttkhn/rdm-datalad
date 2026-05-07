@@ -2,14 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://lennartwittkuhn.com/rdm-datalad/index.html</loc>
-    <lastmod>2026-05-07T20:18:39.730Z</lastmod>
+    <lastmod>2026-05-07T21:44:49.780Z</lastmod>
+  </url>
+  <url>
+    <loc>https://lennartwittkuhn.com/rdm-datalad/publication.html</loc>
+    <lastmod>2026-05-07T21:44:49.780Z</lastmod>
   </url>
   <url>
     <loc>https://lennartwittkuhn.com/rdm-datalad/tutorial.html</loc>
-    <lastmod>2026-05-07T20:18:39.731Z</lastmod>
+    <lastmod>2026-05-07T21:44:49.781Z</lastmod>
   </url>
   <url>
     <loc>https://lennartwittkuhn.com/rdm-datalad/setup.html</loc>
-    <lastmod>2026-05-07T20:18:39.730Z</lastmod>
+    <lastmod>2026-05-07T21:44:49.780Z</lastmod>
   </url>
 </urlset>
